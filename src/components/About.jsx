@@ -2,15 +2,18 @@ import React from "react";
 
 const About = () => {
   return (
-    <div name="about" className="w-full h-screen bg-[#191825] text-[#ccd6f6]">
-      <div className="flex flex-col items-center justify-center w-full h-full">
-        <div className="sm:text-right pb-8">
-          <h1 className="text-4xl font-bold inline border-b-4 border-[#30E3CA]">
+    <div
+      name="about"
+      className="h-screen w-full bg-[#191825] px-6 text-[#ccd6f6]"
+    >
+      <div className="flex h-full w-full flex-col items-center justify-center text-center sm:text-justify">
+        <div className="pb-10">
+          <h1 className="inline border-b-4 border-[#30E3CA] text-4xl font-bold">
             About
           </h1>
         </div>
-        <div className="max-w-[1000px] w-full grid sm:grid-cols-2 gap-8 px-4">
-          <div className="sm:text-right text-3xl font-bold">
+        <div className="grid w-full max-w-[1000px] gap-8 px-4 sm:grid-cols-2">
+          <div className="text-3xl font-bold sm:text-right">
             <p>Experienced Business Professional Turned Frontend Developer.</p>
           </div>
           <div>
