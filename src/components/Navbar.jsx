@@ -23,22 +23,22 @@ const Navbar = () => {
             Home
           </li>
         </Link>
-        <Link href="/about">
+        <Link href="#about" scroll={false}>
           <li className="ml-10 border-b-2 border-transparent text-sm uppercase hover:border-[#30E3CA]">
             About
           </li>
         </Link>
-        <Link href="/skills">
+        <Link href="#skills" scroll={false}>
           <li className="ml-10 border-b-2 border-transparent text-sm uppercase hover:border-[#30E3CA]">
             Skills
           </li>
         </Link>
-        <Link href="/work">
+        <Link href="#work" scroll={false}>
           <li className="ml-10 border-b-2 border-transparent text-sm uppercase hover:border-[#30E3CA]">
             Work
           </li>
         </Link>
-        <Link href="/contact">
+        <Link href="/">
           <li className="ml-10 border-b-2 border-transparent text-sm uppercase hover:border-[#30E3CA]">
             Contact
           </li>
@@ -60,19 +60,19 @@ const Navbar = () => {
             : "absolute left-0 top-0 flex h-screen w-full select-none flex-col items-center justify-center bg-[#191825]"
         }
       >
-        <Link href="/home" className="py-6 text-4xl">
+        <Link href="/" className="py-6 text-4xl" scroll={false}>
           Home
         </Link>
-        <Link href="/about" className="py-6 text-4xl">
+        <Link href="#about" className="py-6 text-4xl" scroll={false}>
           About
         </Link>
-        <Link href="/skills" className="py-6 text-4xl">
+        <Link href="#skills" className="py-6 text-4xl" scroll={false}>
           Skills
         </Link>
-        <Link href="work" className="py-6 text-4xl">
+        <Link href="#work" className="py-6 text-4xl" scroll={false}>
           Work
         </Link>
-        <Link href="contact" className="py-6 text-4xl">
+        <Link href="/" className="py-6 text-4xl" scroll={false}>
           Contact
         </Link>
       </ul>
@@ -84,7 +84,9 @@ const Navbar = () => {
           <li className="ml-[-100px] flex h-[60px] w-[160px] bg-[#00A0DC] duration-300 hover:ml-0">
             <Link
               className="mr-4 flex w-full items-center justify-between text-gray-300"
-              href="/"
+              href="https://www.linkedin.com/in/ignacio-navarro-poves/"
+              rel="noopener noreferrer"
+              target="_blank"
             >
               <p className="ml-4">Linkedin</p> <FaLinkedin size={30} />
             </Link>
@@ -92,7 +94,9 @@ const Navbar = () => {
           <li className="ml-[-100px] flex h-[60px] w-[160px] items-center justify-between bg-[#313335] duration-300 hover:ml-0">
             <Link
               className="mr-4 flex w-full items-center justify-between text-gray-300"
-              href="/"
+              href="https://github.com/IggyNP"
+              rel="noopener noreferrer"
+              target="_blank"
             >
               <p className="ml-4">Github</p> <FaGithub size={30} />
             </Link>
@@ -100,7 +104,7 @@ const Navbar = () => {
           <li className="ml-[-100px] flex h-[60px] w-[160px] items-center justify-between bg-[#DD5143] duration-300 hover:ml-0">
             <Link
               className="mr-4 flex w-full items-center justify-between text-gray-300"
-              href="/"
+              href="mailto:ignacionp94@gmail.com"
             >
               <p className="ml-4">Email</p> <HiOutlineMail size={30} />
             </Link>
@@ -108,7 +112,9 @@ const Navbar = () => {
           <li className="ml-[-100px] flex h-[60px] w-[160px] items-center justify-between bg-[#E68523] duration-300 hover:ml-0">
             <Link
               className="mr-4 flex w-full items-center justify-between text-gray-300"
-              href="/"
+              href="/pdfs/cv-inp.pdf"
+              rel="noopener noreferrer"
+              target="_blank"
             >
               <p className="ml-4">Resume</p> <BsFillPersonLinesFill size={30} />
             </Link>
