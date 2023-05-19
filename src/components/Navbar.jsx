@@ -60,19 +60,39 @@ const Navbar = () => {
             : "absolute left-0 top-0 flex h-screen w-full select-none flex-col items-center justify-center bg-[#191825]"
         }
       >
-        <Link href="/" className="py-6 text-4xl" scroll={false}>
+        <Link href="/" className="py-6 text-4xl" onClick={handleClick}>
           Home
         </Link>
-        <Link href="#about" className="py-6 text-4xl" scroll={false}>
+        <Link
+          href="#about"
+          className="py-6 text-4xl"
+          scroll={false}
+          onClick={handleClick}
+        >
           About
         </Link>
-        <Link href="#skills" className="py-6 text-4xl" scroll={false}>
+        <Link
+          href="#skills"
+          className="py-6 text-4xl"
+          scroll={false}
+          onClick={handleClick}
+        >
           Skills
         </Link>
-        <Link href="#work" className="py-6 text-4xl" scroll={false}>
+        <Link
+          href="#work"
+          className="py-6 text-4xl"
+          scroll={false}
+          onClick={handleClick}
+        >
           Work
         </Link>
-        <Link href="/" className="py-6 text-4xl" scroll={false}>
+        <Link
+          href="/"
+          className="py-6 text-4xl"
+          scroll={false}
+          onClick={handleClick}
+        >
           Contact
         </Link>
       </ul>
