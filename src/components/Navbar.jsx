@@ -12,7 +12,7 @@ const Navbar = () => {
   return (
     <div className="fixed flex h-[80px] w-full items-center justify-between bg-[#191825] px-4 text-gray-300">
       <Link href="/">
-        <Image src="/images/inp.jpeg" alt="INP's logo" width="50" height="50" />
+        <Image src="/images/inp.png" alt="INP's logo" width="90" height="90" />
       </Link>
 
       {/* menu */}
