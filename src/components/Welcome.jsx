@@ -1,7 +1,7 @@
 import React from "react";
 import { HiArrowNarrowRight } from "react-icons/hi";
 
-const Home = () => {
+const Welcome = () => {
   return (
     <div name="home" className="h-screen w-full bg-[#191825]">
       <div className="mx-auto flex h-full max-w-[1000px] flex-col items-center justify-center px-8 text-center">
@@ -21,4 +21,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Welcome;
