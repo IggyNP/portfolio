@@ -38,7 +38,7 @@ const Navbar = () => {
             Work
           </li>
         </Link>
-        <Link href="/">
+        <Link href="#contact" scroll={false}>
           <li className="ml-10 border-b-2 border-transparent text-sm uppercase hover:border-[#30E3CA]">
             Contact
           </li>
@@ -88,7 +88,7 @@ const Navbar = () => {
           Work
         </Link>
         <Link
-          href="/"
+          href="#contact"
           className="py-6 text-4xl"
           scroll={false}
           onClick={handleClick}

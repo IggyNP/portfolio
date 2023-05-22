@@ -7,7 +7,7 @@ const About = () => {
       className="h-screen w-full bg-[#191825] px-6 text-[#ccd6f6]"
     >
       <div className="flex h-full w-full flex-col items-center justify-center text-center sm:text-justify">
-        <div className="pb-10">
+        <div className="pb-6">
           <h1 className="inline border-b-4 border-[#30E3CA] text-4xl font-bold">
             About
           </h1>

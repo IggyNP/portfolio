@@ -12,7 +12,7 @@ const Skills = () => {
           <h1 className="inline border-b-4 border-[#30E3CA] text-4xl font-bold">
             Skills
           </h1>
-          <p className="py-10">
+          <p className="py-6">
             These are some of the technologies I've worked with
           </p>
         </div>
