@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { FaBars, FaTimes, FaLinkedin, FaGithub } from "react-icons/fa";
@@ -8,6 +8,23 @@ import { BsFillPersonLinesFill } from "react-icons/bs";
 const Navbar = () => {
   const [nav, setNav] = useState(false);
   const handleClick = () => setNav(!nav);
+  const [hideSocials, setHideSocials] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const triggerElement = document.getElementById("contact");
+      const socials = document.getElementById("socials");
+      const triggerElementOffset = triggerElement.offsetTop;
+      const currentScroll = window.pageYOffset;
+
+      currentScroll >= triggerElementOffset
+        ? setHideSocials(true)
+        : setHideSocials(false);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <div className="fixed z-10 flex h-[80px] w-full items-center justify-between bg-[#191825] px-4 text-gray-300">
@@ -98,49 +115,54 @@ const Navbar = () => {
       </ul>
 
       {/* social icons */}
-
-      <div className="fixed left-0 top-[35%] hidden md:bottom-0 xl:flex xl:flex-col">
-        <ul>
-          <li className="ml-[-100px] flex h-[60px] w-[160px] bg-[#00A0DC] duration-300 hover:ml-0">
-            <Link
-              className="mr-4 flex w-full items-center justify-between text-gray-300"
-              href="https://www.linkedin.com/in/ignacio-navarro-poves/"
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              <p className="ml-4">Linkedin</p> <FaLinkedin size={30} />
-            </Link>
-          </li>
-          <li className="ml-[-100px] flex h-[60px] w-[160px] items-center justify-between bg-[#313335] duration-300 hover:ml-0">
-            <Link
-              className="mr-4 flex w-full items-center justify-between text-gray-300"
-              href="https://github.com/IggyNP"
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              <p className="ml-4">Github</p> <FaGithub size={30} />
-            </Link>
-          </li>
-          <li className="ml-[-100px] flex h-[60px] w-[160px] items-center justify-between bg-[#DD5143] duration-300 hover:ml-0">
-            <Link
-              className="mr-4 flex w-full items-center justify-between text-gray-300"
-              href="mailto:ignacionp94@gmail.com"
-            >
-              <p className="ml-4">Email</p> <HiOutlineMail size={30} />
-            </Link>
-          </li>
-          <li className="ml-[-100px] flex h-[60px] w-[160px] items-center justify-between bg-[#E68523] duration-300 hover:ml-0">
-            <Link
-              className="mr-4 flex w-full items-center justify-between text-gray-300"
-              href="/pdfs/cv-inp.pdf"
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              <p className="ml-4">Resume</p> <BsFillPersonLinesFill size={30} />
-            </Link>
-          </li>
-        </ul>
-      </div>
+      {!hideSocials && (
+        <div
+          id="socials"
+          className="fixed left-0 top-[35%] hidden md:bottom-0 xl:flex xl:flex-col"
+        >
+          <ul>
+            <li className="ml-[-100px] flex h-[60px] w-[160px] bg-[#00A0DC] duration-300 hover:ml-0">
+              <Link
+                className="mr-4 flex w-full items-center justify-between text-gray-300"
+                href="https://www.linkedin.com/in/ignacio-navarro-poves/"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                <p className="ml-4">Linkedin</p> <FaLinkedin size={30} />
+              </Link>
+            </li>
+            <li className="ml-[-100px] flex h-[60px] w-[160px] items-center justify-between bg-[#313335] duration-300 hover:ml-0">
+              <Link
+                className="mr-4 flex w-full items-center justify-between text-gray-300"
+                href="https://github.com/IggyNP"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                <p className="ml-4">Github</p> <FaGithub size={30} />
+              </Link>
+            </li>
+            <li className="ml-[-100px] flex h-[60px] w-[160px] items-center justify-between bg-[#DD5143] duration-300 hover:ml-0">
+              <Link
+                className="mr-4 flex w-full items-center justify-between text-gray-300"
+                href="mailto:ignacionp94@gmail.com"
+              >
+                <p className="ml-4">Email</p> <HiOutlineMail size={30} />
+              </Link>
+            </li>
+            <li className="ml-[-100px] flex h-[60px] w-[160px] items-center justify-between bg-[#E68523] duration-300 hover:ml-0">
+              <Link
+                className="mr-4 flex w-full items-center justify-between text-gray-300"
+                href="/pdfs/cv-inp.pdf"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                <p className="ml-4">Resume</p>{" "}
+                <BsFillPersonLinesFill size={30} />
+              </Link>
+            </li>
+          </ul>
+        </div>
+      )}
     </div>
   );
 };

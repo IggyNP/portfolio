@@ -10,7 +10,7 @@ const Contact = () => {
   return (
     <div
       id="contact"
-      className="m-auto flex h-full w-full bg-[#191825] px-6 text-[#ccd6f6] lg:h-screen"
+      className="m-auto flex w-full bg-[#191825] px-6 text-[#ccd6f6] lg:h-screen"
     >
       <div className="m-auto min-h-full w-full max-w-[1240px] px-2 py-16">
         <div className="flex flex-col items-center justify-center">
@@ -20,9 +20,9 @@ const Contact = () => {
           <p className="pb-12 pt-6">Get in touch</p>
         </div>
 
-        <div className="flex h-full w-full flex-col md:flex-row">
+        <div className="flex w-full flex-grow flex-col md:flex-row">
           {/* Left column */}
-          <div className="flex h-full w-full flex-col items-center justify-center rounded-xl shadow-sm shadow-gray-400 md:w-[40%]">
+          <div className="flex h-full w-full flex-shrink-0 flex-col items-center justify-center rounded-xl shadow-sm shadow-gray-400 md:w-[40%]">
             <Image src={Ignacio} className="w-[50%] py-6" />
             <h2 className="text-2xl font-bold">Ignacio Navarro</h2>
             <h3 className="py-2 text-lg">Frontend Developer</h3>
@@ -71,7 +71,7 @@ const Contact = () => {
 
           {/* Right column */}
 
-          <div className="h-full w-full pt-6 md:w-[60%] md:pl-6 md:pt-0">
+          <div className="w-full flex-grow pt-6 md:w-[60%] md:pl-6 md:pt-0">
             <form className="flex flex-col items-center justify-center rounded-xl shadow-sm shadow-gray-400">
               <div className="grid w-full py-2 md:grid-cols-2">
                 <div className="w-full px-6 text-left">
