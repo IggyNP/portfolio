@@ -5,7 +5,7 @@ import { FaBars, FaTimes, FaLinkedin, FaGithub } from "react-icons/fa";
 import { HiOutlineMail } from "react-icons/hi";
 import { BsFillPersonLinesFill } from "react-icons/bs";
 
-const Navbar = () => {
+const Navbar = ({ showSocials = true }) => {
   const [nav, setNav] = useState(false);
   const handleClick = () => setNav(!nav);
   const [hideSocials, setHideSocials] = useState(false);
@@ -114,7 +114,7 @@ const Navbar = () => {
       </ul>
 
       {/* social icons */}
-      {!hideSocials && (
+      {!hideSocials && showSocials && (
         <div
           id="socials"
           className="fixed left-0 top-[35%] hidden md:bottom-0 xl:flex xl:flex-col"

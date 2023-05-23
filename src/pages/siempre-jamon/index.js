@@ -4,7 +4,7 @@ import Navbar from "@/components/Navbar";
 const index = () => {
   return (
     <div>
-      <Navbar />
+      <Navbar showSocials={false} />
     </div>
   );
 };
