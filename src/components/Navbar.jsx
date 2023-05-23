@@ -13,8 +13,7 @@ const Navbar = () => {
   useEffect(() => {
     const handleScroll = () => {
       const triggerElement = document.getElementById("contact");
-      const socials = document.getElementById("socials");
-      const triggerElementOffset = triggerElement.offsetTop;
+      const triggerElementOffset = triggerElement?.offsetTop;
       const currentScroll = window.pageYOffset;
 
       currentScroll >= triggerElementOffset
