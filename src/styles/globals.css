@@ -6,4 +6,8 @@
   html {
     @apply scroll-smooth;
   }
+  body {
+    @apply bg-[#191825];
+    @apply text-[#ccd6f6];
+  }
 }

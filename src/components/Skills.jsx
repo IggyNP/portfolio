@@ -3,10 +3,7 @@ import Image from "next/image";
 
 const Skills = () => {
   return (
-    <div
-      id="skills"
-      className="h-screen w-full bg-[#191825] px-6 text-[#ccd6f6]"
-    >
+    <div id="skills" className="h-screen w-full px-6">
       <div className="mx-auto flex h-full w-full max-w-[1000px] flex-col justify-center p-4 text-center">
         <div>
           <h1 className="inline border-b-4 border-[#30E3CA] text-4xl font-bold">

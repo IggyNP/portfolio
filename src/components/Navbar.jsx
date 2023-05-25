@@ -26,7 +26,7 @@ const Navbar = ({ showSocials = true }) => {
   }, []);
 
   return (
-    <div className="fixed z-10 flex h-[80px] w-full items-center justify-between bg-[#191825] px-10 text-gray-300">
+    <div className="fixed z-50 flex h-[70px] w-full items-center justify-between bg-[#191825] px-5 text-gray-300 shadow-md  shadow-[#040c16] md:px-10">
       <Link href="/#home" scroll={false}>
         <Image src="/images/inp.png" alt="INP's logo" width="90" height="90" />
       </Link>

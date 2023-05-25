@@ -11,7 +11,7 @@ const Contact = () => {
   return (
     <div
       id="contact"
-      className="m-auto flex h-full w-full bg-[#191825] px-6 text-[#ccd6f6] lg:h-screen"
+      className="m-auto flex h-full w-full bg-[#191825] px-6 lg:h-screen"
     >
       <div className="m-auto min-h-full w-full max-w-[1240px] px-2 pt-16">
         <div className="flex flex-col items-center justify-center pb-10">
