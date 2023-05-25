@@ -1,10 +1,11 @@
 import React from "react";
 import Image from "next/image";
 import Ignacio from "public/images/ignacio.png";
+import Link from "next/link";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { HiOutlineMail } from "react-icons/hi";
 import { BsFillPersonLinesFill } from "react-icons/bs";
-import Link from "next/link";
+import { HiOutlineChevronDoubleUp } from "react-icons/hi";
 
 const Contact = () => {
   return (
@@ -114,11 +115,18 @@ const Contact = () => {
                   type="submit"
                   className="rounded border-2 border-[#ccd6f6] bg-[#191825] bg-transparent px-4 py-2 text-[#ccd6f6] transition duration-150 ease-in-out hover:border-[#30E3CA] hover:bg-[#30E3CA] hover:text-[#191825] focus:border-transparent focus:outline-none focus:ring-2 focus:ring-[#30E3CA]"
                 >
-                  ENVIAR
+                  SEND MESSAGE
                 </button>
               </div>
             </form>
           </div>
+        </div>
+        <div className="flex justify-center py-12">
+          <Link href="/">
+            <div className="m-2 rounded-full p-6 shadow-sm shadow-gray-400 transition duration-150 ease-in-out hover:-translate-y-1 hover:scale-110 hover:shadow-md hover:shadow-[#30E3CA]">
+              <HiOutlineChevronDoubleUp size={30} />
+            </div>
+          </Link>
         </div>
       </div>
     </div>
