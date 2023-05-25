@@ -121,7 +121,7 @@ const Contact = () => {
           </div>
         </div>
         <div className="flex justify-center py-10 lg:py-0 lg:pt-6">
-          <Link href="/">
+          <Link href="/#home" scroll={false}>
             <div className="rounded-full p-6 shadow-sm shadow-gray-400 transition duration-150 ease-in-out hover:-translate-y-1 hover:scale-110 hover:shadow-md hover:shadow-[#30E3CA]">
               <HiOutlineChevronDoubleUp size={30} />
             </div>

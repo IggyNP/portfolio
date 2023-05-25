@@ -26,35 +26,35 @@ const Navbar = ({ showSocials = true }) => {
   }, []);
 
   return (
-    <div className="fixed z-10 flex h-[80px] w-full items-center justify-between bg-[#191825] px-4 text-gray-300">
-      <Link href="/">
+    <div className="fixed z-10 flex h-[80px] w-full items-center justify-between bg-[#191825] px-10 text-gray-300">
+      <Link href="/#home" scroll={false}>
         <Image src="/images/inp.png" alt="INP's logo" width="90" height="90" />
       </Link>
 
       {/* menu */}
 
       <ul className="hidden md:flex ">
-        <Link href="/">
+        <Link href="/#home" scroll={false}>
           <li className="ml-10 border-b-2 border-transparent text-sm uppercase hover:border-[#30E3CA]">
             Home
           </li>
         </Link>
-        <Link href="#about" scroll={false}>
+        <Link href="/#about" scroll={false}>
           <li className="ml-10 border-b-2 border-transparent text-sm uppercase hover:border-[#30E3CA]">
             About
           </li>
         </Link>
-        <Link href="#skills" scroll={false}>
+        <Link href="/#skills" scroll={false}>
           <li className="ml-10 border-b-2 border-transparent text-sm uppercase hover:border-[#30E3CA]">
             Skills
           </li>
         </Link>
-        <Link href="#work" scroll={false}>
+        <Link href="/#work" scroll={false}>
           <li className="ml-10 border-b-2 border-transparent text-sm uppercase hover:border-[#30E3CA]">
             Work
           </li>
         </Link>
-        <Link href="#contact" scroll={false}>
+        <Link href="/#contact" scroll={false}>
           <li className="ml-10 border-b-2 border-transparent text-sm uppercase hover:border-[#30E3CA]">
             Contact
           </li>
@@ -76,11 +76,16 @@ const Navbar = ({ showSocials = true }) => {
             : "absolute left-0 top-0 flex h-screen w-full select-none flex-col items-center justify-center bg-[#191825]"
         }
       >
-        <Link href="/" className="py-6 text-4xl" onClick={handleClick}>
+        <Link
+          href="/#home"
+          scroll={false}
+          className="py-6 text-4xl"
+          onClick={handleClick}
+        >
           Home
         </Link>
         <Link
-          href="#about"
+          href="/#about"
           className="py-6 text-4xl"
           scroll={false}
           onClick={handleClick}
@@ -88,7 +93,7 @@ const Navbar = ({ showSocials = true }) => {
           About
         </Link>
         <Link
-          href="#skills"
+          href="/#skills"
           className="py-6 text-4xl"
           scroll={false}
           onClick={handleClick}
@@ -96,7 +101,7 @@ const Navbar = ({ showSocials = true }) => {
           Skills
         </Link>
         <Link
-          href="#work"
+          href="/#work"
           className="py-6 text-4xl"
           scroll={false}
           onClick={handleClick}
@@ -104,7 +109,7 @@ const Navbar = ({ showSocials = true }) => {
           Work
         </Link>
         <Link
-          href="#contact"
+          href="/#contact"
           className="py-6 text-4xl"
           scroll={false}
           onClick={handleClick}
