@@ -16,7 +16,7 @@ const Navbar = ({ showSocials = true }) => {
       const triggerElementOffset = triggerElement?.offsetTop;
       const currentScroll = window.pageYOffset;
 
-      currentScroll >= triggerElementOffset
+      currentScroll >= triggerElementOffset - 100
         ? setHideSocials(true)
         : setHideSocials(false);
     };

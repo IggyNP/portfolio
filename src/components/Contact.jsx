@@ -11,14 +11,13 @@ const Contact = () => {
   return (
     <div
       id="contact"
-      className="m-auto flex w-full bg-[#191825] px-6 text-[#ccd6f6] lg:h-screen"
+      className="m-auto flex h-full w-full bg-[#191825] px-6 text-[#ccd6f6] lg:h-screen"
     >
-      <div className="m-auto min-h-full w-full max-w-[1240px] px-2 py-16">
-        <div className="flex flex-col items-center justify-center">
+      <div className="m-auto min-h-full w-full max-w-[1240px] px-2 pt-16">
+        <div className="flex flex-col items-center justify-center pb-10">
           <h1 className="inline border-b-4 border-[#30E3CA] pt-6 text-4xl font-bold">
             Contact
           </h1>
-          <p className="pb-12 pt-6">Get in touch</p>
         </div>
 
         <div className="flex w-full flex-grow flex-col md:flex-row">
@@ -121,9 +120,9 @@ const Contact = () => {
             </form>
           </div>
         </div>
-        <div className="flex justify-center py-12">
+        <div className="flex justify-center py-10 lg:py-0 lg:pt-6">
           <Link href="/">
-            <div className="m-2 rounded-full p-6 shadow-sm shadow-gray-400 transition duration-150 ease-in-out hover:-translate-y-1 hover:scale-110 hover:shadow-md hover:shadow-[#30E3CA]">
+            <div className="rounded-full p-6 shadow-sm shadow-gray-400 transition duration-150 ease-in-out hover:-translate-y-1 hover:scale-110 hover:shadow-md hover:shadow-[#30E3CA]">
               <HiOutlineChevronDoubleUp size={30} />
             </div>
           </Link>
