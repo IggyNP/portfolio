@@ -13,7 +13,7 @@ const index = () => {
       {/* Image */}
 
       <div className="w-full">
-        <div className="relative h-[45vh] w-screen">
+        <div className="relative h-[45vh] w-full">
           <div className="absolute left-0 top-0 z-10 h-[45vh] w-full bg-black/70" />
           <Image
             className="absolute z-0"
@@ -22,7 +22,7 @@ const index = () => {
             src={siempreJamon}
             alt="/"
           />
-          <div className="absolute bottom-0 left-0 right-0 top-72 z-10 flex flex-col items-center justify-center">
+          <div className="absolute bottom-8 left-0 right-0 z-10 flex flex-col items-center justify-center">
             <div className="p-2 text-white">
               <h2 className="py-2 text-3xl">Siempre Jamón</h2>
               <h3 className="text-center text-xl">Next.js / Tailwind</h3>
@@ -38,13 +38,14 @@ const index = () => {
           <p>Project</p>
           <h2 className="font-bol py-2 text-3xl">Overview</h2>
           <p>
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum."
+            Siempre Jamón is an e-commerce platform I developed using Next.js
+            and styled with Tailwind CSS. It's dedicated to subscription-based
+            purchases of Jamón Ibérico, a premium Spanish delicacy. The website
+            provides a smooth and user-friendly experience and is deployed on
+            Netlify. While I'm currently working on the backend development,
+            Siempre Jamón demonstrates my skills in front-end development and my
+            passion for creating visually appealing and scalable web
+            applications.
           </p>
           <div className="flex items-center justify-center pt-6 lg:pt-10">
             <Link
