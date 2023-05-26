@@ -30,12 +30,12 @@ const Contact = () => {
               Ready to take on exciting projects. Let's connect and discuss how
               I can contribute to your team!
             </p>
-            <h2 className="pt-6 text-lg font-bold text-[#30E3CA]">
-              CONNECT WITH ME:
+            <h2 className="pt-6 text-lg font-bold uppercase text-[#30E3CA]">
+              connect with me:
             </h2>
-            <div className="flex items-center justify-between py-4 md:grid md:grid-cols-2 md:pb-6 lg:flex lg:items-center lg:justify-between lg:pb-12">
+            <div className=" grid grid-cols-2 py-4 md:pb-6 lg:flex lg:items-center lg:justify-between lg:pb-12">
               <Link
-                className="m-2 transform rounded-full p-6 shadow-sm shadow-gray-400 transition duration-150 ease-in-out hover:-translate-y-1 hover:scale-110 hover:shadow-md hover:shadow-[#30E3CA]"
+                className="m-2 transform rounded-full p-6 shadow-sm shadow-gray-400 transition duration-150 ease-in-out hover:-translate-y-1 hover:scale-110 hover:shadow-md hover:shadow-[#30E3CA] focus:border-transparent focus:outline-none focus:ring-2 focus:ring-[#30E3CA]"
                 href="https://www.linkedin.com/in/ignacio-navarro-poves/"
                 rel="noopener noreferrer"
                 target="_blank"
@@ -43,7 +43,7 @@ const Contact = () => {
                 <FaLinkedin size={30} />
               </Link>
               <Link
-                className="m-2 rounded-full p-6 shadow-sm shadow-gray-400 transition duration-150 ease-in-out hover:-translate-y-1 hover:scale-110 hover:shadow-md hover:shadow-[#30E3CA]"
+                className="m-2 rounded-full p-6 shadow-sm shadow-gray-400 transition duration-150 ease-in-out hover:-translate-y-1 hover:scale-110 hover:shadow-md hover:shadow-[#30E3CA] focus:border-transparent focus:outline-none focus:ring-2 focus:ring-[#30E3CA]"
                 href="https://github.com/IggyNP"
                 rel="noopener noreferrer"
                 target="_blank"
@@ -51,7 +51,7 @@ const Contact = () => {
                 <FaGithub size={30} />
               </Link>
               <Link
-                className="m-2 rounded-full p-6 shadow-sm shadow-gray-400 transition duration-150 ease-in-out hover:-translate-y-1 hover:scale-110 hover:shadow-md hover:shadow-[#30E3CA]"
+                className="m-2 rounded-full p-6 shadow-sm shadow-gray-400 transition duration-150 ease-in-out hover:-translate-y-1 hover:scale-110 hover:shadow-md hover:shadow-[#30E3CA] focus:border-transparent focus:outline-none focus:ring-2 focus:ring-[#30E3CA]"
                 href="mailto:ignacionp94@gmail.com"
                 rel="noopener noreferrer"
                 target="_blank"
@@ -59,7 +59,7 @@ const Contact = () => {
                 <HiOutlineMail size={30} />
               </Link>
               <Link
-                className="m-2 rounded-full p-6 shadow-sm shadow-gray-400 transition duration-150 ease-in-out hover:-translate-y-1 hover:scale-110 hover:shadow-md hover:shadow-[#30E3CA]"
+                className="m-2 rounded-full p-6 shadow-sm shadow-gray-400 transition duration-150 ease-in-out hover:-translate-y-1 hover:scale-110 hover:shadow-md hover:shadow-[#30E3CA] focus:border-transparent focus:outline-none focus:ring-2 focus:ring-[#30E3CA]"
                 href="/pdfs/cv-inp.pdf"
                 rel="noopener noreferrer"
                 target="_blank"
@@ -112,9 +112,9 @@ const Contact = () => {
               <div className="py-6">
                 <button
                   type="submit"
-                  className="rounded border-2 border-[#ccd6f6] bg-[#191825] bg-transparent px-4 py-2 text-[#ccd6f6] transition duration-150 ease-in-out hover:border-[#30E3CA] hover:bg-[#30E3CA] hover:text-[#191825] focus:border-transparent focus:outline-none focus:ring-2 focus:ring-[#30E3CA]"
+                  className="rounded border-2 border-[#ccd6f6] bg-[#191825] bg-transparent px-4 py-2 uppercase text-[#ccd6f6] transition duration-150 ease-in-out hover:border-[#30E3CA] hover:bg-[#30E3CA] hover:text-[#191825] focus:border-transparent focus:outline-none focus:ring-2 focus:ring-[#30E3CA]"
                 >
-                  SEND MESSAGE
+                  send message
                 </button>
               </div>
             </form>
