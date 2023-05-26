@@ -22,29 +22,39 @@ const index = () => {
             src={siempreJamon}
             alt="/"
           />
-          <div className="absolute left-[50%] right-[50%] top-[85%] z-10 w-full translate-x-[-47%] translate-y-[-47%] p-2 text-white">
-            <h2 className="py-2 text-3xl">Siempre Jamón</h2>
-            <h3 className="text-xl">Next.js / Tailwind</h3>
+          <div className="absolute bottom-0 left-0 right-0 top-72 z-10 flex flex-col items-center justify-center">
+            <div className="p-2 text-white">
+              <h2 className="py-2 text-3xl">Siempre Jamón</h2>
+              <h3 className="text-center text-xl">Next.js / Tailwind</h3>
+            </div>
           </div>
         </div>
       </div>
 
       {/* Content */}
 
-      <div className="grid max-w-[1240px] gap-8 px-7 py-10 md:grid-cols-5 md:px-10 lg:px-14">
-        <div className="col-span-4">
+      <div className="mx-auto grid max-w-[1240px] grid-cols-4 gap-8 px-7 py-10">
+        <div className="col-span-4 pr-10 md:col-span-3">
           <p>Project</p>
-          <h2 className="text-3xl font-bold">Overview</h2>
-          <p>This app was built using Next.js and is hosted on Netlify.</p>
-          <div className="flex items-center justify-center pt-6">
+          <h2 className="font-bol py-2 text-3xl">Overview</h2>
+          <p>
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat. Duis aute irure dolor in
+            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+            culpa qui officia deserunt mollit anim id est laborum."
+          </p>
+          <div className="flex items-center justify-center pt-6 lg:pt-10">
             <Link
               href="https://github.com/IggyNP/siempre-jamon-store"
               target="_blank"
               rel="noreferrer noopener"
               className="px-4"
             >
-              <button className="rounded border-2 border-[#ccd6f6] bg-[#191825] bg-transparent px-4 py-2 text-[#ccd6f6] transition duration-150 ease-in-out hover:border-[#30E3CA] hover:bg-[#30E3CA] hover:text-[#191825] focus:border-transparent focus:outline-none focus:ring-2 focus:ring-[#30E3CA]">
-                Code
+              <button className="rounded border-2 border-[#ccd6f6] bg-[#191825] bg-transparent px-6 py-2 uppercase text-[#ccd6f6] transition duration-150 ease-in-out hover:border-[#30E3CA] hover:bg-[#30E3CA] hover:text-[#191825] focus:border-transparent focus:outline-none focus:ring-2 focus:ring-[#30E3CA]">
+                code
               </button>
             </Link>
             <Link
@@ -53,36 +63,39 @@ const index = () => {
               rel="noreferrer noopener"
               className="px-4"
             >
-              <button className="rounded border-2 border-[#ccd6f6] bg-[#191825] bg-transparent px-4 py-2 text-[#ccd6f6] transition duration-150 ease-in-out hover:border-[#30E3CA] hover:bg-[#30E3CA] hover:text-[#191825] focus:border-transparent focus:outline-none focus:ring-2 focus:ring-[#30E3CA]">
-                Demo
+              <button className="rounded border-2 border-[#ccd6f6] bg-[#191825] bg-transparent px-6 py-2 uppercase text-[#ccd6f6] transition duration-150 ease-in-out hover:border-[#30E3CA] hover:bg-[#30E3CA] hover:text-[#191825] focus:border-transparent focus:outline-none focus:ring-2 focus:ring-[#30E3CA]">
+                demo
               </button>
             </Link>
           </div>
         </div>
+
+        {/* Technologies */}
+
         <div className="col-span-4 rounded-xl py-4 shadow-sm shadow-gray-400 md:col-span-1">
           <div className="p-2">
-            <p className="pb-2 text-center font-bold">Technologies</p>
-            <div className="grid grid-cols-3 md:grid-cols-1">
-              <p className="flex items-center py-2 text-gray-600">
-                <RiRadioButtonFill className="pr-1" /> Next.js
+            <p className="w-[1/2] pb-2 text-center font-bold">Technologies</p>
+            <div className="grid grid-cols-3 justify-end md:w-full md:grid-cols-1 md:pl-4 lg:pl-20">
+              <p className="flex items-center py-2 pl-2 text-gray-600">
+                <RiRadioButtonFill size={15} className="pr-1" /> Next.js
               </p>
-              <p className="flex items-center py-2 text-gray-600">
-                <RiRadioButtonFill className="pr-1" /> React
+              <p className="flex items-center py-2 pl-2 text-gray-600">
+                <RiRadioButtonFill size={15} className="pr-1" /> React
               </p>
-              <p className="flex items-center py-2 text-gray-600">
-                <RiRadioButtonFill className="pr-1" /> Tailwind
+              <p className="flex items-center py-2 pl-2 text-gray-600">
+                <RiRadioButtonFill size={15} className="pr-1" /> Tailwind
               </p>
-              <p className="flex items-center py-2 text-gray-600">
-                <RiRadioButtonFill className="pr-1" /> Javascript
+              <p className="flex items-center py-2 pl-2 text-gray-600">
+                <RiRadioButtonFill size={15} className="pr-1" /> Javascript
               </p>
-              <p className="flex items-center py-2 text-gray-600">
-                <RiRadioButtonFill className="pr-1" /> Netlify
+              <p className="flex items-center py-2 pl-2 text-gray-600">
+                <RiRadioButtonFill size={15} className="pr-1" /> Netlify
               </p>
             </div>
           </div>
         </div>
         <Link href="/#work">
-          <p className="cursor-pointer underline">Back</p>
+          <p className="cursor-pointer underline hover:text-[#30E3CA]">Back</p>
         </Link>
       </div>
     </div>
