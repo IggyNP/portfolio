@@ -75,7 +75,7 @@ const index = () => {
 
         <div className="col-span-4 rounded-xl py-4 shadow-sm shadow-gray-400 md:col-span-1">
           <div className="p-2">
-            <p className="w-[1/2] pb-2 text-center font-bold">Technologies</p>
+            <p className="pb-2 text-center font-bold">Technologies</p>
             <div className="grid grid-cols-3 justify-end md:w-full md:grid-cols-1 md:pl-4 lg:pl-20">
               <p className="flex items-center py-2 pl-2 text-gray-600">
                 <RiRadioButtonFill size={15} className="pr-1" /> Next.js
