@@ -75,34 +75,52 @@ const Contact = () => {
             <form className="flex flex-col items-center justify-center rounded-xl shadow-sm shadow-gray-400">
               <div className="grid w-full py-2 md:grid-cols-2">
                 <div className="w-full px-6 text-left">
-                  <label className="block pt-6 text-xl font-bold">Name</label>
+                  <label
+                    htmlFor="fullName"
+                    className="block pt-6 text-xl font-bold"
+                  >
+                    Full Name
+                  </label>
                   <input
                     type="text"
-                    name="name"
+                    name="fullName"
                     className="my-4 w-full rounded-md border-2 border-[#ccd6f6] bg-[#191825] px-4 py-2 text-[#ccd6f6] focus:border-transparent focus:outline-none focus:ring-2 focus:ring-[#30E3CA]"
                   />
                 </div>
                 <div className="w-full px-6 text-left">
-                  <label className="block pt-6 text-xl font-bold">
-                    Last name
+                  <label
+                    htmlFor="email"
+                    className="block pt-6 text-xl font-bold"
+                  >
+                    Email
                   </label>
                   <input
                     type="text"
-                    name="lastName"
+                    name="email"
                     className="my-4 w-full rounded-md border-2 border-[#ccd6f6] bg-[#191825] px-4 py-2 text-[#ccd6f6] focus:border-transparent focus:outline-none focus:ring-2 focus:ring-[#30E3CA]"
                   />
                 </div>
               </div>
               <div className="w-full px-6 text-left">
-                <label className="block pt-6 text-xl font-bold">Email</label>
+                <label
+                  htmlFor="subject"
+                  className="block pt-6 text-xl font-bold"
+                >
+                  Subject
+                </label>
                 <input
                   type="text"
-                  name="Email"
+                  name="subject"
                   className="my-4 w-full rounded-md border-2 border-[#ccd6f6] bg-[#191825] px-4 py-2 text-[#ccd6f6] focus:border-transparent focus:outline-none focus:ring-2 focus:ring-[#30E3CA]"
                 />
               </div>
               <div className="w-full px-6 text-left">
-                <label className="block pt-6 text-xl font-bold">Message</label>
+                <label
+                  htmlFor="message"
+                  className="block pt-6 text-xl font-bold"
+                >
+                  Message
+                </label>
                 <textarea
                   name="message"
                   rows="7"

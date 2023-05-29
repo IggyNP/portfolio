@@ -27,13 +27,20 @@ const Navbar = ({ showSocials = true }) => {
 
   return (
     <div className="fixed z-50 flex h-[70px] w-full items-center justify-between bg-[#191825] px-5 text-gray-300 shadow-md  shadow-[#040c16] md:px-10">
-      <Link href="/#home" scroll={false}>
-        <Image src="/images/inp.png" alt="INP's logo" width="90" height="90" />
-      </Link>
+      <div className="flex w-full items-center justify-between">
+        <Link href="/#home" scroll={false}>
+          <Image
+            src="/images/inp.png"
+            alt="INP's logo"
+            width="90"
+            height="90"
+          />
+        </Link>
+      </div>
 
       {/* menu */}
 
-      <ul className="hidden md:flex ">
+      <ul className="hidden md:flex">
         <Link href="/#home" scroll={false}>
           <li className="ml-10 border-b-2 border-transparent text-sm uppercase hover:border-[#30E3CA]">
             Home
@@ -63,60 +70,73 @@ const Navbar = ({ showSocials = true }) => {
 
       {/* hamburger */}
 
-      <div onClick={handleClick} className="z-10 mr-2 md:hidden">
+      <div onClick={handleClick} className="z-10 md:hidden">
         {!nav ? <FaBars size={25} /> : <FaTimes size={25} />}
       </div>
 
       {/* mobile menu */}
-
-      <ul
+      <div
         className={
-          !nav
-            ? "hidden"
-            : "absolute left-0 top-0 flex h-screen w-full select-none flex-col items-center justify-center bg-[#191825]"
+          nav ? "fixed right-0 top-0 h-screen w-full bg-black/70 md:hidden" : ""
         }
       >
-        <Link
-          href="/#home"
-          scroll={false}
-          className="py-6 text-4xl"
-          onClick={handleClick}
+        <div
+          className={
+            nav
+              ? " fixed right-0 top-0 h-screen w-[75%] bg-[#191825] duration-500 ease-in"
+              : "fixed right-[-100%] duration-500 ease-in"
+          }
         >
-          Home
-        </Link>
-        <Link
-          href="/#about"
-          className="py-6 text-4xl"
-          scroll={false}
-          onClick={handleClick}
-        >
-          About
-        </Link>
-        <Link
-          href="/#skills"
-          className="py-6 text-4xl"
-          scroll={false}
-          onClick={handleClick}
-        >
-          Skills
-        </Link>
-        <Link
-          href="/#work"
-          className="py-6 text-4xl"
-          scroll={false}
-          onClick={handleClick}
-        >
-          Work
-        </Link>
-        <Link
-          href="/#contact"
-          className="py-6 text-4xl"
-          scroll={false}
-          onClick={handleClick}
-        >
-          Contact
-        </Link>
-      </ul>
+          <ul
+            className={
+              !nav
+                ? "hidden"
+                : "absolute left-0 top-0 flex h-screen w-full select-none flex-col items-center justify-center bg-[#191825]"
+            }
+          >
+            <Link
+              href="/#home"
+              scroll={false}
+              className="py-6 text-4xl"
+              onClick={handleClick}
+            >
+              Home
+            </Link>
+            <Link
+              href="/#about"
+              className="py-6 text-4xl"
+              scroll={false}
+              onClick={handleClick}
+            >
+              About
+            </Link>
+            <Link
+              href="/#skills"
+              className="py-6 text-4xl"
+              scroll={false}
+              onClick={handleClick}
+            >
+              Skills
+            </Link>
+            <Link
+              href="/#work"
+              className="py-6 text-4xl"
+              scroll={false}
+              onClick={handleClick}
+            >
+              Work
+            </Link>
+            <Link
+              href="/#contact"
+              className="py-6 text-4xl"
+              scroll={false}
+              onClick={handleClick}
+            >
+              Contact
+            </Link>
+          </ul>
+        </div>
+      </div>
 
       {/* social icons */}
       {!hideSocials && showSocials && (
