@@ -76,6 +76,7 @@ const Contact = () => {
               name="contact"
               action="/success"
               method="POST"
+              netlify
               data-netlify="true"
               className="flex flex-col items-center justify-center rounded-xl shadow-sm shadow-gray-400"
             >
