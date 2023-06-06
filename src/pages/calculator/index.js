@@ -64,7 +64,7 @@ const index = () => {
               </button>
             </Link>
             <Link
-              href="/"
+              href="https://iggynp-calculator.netlify.app/"
               target="_blank"
               rel="noreferrer noopener"
               className="px-4"

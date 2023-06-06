@@ -65,16 +65,6 @@ const index = () => {
                 code
               </button>
             </Link>
-            <Link
-              href="/"
-              target="_blank"
-              rel="noreferrer noopener"
-              className="px-4"
-            >
-              <button className="rounded border-2 border-[#ccd6f6] bg-[#191825] bg-transparent px-6 py-2 uppercase text-[#ccd6f6] transition duration-150 ease-in-out hover:border-[#30E3CA] hover:bg-[#30E3CA] hover:text-[#191825] focus:border-transparent focus:outline-none focus:ring-2 focus:ring-[#30E3CA]">
-                demo
-              </button>
-            </Link>
           </div>
         </div>
 
