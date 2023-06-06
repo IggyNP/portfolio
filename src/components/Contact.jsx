@@ -72,7 +72,14 @@ const Contact = () => {
           {/* Right column */}
 
           <div className="w-full flex-grow pt-6 md:w-[60%] md:pl-6 md:pt-0">
-            <form className="flex flex-col items-center justify-center rounded-xl shadow-sm shadow-gray-400">
+            <form
+              name="contact"
+              action="/success"
+              method="POST"
+              data-netlify="true"
+              className="flex flex-col items-center justify-center rounded-xl shadow-sm shadow-gray-400"
+            >
+              <input type="hidden" name="contact-form" value="contact" />
               <div className="grid w-full py-2 md:grid-cols-2">
                 <div className="w-full px-6 text-left">
                   <label
