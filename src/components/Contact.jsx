@@ -80,7 +80,7 @@ const Contact = () => {
               data-netlify="true"
               className="flex flex-col items-center justify-center rounded-xl shadow-sm shadow-gray-400"
             >
-              <input type="hidden" name="contact-form" value="contact" />
+              <input type="hidden" name="form-name" value="contact" />
               <div className="grid w-full py-2 md:grid-cols-2">
                 <div className="w-full px-6 text-left">
                   <label
