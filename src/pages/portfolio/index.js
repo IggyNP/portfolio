@@ -1,4 +1,5 @@
 import React from "react";
+import Head from "next/head";
 import Navbar from "@/components/Navbar";
 import Image from "next/image";
 import portfolio2 from "public/images/portfolio2.png";
@@ -7,7 +8,10 @@ import Link from "next/link";
 
 const index = () => {
   return (
-    <div>
+    <>
+      <Head>
+        <title>IggyNP | Portfolio</title>
+      </Head>
       <Navbar showSocials={false} />
 
       {/* Image */}
@@ -102,7 +106,7 @@ const index = () => {
           <p className="cursor-pointer underline hover:text-[#30E3CA]">Back</p>
         </Link>
       </div>
-    </div>
+    </>
   );
 };
 

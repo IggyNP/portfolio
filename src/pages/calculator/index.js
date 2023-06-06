@@ -1,4 +1,5 @@
 import React from "react";
+import Head from "next/head";
 import Navbar from "@/components/Navbar";
 import Image from "next/image";
 import Calculator from "public/images/calculator.png";
@@ -7,7 +8,10 @@ import Link from "next/link";
 
 const index = () => {
   return (
-    <div>
+    <>
+      <Head>
+        <title>IggyNP | Calculator</title>
+      </Head>
       <Navbar showSocials={false} />
 
       {/* Image */}
@@ -97,7 +101,7 @@ const index = () => {
           <p className="cursor-pointer underline hover:text-[#30E3CA]">Back</p>
         </Link>
       </div>
-    </div>
+    </>
   );
 };
 

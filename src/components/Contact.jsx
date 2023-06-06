@@ -90,6 +90,7 @@ const Contact = () => {
                     Full Name
                   </label>
                   <input
+                    required
                     type="text"
                     name="fullName"
                     className="my-4 w-full rounded-md border-2 border-[#ccd6f6] bg-[#191825] px-4 py-2 text-[#ccd6f6] focus:border-transparent focus:outline-none focus:ring-2 focus:ring-[#30E3CA]"
@@ -103,6 +104,7 @@ const Contact = () => {
                     Email
                   </label>
                   <input
+                    required
                     type="text"
                     name="email"
                     className="my-4 w-full rounded-md border-2 border-[#ccd6f6] bg-[#191825] px-4 py-2 text-[#ccd6f6] focus:border-transparent focus:outline-none focus:ring-2 focus:ring-[#30E3CA]"
@@ -117,6 +119,7 @@ const Contact = () => {
                   Subject
                 </label>
                 <input
+                  required
                   type="text"
                   name="subject"
                   className="my-4 w-full rounded-md border-2 border-[#ccd6f6] bg-[#191825] px-4 py-2 text-[#ccd6f6] focus:border-transparent focus:outline-none focus:ring-2 focus:ring-[#30E3CA]"
@@ -130,6 +133,7 @@ const Contact = () => {
                   Message
                 </label>
                 <textarea
+                  required
                   name="message"
                   rows="7"
                   className="my-4 w-full rounded-md border-2 border-[#ccd6f6] bg-[#191825] px-4 py-2 text-[#ccd6f6] focus:border-transparent focus:outline-none focus:ring-2 focus:ring-[#30E3CA]"

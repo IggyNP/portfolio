@@ -10,7 +10,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Iggy | Frontend Developer</title>
+        <title>IggyNP | Frontend Developer</title>
       </Head>
       <Navbar />
       <Welcome />
