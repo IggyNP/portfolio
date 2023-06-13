@@ -7,7 +7,7 @@
     @apply scroll-smooth;
   }
   body {
-    @apply bg-[#191825];
-    @apply text-[#ccd6f6];
+    @apply bg-[#f8f8f8] dark:bg-[#191825];
+    @apply text-[#1f2937] dark:text-[#ccd6f6];
   }
 }

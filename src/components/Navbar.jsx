@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import ThemeBtn from "./ThemeBtn";
+import { useTheme } from "next-themes";
 import { FaBars, FaTimes, FaLinkedin, FaGithub } from "react-icons/fa";
 import { HiOutlineMail } from "react-icons/hi";
 import { BsFillPersonLinesFill } from "react-icons/bs";
@@ -9,8 +11,11 @@ const Navbar = ({ showSocials = true }) => {
   const [nav, setNav] = useState(false);
   const handleClick = () => setNav(!nav);
   const [hideSocials, setHideSocials] = useState(false);
+  const { resolvedTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
     const handleScroll = () => {
       const triggerElement = document.getElementById("contact");
       const triggerElementOffset = triggerElement?.offsetTop;
@@ -26,16 +31,22 @@ const Navbar = ({ showSocials = true }) => {
   }, []);
 
   return (
-    <div className="fixed z-50 flex h-[70px] w-full items-center justify-between bg-[#191825] px-5 text-gray-300 shadow-md  shadow-[#040c16] md:px-10">
+    <div className="fixed z-50 flex h-[70px] w-full items-center justify-between bg-[#f8f8f8] px-5 text-[#191825] shadow-md shadow-[#040c16] dark:bg-[#191825] dark:text-gray-300 md:px-10">
       <div className="flex w-full items-center justify-between">
-        <Link href="/#home" scroll={false}>
-          <Image
-            src="/images/inp.png"
-            alt="INP's logo"
-            width="90"
-            height="90"
-          />
-        </Link>
+        {mounted && (
+          <Link href="/#home" scroll={false}>
+            <Image
+              src={
+                resolvedTheme === "dark"
+                  ? "/images/inp.png"
+                  : "/images/inp-b.png"
+              }
+              alt="INP's logo"
+              width="90"
+              height="90"
+            />
+          </Link>
+        )}
       </div>
 
       {/* menu */}
@@ -62,10 +73,11 @@ const Navbar = ({ showSocials = true }) => {
           </li>
         </Link>
         <Link href="/#contact" scroll={false}>
-          <li className="ml-10 border-b-2 border-transparent text-sm uppercase hover:border-[#30E3CA]">
+          <li className="mx-10 border-b-2 border-transparent text-sm uppercase hover:border-[#30E3CA]">
             Contact
           </li>
         </Link>
+        {mounted && <ThemeBtn />}
       </ul>
 
       {/* hamburger */}
