@@ -95,7 +95,7 @@ const Navbar = ({ showSocials = true }) => {
         <div
           className={
             nav
-              ? " fixed right-0 top-0 h-screen w-[75%] bg-[#191825] duration-500 ease-in"
+              ? " fixed right-0 top-0 h-screen w-[75%] duration-500 ease-in"
               : "fixed right-[-100%] duration-500 ease-in"
           }
         >
@@ -103,7 +103,7 @@ const Navbar = ({ showSocials = true }) => {
             className={
               !nav
                 ? "hidden"
-                : "absolute left-0 top-0 flex h-screen w-full select-none flex-col items-center justify-center bg-[#191825]"
+                : "absolute left-0 top-0 flex h-screen w-full select-none flex-col items-center justify-center bg-[#f8f8f8] dark:bg-[#191825]"
             }
           >
             <Link
@@ -146,6 +146,7 @@ const Navbar = ({ showSocials = true }) => {
             >
               Contact
             </Link>
+            <div className="py-6">{mounted && <ThemeBtn />}</div>
           </ul>
         </div>
       </div>

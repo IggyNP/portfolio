@@ -13,9 +13,9 @@ const ThemeBtn = () => {
       onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
     >
       {resolvedTheme === "dark" ? (
-        <HiSun className="h-5 w-5 text-[#30E3CA]" />
+        <HiSun className="h-5 w-5 text-orange-300" />
       ) : (
-        <HiMoon className="h-5 w-5 text-black" />
+        <HiMoon className="h-5 w-5 text-slate-800" />
       )}
     </button>
   );
