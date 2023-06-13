@@ -139,7 +139,7 @@ const Contact = () => {
               <div className="py-6">
                 <button
                   type="submit"
-                  className="rounded border-2 bg-transparent px-4 py-2 uppercase shadow-md transition duration-150 ease-in-out hover:border-[#FC5185] hover:bg-[#FC5185] hover:text-white focus:border-transparent focus:outline-none focus:ring-2 focus:ring-[#FC5185] dark:border-[#ccd6f6] dark:text-[#ccd6f6] dark:hover:border-[#30E3CA] dark:hover:bg-[#30E3CA] dark:hover:text-[#191825] dark:focus:ring-[#30E3CA]"
+                  className="rounded border-2 bg-transparent px-4 py-2 uppercase shadow-md transition duration-300 ease-in-out hover:border-[#FC5185] hover:bg-[#FC5185] hover:text-white focus:border-transparent focus:outline-none focus:ring-2 focus:ring-[#FC5185] dark:border-[#ccd6f6] dark:text-[#ccd6f6] dark:hover:border-[#30E3CA] dark:hover:bg-[#30E3CA] dark:hover:text-[#191825] dark:focus:ring-[#30E3CA]"
                 >
                   send message
                 </button>
@@ -149,7 +149,7 @@ const Contact = () => {
         </div>
         <div className="flex justify-center py-10 lg:py-0 lg:pt-6">
           <Link href="/#home" scroll={false}>
-            <div className="rounded-full p-6 shadow-sm shadow-gray-400 transition duration-150 ease-in-out hover:-translate-y-1 hover:scale-110 hover:shadow-md hover:shadow-[#FC5185] dark:hover:shadow-[#30E3CA]">
+            <div className="rounded-full p-6 shadow-sm shadow-gray-400 transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 hover:shadow-md hover:shadow-[#FC5185] dark:hover:shadow-[#30E3CA]">
               <HiOutlineChevronDoubleUp size={30} />
             </div>
           </Link>
