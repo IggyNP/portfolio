@@ -53,27 +53,27 @@ const Navbar = ({ showSocials = true }) => {
 
       <ul className="hidden md:flex">
         <Link href="/#home" scroll={false}>
-          <li className="ml-10 border-b-2 border-transparent text-sm uppercase hover:border-[#30E3CA]">
+          <li className="ml-10 border-b-2 border-transparent text-sm uppercase hover:border-[#FC5185] dark:hover:border-[#30E3CA]">
             Home
           </li>
         </Link>
         <Link href="/#about" scroll={false}>
-          <li className="ml-10 border-b-2 border-transparent text-sm uppercase hover:border-[#30E3CA]">
+          <li className="ml-10 border-b-2 border-transparent text-sm uppercase hover:border-[#FC5185] dark:hover:border-[#30E3CA]">
             About
           </li>
         </Link>
         <Link href="/#skills" scroll={false}>
-          <li className="ml-10 border-b-2 border-transparent text-sm uppercase hover:border-[#30E3CA]">
+          <li className="ml-10 border-b-2 border-transparent text-sm uppercase hover:border-[#FC5185] dark:hover:border-[#30E3CA]">
             Skills
           </li>
         </Link>
         <Link href="/#work" scroll={false}>
-          <li className="ml-10 border-b-2 border-transparent text-sm uppercase hover:border-[#30E3CA]">
+          <li className="ml-10 border-b-2 border-transparent text-sm uppercase hover:border-[#FC5185] dark:hover:border-[#30E3CA]">
             Work
           </li>
         </Link>
         <Link href="/#contact" scroll={false}>
-          <li className="mx-10 border-b-2 border-transparent text-sm uppercase hover:border-[#30E3CA]">
+          <li className="mx-10 border-b-2 border-transparent text-sm uppercase hover:border-[#FC5185] dark:hover:border-[#30E3CA]">
             Contact
           </li>
         </Link>

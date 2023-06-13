@@ -5,7 +5,7 @@ const About = () => {
     <div id="about" className="h-screen w-full px-6">
       <div className="flex h-full w-full flex-col items-center justify-center text-center sm:text-justify">
         <div className="pb-6">
-          <h1 className="inline border-b-4 border-[#30E3CA] text-4xl font-bold">
+          <h1 className="inline border-b-4 border-[#FC5185] text-4xl font-bold dark:border-[#30E3CA]">
             About
           </h1>
         </div>

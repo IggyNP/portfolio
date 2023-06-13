@@ -58,7 +58,7 @@ const index = () => {
               rel="noreferrer noopener"
               className="px-4"
             >
-              <button className="rounded border-2 border-[#ccd6f6] bg-[#191825] bg-transparent px-6 py-2 uppercase text-[#ccd6f6] transition duration-150 ease-in-out hover:border-[#30E3CA] hover:bg-[#30E3CA] hover:text-[#191825] focus:border-transparent focus:outline-none focus:ring-2 focus:ring-[#30E3CA]">
+              <button className="hover: rounded border-2 bg-[#191825] bg-transparent px-6 py-2 uppercase shadow-md transition duration-150 ease-in-out hover:border-[#FC5185] hover:bg-[#FC5185] hover:text-white focus:border-transparent focus:outline-none focus:ring-2 focus:ring-[#FC5185] dark:border-[#ccd6f6] dark:text-[#ccd6f6] dark:hover:border-[#30E3CA] dark:hover:bg-[#30E3CA] dark:hover:text-[#191825] dark:focus:ring-[#30E3CA]">
                 code
               </button>
             </Link>
@@ -68,7 +68,7 @@ const index = () => {
               rel="noreferrer noopener"
               className="px-4"
             >
-              <button className="rounded border-2 border-[#ccd6f6] bg-[#191825] bg-transparent px-6 py-2 uppercase text-[#ccd6f6] transition duration-150 ease-in-out hover:border-[#30E3CA] hover:bg-[#30E3CA] hover:text-[#191825] focus:border-transparent focus:outline-none focus:ring-2 focus:ring-[#30E3CA]">
+              <button className="hover: rounded border-2 bg-[#191825] bg-transparent px-6 py-2 uppercase shadow-md transition duration-150 ease-in-out hover:border-[#FC5185] hover:bg-[#FC5185] hover:text-white focus:border-transparent focus:outline-none focus:ring-2 focus:ring-[#FC5185] dark:border-[#ccd6f6] dark:text-[#ccd6f6] dark:hover:border-[#30E3CA] dark:hover:bg-[#30E3CA] dark:hover:text-[#191825] dark:focus:ring-[#30E3CA]">
                 demo
               </button>
             </Link>
@@ -100,7 +100,9 @@ const index = () => {
           </div>
         </div>
         <Link href="/#work">
-          <p className="cursor-pointer underline hover:text-[#30E3CA]">Back</p>
+          <p className="cursor-pointer underline hover:text-[#FC5185] dark:hover:text-[#30E3CA]">
+            Back
+          </p>
         </Link>
       </div>
     </>

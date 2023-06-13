@@ -9,13 +9,10 @@ import { HiOutlineChevronDoubleUp } from "react-icons/hi";
 
 const Contact = () => {
   return (
-    <div
-      id="contact"
-      className="m-auto flex h-full w-full bg-[#191825] px-6 lg:h-screen"
-    >
+    <div id="contact" className="m-auto flex h-full w-full px-6 lg:h-screen">
       <div className="m-auto min-h-full w-full max-w-[1240px] px-2 pt-16">
         <div className="flex flex-col items-center justify-center pb-10">
-          <h1 className="inline border-b-4 border-[#30E3CA] pt-6 text-4xl font-bold">
+          <h1 className="inline border-b-4 border-[#FC5185] pt-6 text-4xl font-bold dark:border-[#30E3CA]">
             Contact
           </h1>
         </div>
@@ -30,12 +27,12 @@ const Contact = () => {
               Ready to take on exciting projects. Let's connect and discuss how
               I can contribute to your team!
             </p>
-            <h2 className="pt-6 text-lg font-bold uppercase text-[#30E3CA]">
+            <h2 className="pt-6 text-lg font-bold uppercase text-[#FC5185] dark:text-[#30E3CA]">
               connect with me:
             </h2>
             <div className=" grid grid-cols-2 py-4 md:pb-6 lg:flex lg:items-center lg:justify-between lg:pb-12">
               <Link
-                className="m-2 transform rounded-full p-6 shadow-sm shadow-gray-400 transition duration-150 ease-in-out hover:-translate-y-1 hover:scale-110 hover:shadow-md hover:shadow-[#30E3CA] focus:border-transparent focus:outline-none focus:ring-2 focus:ring-[#30E3CA]"
+                className="m-2 transform rounded-full p-6 shadow-sm shadow-gray-400 transition duration-150 ease-in-out hover:-translate-y-1 hover:scale-110 hover:shadow-md hover:shadow-[#FC5185] focus:border-transparent focus:outline-none focus:ring-2 focus:ring-[#FC5185] dark:hover:shadow-[#30E3CA] dark:focus:ring-[#30E3CA]"
                 href="https://www.linkedin.com/in/ignacio-navarro-poves/"
                 rel="noopener noreferrer"
                 target="_blank"
@@ -43,7 +40,7 @@ const Contact = () => {
                 <FaLinkedin size={30} />
               </Link>
               <Link
-                className="m-2 rounded-full p-6 shadow-sm shadow-gray-400 transition duration-150 ease-in-out hover:-translate-y-1 hover:scale-110 hover:shadow-md hover:shadow-[#30E3CA] focus:border-transparent focus:outline-none focus:ring-2 focus:ring-[#30E3CA]"
+                className="m-2 transform rounded-full p-6 shadow-sm shadow-gray-400 transition duration-150 ease-in-out hover:-translate-y-1 hover:scale-110 hover:shadow-md hover:shadow-[#FC5185] focus:border-transparent focus:outline-none focus:ring-2 focus:ring-[#FC5185] dark:hover:shadow-[#30E3CA] dark:focus:ring-[#30E3CA]"
                 href="https://github.com/IggyNP"
                 rel="noopener noreferrer"
                 target="_blank"
@@ -51,7 +48,7 @@ const Contact = () => {
                 <FaGithub size={30} />
               </Link>
               <Link
-                className="m-2 rounded-full p-6 shadow-sm shadow-gray-400 transition duration-150 ease-in-out hover:-translate-y-1 hover:scale-110 hover:shadow-md hover:shadow-[#30E3CA] focus:border-transparent focus:outline-none focus:ring-2 focus:ring-[#30E3CA]"
+                className="m-2 transform rounded-full p-6 shadow-sm shadow-gray-400 transition duration-150 ease-in-out hover:-translate-y-1 hover:scale-110 hover:shadow-md hover:shadow-[#FC5185] focus:border-transparent focus:outline-none focus:ring-2 focus:ring-[#FC5185] dark:hover:shadow-[#30E3CA] dark:focus:ring-[#30E3CA]"
                 href="mailto:ignacionp94@gmail.com"
                 rel="noopener noreferrer"
                 target="_blank"
@@ -59,7 +56,7 @@ const Contact = () => {
                 <HiOutlineMail size={30} />
               </Link>
               <Link
-                className="m-2 rounded-full p-6 shadow-sm shadow-gray-400 transition duration-150 ease-in-out hover:-translate-y-1 hover:scale-110 hover:shadow-md hover:shadow-[#30E3CA] focus:border-transparent focus:outline-none focus:ring-2 focus:ring-[#30E3CA]"
+                className="m-2 transform rounded-full p-6 shadow-sm shadow-gray-400 transition duration-150 ease-in-out hover:-translate-y-1 hover:scale-110 hover:shadow-md hover:shadow-[#FC5185] focus:border-transparent focus:outline-none focus:ring-2 focus:ring-[#FC5185] dark:hover:shadow-[#30E3CA] dark:focus:ring-[#30E3CA]"
                 href="/pdfs/cv-inp.pdf"
                 rel="noopener noreferrer"
                 target="_blank"
@@ -93,7 +90,7 @@ const Contact = () => {
                     required
                     type="text"
                     name="fullName"
-                    className="my-4 w-full rounded-md border-2 border-[#ccd6f6] bg-[#191825] px-4 py-2 text-[#ccd6f6] focus:border-transparent focus:outline-none focus:ring-2 focus:ring-[#30E3CA]"
+                    className="my-4 w-full rounded-md border-2 px-4 py-2 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-[#FC5185] dark:border-[#ccd6f6] dark:bg-[#191825] dark:text-[#ccd6f6] dark:focus:ring-[#30E3CA]"
                   />
                 </div>
                 <div className="w-full px-6 text-left">
@@ -107,7 +104,7 @@ const Contact = () => {
                     required
                     type="text"
                     name="email"
-                    className="my-4 w-full rounded-md border-2 border-[#ccd6f6] bg-[#191825] px-4 py-2 text-[#ccd6f6] focus:border-transparent focus:outline-none focus:ring-2 focus:ring-[#30E3CA]"
+                    className="my-4 w-full rounded-md border-2 px-4 py-2 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-[#FC5185] dark:border-[#ccd6f6] dark:bg-[#191825] dark:text-[#ccd6f6] dark:focus:ring-[#30E3CA]"
                   />
                 </div>
               </div>
@@ -122,7 +119,7 @@ const Contact = () => {
                   required
                   type="text"
                   name="subject"
-                  className="my-4 w-full rounded-md border-2 border-[#ccd6f6] bg-[#191825] px-4 py-2 text-[#ccd6f6] focus:border-transparent focus:outline-none focus:ring-2 focus:ring-[#30E3CA]"
+                  className="my-4 w-full rounded-md border-2 px-4 py-2 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-[#FC5185] dark:border-[#ccd6f6] dark:bg-[#191825] dark:text-[#ccd6f6] dark:focus:ring-[#30E3CA]"
                 />
               </div>
               <div className="w-full px-6 text-left">
@@ -136,13 +133,13 @@ const Contact = () => {
                   required
                   name="message"
                   rows="7"
-                  className="my-4 w-full rounded-md border-2 border-[#ccd6f6] bg-[#191825] px-4 py-2 text-[#ccd6f6] focus:border-transparent focus:outline-none focus:ring-2 focus:ring-[#30E3CA]"
+                  className="my-4 w-full rounded-md border-2 px-4 py-2 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-[#FC5185] dark:border-[#ccd6f6] dark:bg-[#191825] dark:text-[#ccd6f6] dark:focus:ring-[#30E3CA]"
                 />
               </div>
               <div className="py-6">
                 <button
                   type="submit"
-                  className="rounded border-2 border-[#ccd6f6] bg-[#191825] bg-transparent px-4 py-2 uppercase text-[#ccd6f6] transition duration-150 ease-in-out hover:border-[#30E3CA] hover:bg-[#30E3CA] hover:text-[#191825] focus:border-transparent focus:outline-none focus:ring-2 focus:ring-[#30E3CA]"
+                  className="rounded border-2 bg-transparent px-4 py-2 uppercase shadow-md transition duration-150 ease-in-out hover:border-[#FC5185] hover:bg-[#FC5185] hover:text-white focus:border-transparent focus:outline-none focus:ring-2 focus:ring-[#FC5185] dark:border-[#ccd6f6] dark:text-[#ccd6f6] dark:hover:border-[#30E3CA] dark:hover:bg-[#30E3CA] dark:hover:text-[#191825] dark:focus:ring-[#30E3CA]"
                 >
                   send message
                 </button>
@@ -152,7 +149,7 @@ const Contact = () => {
         </div>
         <div className="flex justify-center py-10 lg:py-0 lg:pt-6">
           <Link href="/#home" scroll={false}>
-            <div className="rounded-full p-6 shadow-sm shadow-gray-400 transition duration-150 ease-in-out hover:-translate-y-1 hover:scale-110 hover:shadow-md hover:shadow-[#30E3CA]">
+            <div className="rounded-full p-6 shadow-sm shadow-gray-400 transition duration-150 ease-in-out hover:-translate-y-1 hover:scale-110 hover:shadow-md hover:shadow-[#FC5185] dark:hover:shadow-[#30E3CA]">
               <HiOutlineChevronDoubleUp size={30} />
             </div>
           </Link>

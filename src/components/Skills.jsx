@@ -6,7 +6,7 @@ const Skills = () => {
     <div id="skills" className="h-screen w-full px-6">
       <div className="mx-auto flex h-full w-full max-w-[1000px] flex-col justify-center p-4 text-center">
         <div>
-          <h1 className="inline border-b-4 border-[#30E3CA] text-4xl font-bold">
+          <h1 className="inline border-b-4 border-[#FC5185] text-4xl font-bold dark:border-[#30E3CA]">
             Skills
           </h1>
           <p className="py-6">
