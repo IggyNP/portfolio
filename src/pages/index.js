@@ -5,6 +5,8 @@ import About from "@/components/About";
 import Skills from "@/components/Skills";
 import Work from "@/components/Work";
 import Contact from "@/components/Contact";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { useTranslation } from "next-i18next";
 
 export default function Home() {
   return (
@@ -20,4 +22,13 @@ export default function Home() {
       <Contact />
     </>
   );
+}
+
+export async function getStaticProps(context) {
+  const { locale } = context;
+  return {
+    props: {
+      ...(await serverSideTranslations(locale)),
+    },
+  };
 }

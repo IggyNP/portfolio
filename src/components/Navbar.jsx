@@ -6,6 +6,7 @@ import { useTheme } from "next-themes";
 import { FaBars, FaTimes, FaLinkedin, FaGithub } from "react-icons/fa";
 import { HiOutlineMail } from "react-icons/hi";
 import { BsFillPersonLinesFill } from "react-icons/bs";
+import { useTranslation } from "next-i18next";
 
 const Navbar = ({ showSocials = true }) => {
   const [nav, setNav] = useState(false);
@@ -13,6 +14,7 @@ const Navbar = ({ showSocials = true }) => {
   const [hideSocials, setHideSocials] = useState(false);
   const { resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
+  const { t } = useTranslation();
 
   useEffect(() => {
     setMounted(true);
@@ -54,12 +56,12 @@ const Navbar = ({ showSocials = true }) => {
       <ul className="hidden md:flex">
         <Link href="/#home" scroll={false}>
           <li className="ml-10 border-b-2 border-transparent text-sm uppercase hover:border-[#FC5185] dark:hover:border-[#30E3CA]">
-            Home
+            {t("HOME")}
           </li>
         </Link>
         <Link href="/#about" scroll={false}>
           <li className="ml-10 border-b-2 border-transparent text-sm uppercase hover:border-[#FC5185] dark:hover:border-[#30E3CA]">
-            About
+            {t("ABOUT")}
           </li>
         </Link>
         <Link href="/#skills" scroll={false}>
@@ -69,12 +71,12 @@ const Navbar = ({ showSocials = true }) => {
         </Link>
         <Link href="/#work" scroll={false}>
           <li className="ml-10 border-b-2 border-transparent text-sm uppercase hover:border-[#FC5185] dark:hover:border-[#30E3CA]">
-            Work
+            {t("WORK")}
           </li>
         </Link>
         <Link href="/#contact" scroll={false}>
           <li className="mx-10 border-b-2 border-transparent text-sm uppercase hover:border-[#FC5185] dark:hover:border-[#30E3CA]">
-            Contact
+            {t("CONTACT")}
           </li>
         </Link>
         {mounted && <ThemeBtn />}
@@ -109,22 +111,22 @@ const Navbar = ({ showSocials = true }) => {
             <Link
               href="/#home"
               scroll={false}
-              className="py-6 text-4xl"
+              className="py-6 text-4xl uppercase"
               onClick={handleClick}
             >
-              Home
+              {t("HOME")}
             </Link>
             <Link
               href="/#about"
-              className="py-6 text-4xl"
+              className="py-6 text-4xl uppercase"
               scroll={false}
               onClick={handleClick}
             >
-              About
+              {t("ABOUT")}
             </Link>
             <Link
               href="/#skills"
-              className="py-6 text-4xl"
+              className="py-6 text-4xl uppercase"
               scroll={false}
               onClick={handleClick}
             >
@@ -132,19 +134,19 @@ const Navbar = ({ showSocials = true }) => {
             </Link>
             <Link
               href="/#work"
-              className="py-6 text-4xl"
+              className="py-6 text-4xl uppercase"
               scroll={false}
               onClick={handleClick}
             >
-              Work
+              {t("WORK")}
             </Link>
             <Link
               href="/#contact"
-              className="py-6 text-4xl"
+              className="py-6 text-4xl uppercase"
               scroll={false}
               onClick={handleClick}
             >
-              Contact
+              {t("CONTACT")}
             </Link>
             <div className="py-6">{mounted && <ThemeBtn />}</div>
           </ul>
@@ -165,7 +167,8 @@ const Navbar = ({ showSocials = true }) => {
                 rel="noopener noreferrer"
                 target="_blank"
               >
-                <p className="ml-4">Linkedin</p> <FaLinkedin size={30} />
+                <p className="ml-4 capitalize">linkedin</p>{" "}
+                <FaLinkedin size={30} />
               </Link>
             </li>
             <li className="ml-[-100px] flex h-[60px] w-[160px] items-center justify-between bg-[#313335] duration-300 hover:ml-0">
@@ -175,7 +178,7 @@ const Navbar = ({ showSocials = true }) => {
                 rel="noopener noreferrer"
                 target="_blank"
               >
-                <p className="ml-4">Github</p> <FaGithub size={30} />
+                <p className="ml-4 capitalize">github</p> <FaGithub size={30} />
               </Link>
             </li>
             <li className="ml-[-100px] flex h-[60px] w-[160px] items-center justify-between bg-[#DD5143] duration-300 hover:ml-0">
@@ -183,7 +186,8 @@ const Navbar = ({ showSocials = true }) => {
                 className="mr-4 flex w-full items-center justify-between text-gray-300"
                 href="mailto:ignacionp94@gmail.com"
               >
-                <p className="ml-4">Email</p> <HiOutlineMail size={30} />
+                <p className="ml-4 capitalize">email</p>{" "}
+                <HiOutlineMail size={30} />
               </Link>
             </li>
             <li className="ml-[-100px] flex h-[60px] w-[160px] items-center justify-between bg-[#E68523] duration-300 hover:ml-0">
@@ -193,7 +197,7 @@ const Navbar = ({ showSocials = true }) => {
                 rel="noopener noreferrer"
                 target="_blank"
               >
-                <p className="ml-4">Resume</p>{" "}
+                <p className="ml-4 capitalize">{t("RESUME")}</p>{" "}
                 <BsFillPersonLinesFill size={30} />
               </Link>
             </li>
