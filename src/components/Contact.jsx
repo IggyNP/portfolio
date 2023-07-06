@@ -14,7 +14,7 @@ const Contact = () => {
     <div id="contact" className="m-auto flex h-full w-full px-6 lg:h-screen">
       <div className="m-auto min-h-full w-full max-w-[1240px] px-2 pt-16">
         <div className="flex flex-col items-center justify-center pb-10">
-          <h1 className="inline border-b-4 border-[#FC5185] pt-6 text-4xl font-bold dark:border-[#30E3CA]">
+          <h1 className="inline border-b-4 border-[#FC5185] pt-6 text-4xl font-bold capitalize dark:border-[#30E3CA]">
             {t("CONTACT_TITLE")}
           </h1>
         </div>
@@ -23,9 +23,11 @@ const Contact = () => {
           {/* Left column */}
           <div className="flex h-full w-full flex-shrink-0 flex-col items-center justify-center rounded-xl shadow-sm shadow-gray-400 md:w-[40%]">
             <Image src={Ignacio} className="w-[50%] py-6" />
-            <h2 className="text-2xl font-bold">Ignacio Navarro</h2>
-            <h3 className="py-2 text-lg">{t("CONTACT_ROLE")}</h3>
-            <p className="px-6 py-2 text-center">{t("CONTACT_DESCRIPTION")}</p>
+            <h2 className="text-2xl font-bold capitalize">Ignacio Navarro</h2>
+            <h3 className="py-2 text-lg capitalize">{t("CONTACT_ROLE")}</h3>
+            <p className="px-6 py-2 text-center normal-case">
+              {t("CONTACT_DESCRIPTION")}
+            </p>
             <h2 className="pt-6 text-lg font-bold uppercase text-[#FC5185] dark:text-[#30E3CA]">
               {t("CONTACT_CONNECT")}
             </h2>
@@ -81,7 +83,7 @@ const Contact = () => {
                 <div className="w-full px-6 text-left">
                   <label
                     htmlFor="fullName"
-                    className="block pt-6 text-xl font-bold"
+                    className="block pt-6 text-xl font-bold capitalize"
                   >
                     {t("CONTACT_NAME")}
                   </label>
@@ -95,7 +97,7 @@ const Contact = () => {
                 <div className="w-full px-6 text-left">
                   <label
                     htmlFor="email"
-                    className="block pt-6 text-xl font-bold"
+                    className="block pt-6 text-xl font-bold capitalize"
                   >
                     {t("CONTACT_EMAIL")}
                   </label>
@@ -110,7 +112,8 @@ const Contact = () => {
               <div className="w-full px-6 text-left">
                 <label
                   htmlFor="subject"
-                  className="block pt-6 text-xl font-bold"
+                  className="block pt-6 text-xl font-bold capitalize"
+                  capitalize
                 >
                   {t("CONTACT_SUBJECT")}
                 </label>
@@ -124,7 +127,7 @@ const Contact = () => {
               <div className="w-full px-6 text-left">
                 <label
                   htmlFor="message"
-                  className="block pt-6 text-xl font-bold"
+                  className="block pt-6 text-xl font-bold capitalize"
                 >
                   {t("CONTACT_MESSAGE")}
                 </label>

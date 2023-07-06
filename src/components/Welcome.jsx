@@ -8,11 +8,13 @@ const Welcome = () => {
   return (
     <div id="home" className="h-screen w-full">
       <div className="mx-auto flex h-full max-w-[1000px] flex-col items-center justify-center px-8 text-center">
-        <p className="text-l text-[#FC5185] dark:text-[#30E3CA] sm:text-xl">
+        <p className="text-l capitalize text-[#FC5185] dark:text-[#30E3CA] sm:text-xl">
           {t("WELCOME_HELLO")}
         </p>
-        <h1 className="my-1 text-4xl font-bold sm:text-7xl">Ignacio Navarro</h1>
-        <h2 className="my-1 text-4xl font-bold text-[#8892b0] sm:text-7xl">
+        <h1 className="my-1 text-4xl font-bold capitalize sm:text-7xl">
+          ignacio navarro
+        </h1>
+        <h2 className="my-1 text-4xl font-bold capitalize text-[#8892b0] sm:text-7xl">
           {t("WELCOME_INFO")}
         </h2>
         <Link href="#work" scroll={false}>

@@ -8,10 +8,10 @@ const Skills = () => {
     <div id="skills" className="h-screen w-full px-6">
       <div className="mx-auto flex h-full w-full max-w-[1000px] flex-col justify-center p-4 text-center">
         <div>
-          <h1 className="inline border-b-4 border-[#FC5185] text-4xl font-bold dark:border-[#30E3CA]">
-            Skills
+          <h1 className="inline border-b-4 border-[#FC5185] text-4xl font-bold capitalize dark:border-[#30E3CA]">
+            skills
           </h1>
-          <p className="py-6">{t("SKILLS_DESCRIPTION")}</p>
+          <p className="py-6 normal-case">{t("SKILLS_DESCRIPTION")}</p>
         </div>
         <div className="grid w-full grid-cols-2 gap-4 py-8 text-center sm:grid-cols-3">
           <div className="shadow-md shadow-[#040c16] duration-500 hover:scale-110">
@@ -45,7 +45,7 @@ const Skills = () => {
                 height="80"
               />
             </div>
-            <p className="my-4">JavaScript</p>
+            <p className="my-4 capitalize">javaScript</p>
           </div>
           <div className="shadow-md shadow-[#040c16] duration-500 hover:scale-110">
             <div className="flex justify-center pt-4">
@@ -56,7 +56,7 @@ const Skills = () => {
                 height="80"
               />
             </div>
-            <p className="my-4">React</p>
+            <p className="my-4 capitalize">react</p>
           </div>
           <div className="shadow-md shadow-[#040c16] duration-500 hover:scale-110">
             <div className="flex justify-center pt-4">
@@ -67,7 +67,7 @@ const Skills = () => {
                 height="80"
               />
             </div>
-            <p className="my-4">Next.js</p>
+            <p className="my-4 capitalize">next.js</p>
           </div>
           <div className="shadow-md shadow-[#040c16] duration-500 hover:scale-110">
             <div className="flex justify-center pt-4">
@@ -78,7 +78,7 @@ const Skills = () => {
                 height="80"
               />
             </div>
-            <p className="my-4">Tailwind</p>
+            <p className="my-4 capitalize">tailwind</p>
           </div>
         </div>
       </div>
