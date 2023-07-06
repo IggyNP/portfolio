@@ -1,7 +1,9 @@
 import React from "react";
 import Image from "next/image";
+import { useTranslation } from "next-i18next";
 
 const Skills = () => {
+  const { t } = useTranslation();
   return (
     <div id="skills" className="h-screen w-full px-6">
       <div className="mx-auto flex h-full w-full max-w-[1000px] flex-col justify-center p-4 text-center">
@@ -9,9 +11,7 @@ const Skills = () => {
           <h1 className="inline border-b-4 border-[#FC5185] text-4xl font-bold dark:border-[#30E3CA]">
             Skills
           </h1>
-          <p className="py-6">
-            These are some of the technologies I've worked with
-          </p>
+          <p className="py-6">{t("SKILLS_DESCRIPTION")}</p>
         </div>
         <div className="grid w-full grid-cols-2 gap-4 py-8 text-center sm:grid-cols-3">
           <div className="shadow-md shadow-[#040c16] duration-500 hover:scale-110">

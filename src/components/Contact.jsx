@@ -6,14 +6,16 @@ import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { HiOutlineMail } from "react-icons/hi";
 import { BsFillPersonLinesFill } from "react-icons/bs";
 import { HiOutlineChevronDoubleUp } from "react-icons/hi";
+import { useTranslation } from "next-i18next";
 
 const Contact = () => {
+  const { t } = useTranslation();
   return (
     <div id="contact" className="m-auto flex h-full w-full px-6 lg:h-screen">
       <div className="m-auto min-h-full w-full max-w-[1240px] px-2 pt-16">
         <div className="flex flex-col items-center justify-center pb-10">
           <h1 className="inline border-b-4 border-[#FC5185] pt-6 text-4xl font-bold dark:border-[#30E3CA]">
-            Contact
+            {t("CONTACT_TITLE")}
           </h1>
         </div>
 
@@ -22,13 +24,10 @@ const Contact = () => {
           <div className="flex h-full w-full flex-shrink-0 flex-col items-center justify-center rounded-xl shadow-sm shadow-gray-400 md:w-[40%]">
             <Image src={Ignacio} className="w-[50%] py-6" />
             <h2 className="text-2xl font-bold">Ignacio Navarro</h2>
-            <h3 className="py-2 text-lg">Frontend Developer</h3>
-            <p className="px-6 py-2 text-center">
-              Ready to take on exciting projects. Let's connect and discuss how
-              I can contribute to your team!
-            </p>
+            <h3 className="py-2 text-lg">{t("CONTACT_ROLE")}</h3>
+            <p className="px-6 py-2 text-center">{t("CONTACT_DESCRIPTION")}</p>
             <h2 className="pt-6 text-lg font-bold uppercase text-[#FC5185] dark:text-[#30E3CA]">
-              connect with me:
+              {t("CONTACT_CONNECT")}
             </h2>
             <div className=" grid grid-cols-2 py-4 md:pb-6 lg:flex lg:items-center lg:justify-between lg:pb-12">
               <Link
@@ -84,7 +83,7 @@ const Contact = () => {
                     htmlFor="fullName"
                     className="block pt-6 text-xl font-bold"
                   >
-                    Full Name
+                    {t("CONTACT_NAME")}
                   </label>
                   <input
                     required
@@ -98,7 +97,7 @@ const Contact = () => {
                     htmlFor="email"
                     className="block pt-6 text-xl font-bold"
                   >
-                    Email
+                    {t("CONTACT_EMAIL")}
                   </label>
                   <input
                     required
@@ -113,7 +112,7 @@ const Contact = () => {
                   htmlFor="subject"
                   className="block pt-6 text-xl font-bold"
                 >
-                  Subject
+                  {t("CONTACT_SUBJECT")}
                 </label>
                 <input
                   required
@@ -127,7 +126,7 @@ const Contact = () => {
                   htmlFor="message"
                   className="block pt-6 text-xl font-bold"
                 >
-                  Message
+                  {t("CONTACT_MESSAGE")}
                 </label>
                 <textarea
                   required
@@ -141,7 +140,7 @@ const Contact = () => {
                   type="submit"
                   className="rounded border-2 bg-transparent px-4 py-2 uppercase shadow-md transition duration-300 ease-in-out hover:border-[#FC5185] hover:bg-[#FC5185] hover:text-white focus:border-transparent focus:outline-none focus:ring-2 focus:ring-[#FC5185] dark:border-[#ccd6f6] dark:text-[#ccd6f6] dark:hover:border-[#30E3CA] dark:hover:bg-[#30E3CA] dark:hover:text-[#191825] dark:focus:ring-[#30E3CA]"
                 >
-                  send message
+                  {t("CONTACT_SEND")}
                 </button>
               </div>
             </form>

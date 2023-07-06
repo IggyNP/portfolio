@@ -3,5 +3,22 @@
   "HOME": "home",
   "WORK": "work",
   "CONTACT": "contact",
-  "RESUME": "resume"
+  "RESUME": "resume",
+  "WELCOME_HELLO": "Hi! my name is",
+  "WELCOME_INFO": "I'm a Frontend Developer.",
+  "WELCOME_BUTTON": "View work",
+  "ABOUT_TITLE": "About",
+  "ABOUT_INTRO": "Experienced Business Professional Turned Frontend Developer.",
+  "ABOUT_DESCRIPTION": "After completing my MBA in International Management, I discovered my passion and began self-learning programming. Since then, I have honed my skills in HTML, CSS, JavaScript, and React, and have completed several projects to apply my knowledge. My experience in business and digital marketing gives me a unique perspective on user experience and allows me to create visually appealing and effective websites.",
+  "SKILLS_DESCRIPTION": "These are some of the technologies I've worked with",
+  "WORK_BUTTON": "More Info",
+  "CONTACT_TITLE": "Contact",
+  "CONTACT_ROLE": "Frontend Developer",
+  "CONTACT_DESCRIPTION": "Ready to take on exciting projects. Let's connect and discuss how I can contribute to your team!",
+  "CONTACT_CONNECT": "CONNECT WITH ME",
+  "CONTACT_NAME": "Full Name",
+  "CONTACT_EMAIL": "Email",
+  "CONTACT_SUBJECT": "Subject",
+  "CONTACT_MESSAGE": "Message",
+  "CONTACT_SEND": "SEND MESSAGE"
 }

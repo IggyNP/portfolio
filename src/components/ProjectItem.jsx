@@ -1,8 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import { useTranslation } from "next-i18next";
 
 const ProjectItem = ({ title, backgroundImg, tech, projectUrl }) => {
+  const { t } = useTranslation();
   return (
     <div className="group relative flex h-auto w-full items-center justify-center rounded-xl bg-gradient-to-r from-[#F7FAFC] via-[#E2E8F0] to-[#CBD5E1] shadow-sm shadow-gray-400 hover:bg-gradient-to-r dark:from-[#191825] dark:via-[#667eea] dark:to-[#30E3CA]">
       <Image
@@ -16,7 +18,7 @@ const ProjectItem = ({ title, backgroundImg, tech, projectUrl }) => {
         </h3>
         <Link href={projectUrl}>
           <p className=" cursor-pointer rounded-lg bg-white py-3 text-center text-lg font-bold text-gray-700 shadow-md transition duration-300  hover:border-[#FC5185] hover:bg-[#FC5185] hover:text-white dark:hover:border-[#30E3CA] dark:hover:bg-[#30E3CA] dark:hover:text-[#191825]">
-            More Info
+            {t("WORK_BUTTON")}
           </p>
         </Link>
         <p className="pt-10 text-center font-bold text-black dark:text-white">
