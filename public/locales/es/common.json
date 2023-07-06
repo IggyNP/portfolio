@@ -26,5 +26,6 @@
   "SJ_OVERVIEW": "Siempre Jamón es una plataforma de comercio electrónico que he desarrollado utilizando Next.js y estilizado con Tailwind CSS. Está dedicada a las compras por suscripción de Jamón Ibérico. El sitio web proporciona una experiencia fluida y amigable para el usuario y está desplegado en Netlify. Aún estoy trabajando en el desarrollo del backend, pero Siempre Jamón demuestra mis habilidades en el desarrollo frontend y mi pasión por crear aplicaciones web visualmente atractivas y escalables.",
   "PROJECT_CODE": "código",
   "PROJECT_TECHNOLOGIES": "tecnologías",
-  "PROJECT_BACK": "atrás"
+  "PROJECT_BACK": "atrás",
+  "CALCULATOR_OVERVIEW": "La Calculadora de React es un proyecto de nivel principiante que creé durante mis primeros días de aprendizaje de React. Es una aplicación de calculadora simple construida utilizando React y estilizada con CSS3. La calculadora ofrece operaciones aritméticas básicas y permite a los usuarios realizar cálculos en una interfaz fácil de usar. El proyecto muestra mi comprensión inicial de los conceptos de React y mi capacidad para desarrollar e implementar aplicaciones web. La Calculadora de React está implementada en Netlify, lo que la hace accesible con fines de demostración."
 }

@@ -26,5 +26,6 @@
   "SJ_OVERVIEW": "Siempre Jamón is an e-commerce platform I developed using Next.js and styled with Tailwind CSS. It's dedicated to subscription-based purchases of Jamón Ibérico, a premium Spanish delicacy. The website provides a smooth and user-friendly experience and is deployed on Netlify. While I'm currently working on the backend development, Siempre Jamón demonstrates my skills in front-end development and my passion for creating visually appealing and scalable web applications.",
   "PROJECT_CODE": "code",
   "PROJECT_TECHNOLOGIES": "technologies",
-  "PROJECT_BACK": "back"
+  "PROJECT_BACK": "back",
+  "CALCULATOR_OVERVIEW": "The React Calculator is a beginner-level project that I created during my early days of learning React. It is a simple calculator application built using React and styled with CSS3. The calculator provides basic arithmetic operations and allows users to perform calculations in a user-friendly interface. The project showcases my initial grasp of React concepts and my ability to develop and deploy web applications. The React Calculator is deployed on Netlify, making it accessible for demonstration purposes."
 }
