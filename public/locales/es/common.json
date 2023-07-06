@@ -27,5 +27,6 @@
   "PROJECT_CODE": "código",
   "PROJECT_TECHNOLOGIES": "tecnologías",
   "PROJECT_BACK": "atrás",
+  "PORTFOLIO_OVERVIEW": "Mi portafolio es el reflejo de mi pasión por el desarrollo front-end. Con dedicación y creatividad, utilizo Next.js y Tailwind CSS para dar vida a proyectos web visualmente cautivadores y de fácil uso. Desde soluciones dinámicas de comercio electrónico hasta experiencias interactivas, mi portafolio destaca por ofrecer interfaces de usuario fluidas y atractivas. Aprovechando las últimas tecnologías web, busco crear diseños intuitivos que dejen una impresión duradera. Explora mi portafolio y descubre ejemplos de mis habilidades en desarrollo front-end y los emocionantes sitios web que he creado.",
   "CALCULATOR_OVERVIEW": "La Calculadora de React es un proyecto de nivel principiante que creé durante mis primeros días de aprendizaje de React. Es una aplicación de calculadora simple construida utilizando React y estilizada con CSS3. La calculadora ofrece operaciones aritméticas básicas y permite a los usuarios realizar cálculos en una interfaz fácil de usar. El proyecto muestra mi comprensión inicial de los conceptos de React y mi capacidad para desarrollar e implementar aplicaciones web. La Calculadora de React está implementada en Netlify, lo que la hace accesible con fines de demostración."
 }
