@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import Ignacio from "public/images/ignacio.png";
+import Ignacio from "public/images/ignacio2.png";
 import Link from "next/link";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { HiOutlineMail } from "react-icons/hi";
@@ -11,7 +11,7 @@ import { useTranslation } from "next-i18next";
 const Contact = () => {
   const { t } = useTranslation();
   return (
-    <div id="contact" className="m-auto flex h-full w-full px-6 lg:h-screen">
+    <div id="contact" className="m-auto flex h-full w-full px-6">
       <div className="m-auto min-h-full w-full max-w-[1240px] px-2 pt-16">
         <div className="flex flex-col items-center justify-center pb-10">
           <h1 className="inline border-b-4 border-[#FC5185] pt-6 text-4xl font-bold capitalize dark:border-[#30E3CA]">
@@ -22,7 +22,7 @@ const Contact = () => {
         <div className="flex w-full flex-grow flex-col md:flex-row">
           {/* Left column */}
           <div className="flex h-full w-full flex-shrink-0 flex-col items-center justify-center rounded-xl shadow-sm shadow-gray-400 md:w-[40%]">
-            <Image src={Ignacio} className="w-[50%] py-6" />
+            <Image src={Ignacio} className="w-[50%] rounded-full py-6" />
             <h2 className="text-2xl font-bold capitalize">Ignacio Navarro</h2>
             <h3 className="py-2 text-lg capitalize">{t("CONTACT_ROLE")}</h3>
             <p className="px-6 py-2 text-center normal-case">
@@ -150,7 +150,7 @@ const Contact = () => {
             </form>
           </div>
         </div>
-        <div className="flex justify-center py-10 lg:py-0 lg:pt-6">
+        <div className="flex justify-center py-16 lg:py-0 lg:pt-6">
           <Link href="/#home" scroll={false}>
             <div className="rounded-full p-6 shadow-sm shadow-gray-400 transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 hover:shadow-md hover:shadow-[#FC5185] dark:hover:shadow-[#30E3CA]">
               <HiOutlineChevronDoubleUp size={30} />
