@@ -193,7 +193,7 @@ const Navbar = ({ showSocials = true }) => {
             <li className="ml-[-100px] flex h-[60px] w-[160px] items-center justify-between bg-[#E68523] duration-300 hover:ml-0">
               <Link
                 className="mr-4 flex w-full items-center justify-between text-gray-300"
-                href="/pdfs/cv-inp.pdf"
+                href={t("CV")}
                 rel="noopener noreferrer"
                 target="_blank"
               >

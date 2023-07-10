@@ -58,7 +58,8 @@ const Contact = () => {
               </Link>
               <Link
                 className="m-2 transform rounded-full p-6 shadow-sm shadow-gray-400 transition duration-150 ease-in-out hover:-translate-y-1 hover:scale-110 hover:shadow-md hover:shadow-[#FC5185] focus:border-transparent focus:outline-none focus:ring-2 focus:ring-[#FC5185] dark:hover:shadow-[#30E3CA] dark:focus:ring-[#30E3CA]"
-                href="/pdfs/cv-inp.pdf"
+                href={t("CV")}
+                locale={false}
                 rel="noopener noreferrer"
                 target="_blank"
               >

@@ -78,7 +78,7 @@ const index = () => {
 
         <div className="col-span-4 rounded-xl py-4 shadow-sm shadow-gray-400 md:col-span-1">
           <div className="p-2">
-            <p className="pb-2 text-center font-bold">
+            <p className="pb-2 text-center font-bold capitalize">
               {t("PROJECT_TECHNOLOGIES")}
             </p>
             <div className="grid grid-cols-3 justify-end md:w-full md:grid-cols-1 md:pl-4 lg:pl-20">
@@ -101,7 +101,7 @@ const index = () => {
           </div>
         </div>
         <Link href="/#work">
-          <p className="dark:hover:text-[#30E3CA cursor-pointer capitalize underline hover:text-[#FC5185]">
+          <p className="cursor-pointer capitalize underline hover:text-[#FC5185] dark:hover:text-[#30E3CA]">
             {t("PROJECT_BACK")}
           </p>
         </Link>
