@@ -7,6 +7,8 @@ import { FaBars, FaTimes, FaLinkedin, FaGithub } from "react-icons/fa";
 import { HiOutlineMail } from "react-icons/hi";
 import { BsFillPersonLinesFill } from "react-icons/bs";
 import { useTranslation } from "next-i18next";
+import { useRouter } from "next/router";
+import { usePathname } from "next/navigation";
 
 const Navbar = ({ showSocials = true }) => {
   const [nav, setNav] = useState(false);
@@ -15,6 +17,17 @@ const Navbar = ({ showSocials = true }) => {
   const { resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
   const { t } = useTranslation();
+  const router = useRouter();
+  const { locale } = router;
+  const pathname = usePathname();
+
+  const handleChangeLanguage = (e) => {
+    const currentUrl = window.location.href.split("#");
+    let pathExtra = currentUrl.length > 1 ? "#" + currentUrl.at(-1) : "";
+    router.push(`${pathname}${pathExtra}`, null, {
+      locale: `${e.target.value}`,
+    });
+  };
 
   useEffect(() => {
     setMounted(true);
@@ -79,6 +92,10 @@ const Navbar = ({ showSocials = true }) => {
             {t("CONTACT")}
           </li>
         </Link>
+        <select onChange={handleChangeLanguage} defaultValue={locale}>
+          <option value="en">EN</option>
+          <option value="es">ES</option>
+        </select>
         {mounted && <ThemeBtn />}
       </ul>
 
