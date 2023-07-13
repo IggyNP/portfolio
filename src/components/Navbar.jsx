@@ -4,6 +4,7 @@ import Image from "next/image";
 import ThemeBtn from "./ThemeBtn";
 import { useTheme } from "next-themes";
 import { FaBars, FaTimes, FaLinkedin, FaGithub } from "react-icons/fa";
+import { useSearchParams } from "next/navigation";
 import { HiOutlineMail } from "react-icons/hi";
 import { BsFillPersonLinesFill } from "react-icons/bs";
 import { useTranslation } from "next-i18next";
@@ -18,16 +19,27 @@ const Navbar = ({ showSocials = true }) => {
   const [mounted, setMounted] = useState(false);
   const { t } = useTranslation();
   const router = useRouter();
-  const { locale } = router;
-  const pathname = usePathname();
+  const { pathname, asPath, query, locale } = router;
+  const searchParams = useSearchParams();
+  // const queryKeys = Object.keys(query);
+  // const queryFormated = queryKeys.reduce((acc, objQuery, index, array) => {
+  //   let and = index === 0 ? "" : "&";
+  //   return acc + and + `${objQuery}=${query[objQuery]}`;
+  // }, "?");
+
+  // const urlTagID = (name)=> `/#${name}${queryFormated}`
 
   const handleChangeLanguage = (e) => {
-    const currentUrl = window.location.href.split("#");
-    let pathExtra = currentUrl.length > 1 ? "#" + currentUrl.at(-1) : "";
-    router.push(`${pathname}${pathExtra}`, null, {
-      locale: `${e.target.value}`,
+    router.push({ pathname, query }, asPath, {
+      locale: e.target.value,
     });
   };
+
+  // const sectionTo = (name) => {
+  //   const paramsURL = searchParams.toString();
+  //   console.log("path");
+  //   router.push(`?${paramsURL}#${name}`);
+  // };
 
   useEffect(() => {
     setMounted(true);
@@ -49,7 +61,7 @@ const Navbar = ({ showSocials = true }) => {
     <div className="fixed z-50 flex h-[70px] w-full items-center justify-between bg-[#f8f8f8] px-5 text-[#191825] shadow-md shadow-[#040c16] dark:bg-[#191825] dark:text-gray-300 md:px-10">
       <div className="flex w-full items-center justify-between">
         {mounted && (
-          <Link href="/#home" scroll={false}>
+          <Link href="#home" scroll={false}>
             <Image
               src={
                 resolvedTheme === "dark"
@@ -67,27 +79,34 @@ const Navbar = ({ showSocials = true }) => {
       {/* menu */}
 
       <ul className="hidden md:flex">
-        <Link href="/#home" scroll={false}>
+        <Link href={`#home`} scroll={false}>
           <li className="ml-10 border-b-2 border-transparent text-sm uppercase hover:border-[#FC5185] dark:hover:border-[#30E3CA]">
             {t("HOME")}
           </li>
         </Link>
-        <Link href="/#about" scroll={false}>
-          <li className="ml-10 border-b-2 border-transparent text-sm uppercase hover:border-[#FC5185] dark:hover:border-[#30E3CA]">
-            {t("ABOUT")}
-          </li>
-        </Link>
-        <Link href="/#skills" scroll={false}>
-          <li className="ml-10 border-b-2 border-transparent text-sm uppercase hover:border-[#FC5185] dark:hover:border-[#30E3CA]">
-            Skills
-          </li>
-        </Link>
-        <Link href="/#work" scroll={false}>
+        <div
+          onClick={() => {
+            sectionTo("#about");
+          }}
+          scroll={false}
+          className="ml-10 cursor-pointer border-b-2 border-transparent text-sm uppercase hover:border-[#FC5185] dark:hover:border-[#30E3CA]"
+        >
+          {t("ABOUT")}
+        </div>
+
+        <div
+          onClick={() => sectionTo("#skills")}
+          scroll={false}
+          className="ml-10 cursor-pointer border-b-2 border-transparent text-sm uppercase hover:border-[#FC5185] dark:hover:border-[#30E3CA]"
+        >
+          Skills
+        </div>
+        <Link href={`#work`} scroll={false}>
           <li className="ml-10 border-b-2 border-transparent text-sm uppercase hover:border-[#FC5185] dark:hover:border-[#30E3CA]">
             {t("WORK")}
           </li>
         </Link>
-        <Link href="/#contact" scroll={false}>
+        <Link href="#contact" scroll={false}>
           <li className="mx-10 border-b-2 border-transparent text-sm uppercase hover:border-[#FC5185] dark:hover:border-[#30E3CA]">
             {t("CONTACT")}
           </li>
