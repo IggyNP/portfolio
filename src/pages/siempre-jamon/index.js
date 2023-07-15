@@ -48,7 +48,7 @@ const index = () => {
           <h2 className="font-bol py-2 text-3xl capitalize">
             {t("PROJECT_T2")}
           </h2>
-          <p className="capitalize">{t("SJ_OVERVIEW")}</p>
+          <p className="normal-case">{t("SJ_OVERVIEW")}</p>
           <div className="flex items-center justify-center pt-6 lg:pt-10">
             <Link
               href="https://github.com/IggyNP/siempre-jamon-store"

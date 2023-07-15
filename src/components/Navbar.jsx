@@ -4,12 +4,10 @@ import Image from "next/image";
 import ThemeBtn from "./ThemeBtn";
 import { useTheme } from "next-themes";
 import { FaBars, FaTimes, FaLinkedin, FaGithub } from "react-icons/fa";
-import { useSearchParams } from "next/navigation";
 import { HiOutlineMail } from "react-icons/hi";
 import { BsFillPersonLinesFill } from "react-icons/bs";
 import { useTranslation } from "next-i18next";
 import { useRouter } from "next/router";
-import { usePathname } from "next/navigation";
 
 const Navbar = ({ showSocials = true }) => {
   const [nav, setNav] = useState(false);
@@ -19,27 +17,15 @@ const Navbar = ({ showSocials = true }) => {
   const [mounted, setMounted] = useState(false);
   const { t } = useTranslation();
   const router = useRouter();
-  const { pathname, asPath, query, locale } = router;
-  const searchParams = useSearchParams();
-  // const queryKeys = Object.keys(query);
-  // const queryFormated = queryKeys.reduce((acc, objQuery, index, array) => {
-  //   let and = index === 0 ? "" : "&";
-  //   return acc + and + `${objQuery}=${query[objQuery]}`;
-  // }, "?");
-
-  // const urlTagID = (name)=> `/#${name}${queryFormated}`
+  const { pathname, locale } = router;
 
   const handleChangeLanguage = (e) => {
-    router.push({ pathname, query }, asPath, {
-      locale: e.target.value,
+    const currentUrl = window.location.href.split("#");
+    let pathExtra = currentUrl.length > 1 ? "#" + currentUrl.at(-1) : "";
+    router.push(`${pathname}${pathExtra}`, null, {
+      locale: `${e.target.value}`,
     });
   };
-
-  // const sectionTo = (name) => {
-  //   const paramsURL = searchParams.toString();
-  //   console.log("path");
-  //   router.push(`?${paramsURL}#${name}`);
-  // };
 
   useEffect(() => {
     setMounted(true);
@@ -79,34 +65,32 @@ const Navbar = ({ showSocials = true }) => {
       {/* menu */}
 
       <ul className="hidden md:flex">
-        <Link href={`#home`} scroll={false}>
+        <Link href="/#home" scroll={false}>
           <li className="ml-10 border-b-2 border-transparent text-sm uppercase hover:border-[#FC5185] dark:hover:border-[#30E3CA]">
             {t("HOME")}
           </li>
         </Link>
-        <div
-          onClick={() => {
-            sectionTo("#about");
-          }}
+        <Link
+          href="/#about"
           scroll={false}
           className="ml-10 cursor-pointer border-b-2 border-transparent text-sm uppercase hover:border-[#FC5185] dark:hover:border-[#30E3CA]"
         >
           {t("ABOUT")}
-        </div>
+        </Link>
 
-        <div
-          onClick={() => sectionTo("#skills")}
+        <Link
+          href="/#skills"
           scroll={false}
           className="ml-10 cursor-pointer border-b-2 border-transparent text-sm uppercase hover:border-[#FC5185] dark:hover:border-[#30E3CA]"
         >
           Skills
-        </div>
-        <Link href={`#work`} scroll={false}>
+        </Link>
+        <Link href="/#work" scroll={false}>
           <li className="ml-10 border-b-2 border-transparent text-sm uppercase hover:border-[#FC5185] dark:hover:border-[#30E3CA]">
             {t("WORK")}
           </li>
         </Link>
-        <Link href="#contact" scroll={false}>
+        <Link href="/#contact" scroll={false}>
           <li className="mx-10 border-b-2 border-transparent text-sm uppercase hover:border-[#FC5185] dark:hover:border-[#30E3CA]">
             {t("CONTACT")}
           </li>
