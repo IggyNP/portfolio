@@ -16,7 +16,7 @@ const LocaleBtn = () => {
   return (
     <div>
       <select
-        className="mx-4 flex cursor-pointer items-center border-none bg-transparent px-1 align-middle transition duration-150 ease-in-out hover:scale-125 focus:outline-none"
+        className="flex cursor-pointer items-center border-none bg-transparent px-1 align-middle transition duration-150 ease-in-out hover:scale-125 focus:outline-none"
         onChange={handleChangeLanguage}
         defaultValue={locale}
       >
