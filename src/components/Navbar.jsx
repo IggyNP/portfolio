@@ -7,7 +7,7 @@ import { FaBars, FaTimes, FaLinkedin, FaGithub } from "react-icons/fa";
 import { HiOutlineMail } from "react-icons/hi";
 import { BsFillPersonLinesFill } from "react-icons/bs";
 import { useTranslation } from "next-i18next";
-import { useRouter } from "next/router";
+import LocaleBtn from "./LocaleBtn";
 
 const Navbar = ({ showSocials = true }) => {
   const [nav, setNav] = useState(false);
@@ -16,16 +16,6 @@ const Navbar = ({ showSocials = true }) => {
   const { resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
   const { t } = useTranslation();
-  const router = useRouter();
-  const { pathname, locale } = router;
-
-  const handleChangeLanguage = (e) => {
-    const currentUrl = window.location.href.split("#");
-    let pathExtra = currentUrl.length > 1 ? "#" + currentUrl.at(-1) : "";
-    router.push(`${pathname}${pathExtra}`, null, {
-      locale: `${e.target.value}`,
-    });
-  };
 
   useEffect(() => {
     setMounted(true);
@@ -66,14 +56,14 @@ const Navbar = ({ showSocials = true }) => {
 
       <ul className="hidden md:flex">
         <Link href="/#home" scroll={false}>
-          <li className="ml-10 border-b-2 border-transparent text-sm uppercase hover:border-[#FC5185] dark:hover:border-[#30E3CA]">
+          <li className="mx-5 border-b-2 border-transparent text-sm uppercase hover:border-[#FC5185] dark:hover:border-[#30E3CA]">
             {t("HOME")}
           </li>
         </Link>
         <Link
           href="/#about"
           scroll={false}
-          className="ml-10 cursor-pointer border-b-2 border-transparent text-sm uppercase hover:border-[#FC5185] dark:hover:border-[#30E3CA]"
+          className="mx-5 cursor-pointer border-b-2 border-transparent text-sm uppercase hover:border-[#FC5185] dark:hover:border-[#30E3CA]"
         >
           {t("ABOUT")}
         </Link>
@@ -81,25 +71,22 @@ const Navbar = ({ showSocials = true }) => {
         <Link
           href="/#skills"
           scroll={false}
-          className="ml-10 cursor-pointer border-b-2 border-transparent text-sm uppercase hover:border-[#FC5185] dark:hover:border-[#30E3CA]"
+          className="mx-5 cursor-pointer border-b-2 border-transparent text-sm uppercase hover:border-[#FC5185] dark:hover:border-[#30E3CA]"
         >
           Skills
         </Link>
         <Link href="/#work" scroll={false}>
-          <li className="ml-10 border-b-2 border-transparent text-sm uppercase hover:border-[#FC5185] dark:hover:border-[#30E3CA]">
+          <li className="mx-5 border-b-2 border-transparent text-sm uppercase hover:border-[#FC5185] dark:hover:border-[#30E3CA]">
             {t("WORK")}
           </li>
         </Link>
         <Link href="/#contact" scroll={false}>
-          <li className="mx-10 border-b-2 border-transparent text-sm uppercase hover:border-[#FC5185] dark:hover:border-[#30E3CA]">
+          <li className="mx-5 border-b-2 border-transparent text-sm uppercase hover:border-[#FC5185] dark:hover:border-[#30E3CA]">
             {t("CONTACT")}
           </li>
         </Link>
-        <select onChange={handleChangeLanguage} defaultValue={locale}>
-          <option value="en">EN</option>
-          <option value="es">ES</option>
-        </select>
         {mounted && <ThemeBtn />}
+        <LocaleBtn />
       </ul>
 
       {/* hamburger */}
@@ -169,6 +156,10 @@ const Navbar = ({ showSocials = true }) => {
               {t("CONTACT")}
             </Link>
             <div className="py-6">{mounted && <ThemeBtn />}</div>
+            <div className="flex w-full items-center justify-center py-6 align-middle">
+              {t("LANGUAGE")}
+              {mounted && <LocaleBtn />}
+            </div>
           </ul>
         </div>
       </div>
