@@ -37,7 +37,7 @@ const Navbar = ({ showSocials = true }) => {
     <div className="fixed z-50 flex h-[70px] w-full items-center justify-between bg-[#f8f8f8] px-5 text-[#191825] shadow-md shadow-[#040c16] dark:bg-[#191825] dark:text-gray-300 md:px-10">
       <div className="flex w-full items-center justify-between">
         {mounted && (
-          <Link href="#home" scroll={false}>
+          <Link href="/#home" scroll={false}>
             <Image
               src={
                 resolvedTheme === "dark"
