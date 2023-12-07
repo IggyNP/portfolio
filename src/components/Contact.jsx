@@ -11,7 +11,7 @@ import { useTranslation } from "next-i18next";
 const Contact = () => {
   const { t } = useTranslation();
   return (
-    <div id="contact" className="m-auto flex h-full w-full px-6">
+    <div id="contact" className="m-auto flex h-screen w-full px-6 lg:pt-40">
       <div className="m-auto min-h-full w-full max-w-[1240px] px-2 pt-16">
         <div className="flex flex-col items-center justify-center pb-10">
           <h1 className="inline border-b-4 border-[#FC5185] pt-6 text-4xl font-bold capitalize dark:border-[#30E3CA]">
@@ -150,7 +150,7 @@ const Contact = () => {
             </form>
           </div>
         </div>
-        <div className="flex justify-center py-16 lg:py-0 lg:pt-6">
+        <div className="flex justify-center py-16 lg:py-4 lg:pt-6">
           <Link href="/#home" scroll={false}>
             <div className="rounded-full p-6 shadow-sm shadow-gray-400 transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 hover:shadow-md hover:shadow-[#FC5185] dark:hover:shadow-[#30E3CA]">
               <HiOutlineChevronDoubleUp size={30} />
