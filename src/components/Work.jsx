@@ -4,6 +4,7 @@ import siempreJamon from "public/images/siempre-jamon.png";
 import portfolio from "public/images/portfolio.png";
 import calculator from "public/images/calculator.png";
 import weatherApp from "public/images/weather-app.png";
+import ammde from "public/images/ammde.png";
 
 const Work = () => {
   return (
@@ -19,13 +20,13 @@ const Work = () => {
             title="Siempre Jamón"
             backgroundImg={siempreJamon}
             projectUrl="/siempre-jamon"
-            tech="Next.js | Tailwind CSS"
+            tech="React JS | Next.js | Tailwind CSS"
           />
           <ProjectItem
             title="My Portfolio"
             backgroundImg={portfolio}
             projectUrl="/portfolio"
-            tech="Next.js | Tailwind CSS"
+            tech="React JS | Next.js | Tailwind CSS"
           />
           <ProjectItem
             title="Calculator App"
@@ -38,6 +39,12 @@ const Work = () => {
             backgroundImg={weatherApp}
             projectUrl="/weather-app"
             tech="React JS | Tailwind CSS"
+          />
+          <ProjectItem
+            title="AMMDE"
+            backgroundImg={ammde}
+            projectUrl="/ammde"
+            tech="Wordpress | Elementor"
           />
         </div>
       </div>
