@@ -81,16 +81,16 @@ const index = () => {
             </p>
             <div className="grid grid-cols-3 justify-end md:w-full md:grid-cols-1 md:pl-4 lg:pl-20">
               <p className="flex items-center py-2 pl-2 capitalize text-gray-600">
-                <RiRadioButtonFill size={15} className="pr-1" /> react
+                <RiRadioButtonFill size={15} className="pr-1" /> React
               </p>
               <p className="flex items-center py-2 pl-2 text-gray-600">
                 <RiRadioButtonFill size={15} className="pr-1" /> CSS3
               </p>
               <p className="flex items-center py-2 pl-2 capitalize text-gray-600">
-                <RiRadioButtonFill size={15} className="pr-1" /> javascript
+                <RiRadioButtonFill size={15} className="pr-1" /> Javascript
               </p>
               <p className="flex items-center py-2 pl-2 capitalize text-gray-600">
-                <RiRadioButtonFill size={15} className="pr-1" /> netlify
+                <RiRadioButtonFill size={15} className="pr-1" /> Netlify
               </p>
             </div>
           </div>

@@ -71,13 +71,13 @@ const index = () => {
             </p>
             <div className="grid grid-cols-3 justify-end md:w-full md:grid-cols-1 md:pl-4 lg:pl-20">
               <p className="flex items-center py-2 pl-2 capitalize text-gray-600">
-                <RiRadioButtonFill size={15} className="pr-1" /> wordpress
+                <RiRadioButtonFill size={15} className="pr-1" /> Wordpress
               </p>
               <p className="flex items-center py-2 pl-2 text-gray-600">
-                <RiRadioButtonFill size={15} className="pr-1" /> elementor
+                <RiRadioButtonFill size={15} className="pr-1" /> Elementor
               </p>
               <p className="flex items-center py-2 pl-2 capitalize text-gray-600">
-                <RiRadioButtonFill size={15} className="pr-1" /> css
+                <RiRadioButtonFill size={15} className="pr-1" /> CSS
               </p>
             </div>
           </div>

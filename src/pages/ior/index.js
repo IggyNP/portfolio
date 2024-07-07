@@ -2,18 +2,18 @@ import React from "react";
 import Head from "next/head";
 import Navbar from "@/components/Navbar";
 import Image from "next/image";
-import WeatherApp from "public/images/weather-app.png";
+import ior from "public/images/ior.png";
 import { RiRadioButtonFill } from "react-icons/ri";
 import Link from "next/link";
-import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 const index = () => {
   const { t } = useTranslation();
   return (
     <>
       <Head>
-        <title>IggyNP | Weather App</title>
+        <title>IggyNP | IOR</title>
       </Head>
       <Navbar showSocials={false} />
 
@@ -26,16 +26,14 @@ const index = () => {
             className="absolute z-0"
             fill
             style={{ objectFit: "cover" }}
-            src={WeatherApp}
+            src={ior}
             alt="/"
           />
           <div className="absolute bottom-8 left-0 right-0 z-10 flex flex-col items-center justify-center">
             {" "}
             <div className="p-2 text-white">
-              <h2 className="py-2 text-center text-3xl">Weather App</h2>
-              <h3 className="text-center text-xl">
-                React / Tailwind / Rapid API
-              </h3>
+              <h2 className="py-2 text-center text-3xl">IOR</h2>
+              <h3 className="text-center text-xl">Wordpress / Elementor</h3>
             </div>
           </div>
         </div>
@@ -49,26 +47,16 @@ const index = () => {
           <h2 className="font-bol py-2 text-3xl capitalize">
             {t("PROJECT_T2")}
           </h2>
-          <p>{t("WEATHER_OVERVIEW")}</p>
+          <p>{t("IOR_OVERVIEW")}</p>
           <div className="flex items-center justify-center pt-6 lg:pt-10">
             <Link
-              href="https://github.com/IggyNP/weather-app"
+              href="https://oncorosell.com"
               target="_blank"
               rel="noreferrer noopener"
               className="px-4"
             >
               <button className="hover: rounded border-2 bg-[#191825] bg-transparent px-6 py-2 uppercase shadow-md transition duration-150 ease-in-out hover:border-[#FC5185] hover:bg-[#FC5185] hover:text-white focus:border-transparent focus:outline-none focus:ring-2 focus:ring-[#FC5185] dark:border-[#ccd6f6] dark:text-[#ccd6f6] dark:hover:border-[#30E3CA] dark:hover:bg-[#30E3CA] dark:hover:text-[#191825] dark:focus:ring-[#30E3CA]">
-                {t("PROJECT_CODE")}
-              </button>
-            </Link>
-            <Link
-              href="/"
-              target="_blank"
-              rel="noreferrer noopener"
-              className="px-4"
-            >
-              <button className="hover: rounded border-2 bg-[#191825] bg-transparent px-6 py-2 uppercase shadow-md transition duration-150 ease-in-out hover:border-[#FC5185] hover:bg-[#FC5185] hover:text-white focus:border-transparent focus:outline-none focus:ring-2 focus:ring-[#FC5185] dark:border-[#ccd6f6] dark:text-[#ccd6f6] dark:hover:border-[#30E3CA] dark:hover:bg-[#30E3CA] dark:hover:text-[#191825] dark:focus:ring-[#30E3CA]">
-                demo
+                web
               </button>
             </Link>
           </div>
@@ -78,24 +66,21 @@ const index = () => {
 
         <div className="col-span-4 rounded-xl py-4 shadow-sm shadow-gray-400 md:col-span-1">
           <div className="p-2">
-            <p className="pb-2 text-center font-bold capitalize">
+            <p className="pb-2 text-center font-bold">
               {t("PROJECT_TECHNOLOGIES")}
             </p>
             <div className="grid grid-cols-3 justify-end md:w-full md:grid-cols-1 md:pl-4 lg:pl-20">
               <p className="flex items-center py-2 pl-2 capitalize text-gray-600">
-                <RiRadioButtonFill size={15} className="pr-1" /> React
+                <RiRadioButtonFill size={15} className="pr-1" /> Wordpress
+              </p>
+              <p className="flex items-center py-2 pl-2 text-gray-600">
+                <RiRadioButtonFill size={15} className="pr-1" /> Elementor
               </p>
               <p className="flex items-center py-2 pl-2 capitalize text-gray-600">
-                <RiRadioButtonFill size={15} className="pr-1" /> Tailwind CSS
+                <RiRadioButtonFill size={15} className="pr-1" /> CSS
               </p>
               <p className="flex items-center py-2 pl-2 capitalize text-gray-600">
-                <RiRadioButtonFill size={15} className="pr-1" /> Javascript
-              </p>
-              <p className="flex items-center py-2 pl-2 capitalize text-gray-600">
-                <RiRadioButtonFill size={15} className="pr-1" /> Rapid API
-              </p>
-              <p className="flex items-center py-2 pl-2 capitalize text-gray-600">
-                <RiRadioButtonFill size={15} className="pr-1" /> Netlify
+                <RiRadioButtonFill size={15} className="pr-1" /> jQuery
               </p>
             </div>
           </div>

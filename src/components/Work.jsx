@@ -5,10 +5,11 @@ import portfolio from "public/images/portfolio.png";
 import calculator from "public/images/calculator.png";
 import weatherApp from "public/images/weather-app.png";
 import ammde from "public/images/ammde.png";
+import ior from "public/images/ior.png";
 
 const Work = () => {
   return (
-    <div id="work" className="h-full w-full lg:h-screen">
+    <div id="work" className="w-full">
       <div className="mx-auto max-w-[1240px] px-2 py-20">
         <div className="flex flex-col items-center justify-center pb-10">
           <h1 className="inline border-b-4 border-[#FC5185] pt-6 text-4xl font-bold dark:border-[#30E3CA]">
@@ -39,6 +40,12 @@ const Work = () => {
             backgroundImg={weatherApp}
             projectUrl="/weather-app"
             tech="React JS | Tailwind CSS"
+          />
+          <ProjectItem
+            title="IOR"
+            backgroundImg={ior}
+            projectUrl="/ior"
+            tech="Wordpress | Elementor"
           />
           <ProjectItem
             title="AMMDE"
