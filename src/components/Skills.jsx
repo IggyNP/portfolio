@@ -80,6 +80,39 @@ const Skills = () => {
             </div>
             <p className="my-4 capitalize">tailwind</p>
           </div>
+          <div className="shadow-md shadow-[#040c16] duration-500 hover:scale-110">
+            <div className="flex justify-center pt-4">
+              <Image
+                src="/images/git.png"
+                alt="<git icon"
+                width="80"
+                height="80"
+              />
+            </div>
+            <p className="my-4 capitalize">git</p>
+          </div>
+          <div className="shadow-md shadow-[#040c16] duration-500 hover:scale-110">
+            <div className="flex justify-center pt-4">
+              <Image
+                src="/images/wordpress.png"
+                alt="<wordpress icon"
+                width="80"
+                height="80"
+              />
+            </div>
+            <p className="my-4 capitalize">wordpress</p>
+          </div>
+          <div className="shadow-md shadow-[#040c16] duration-500 hover:scale-110">
+            <div className="flex justify-center pt-4">
+              <Image
+                src="/images/elementor.webp"
+                alt="<elementor icon"
+                width="80"
+                height="80"
+              />
+            </div>
+            <p className="my-4 capitalize">elementor</p>
+          </div>
         </div>
       </div>
     </div>
