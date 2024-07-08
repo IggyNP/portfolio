@@ -34,5 +34,8 @@
   "AMMDE_OVERVIEW": "AMMDE, Asociación Multisectorial de Mujeres Directivas y Empresarias, es un sitio web que desarrollé para el cliente. El sitio web está construido utilizando WordPress y Elementor, proporcionando una interfaz fácil de usar para que el cliente gestione el contenido. El sitio web muestra la misión de la asociación, eventos y beneficios para los miembros, y está diseñado para atraer nuevos miembros y promover la organización.",
   "CV": "https://iggynp.netlify.app/pdfs/cv-inp-es.pdf",
   "IOR_OVERVIEW": "Este es el sitio web que desarrollé para el Instituto Oncológico Dr. Rosell. El sitio está construido utilizando WordPress y Elementor, y se ha mejorado con jQuery personalizado en algunas secciones para mostrar y ocultar contenido de manera dinámica. El sitio web presenta los servicios del instituto, su equipo médico y sus instalaciones, y está diseñado para atraer nuevos pacientes y proporcionar información a los actuales.",
-  "DIRVELANDM_OVERVIEW": "Este es el sitio web que desarrollé para Driveland Motorsport. Construido utilizando WordPress y Elementor, el sitio presenta un diseño elegante para mostrar los servicios de la empresa, su equipo y eventos. Está diseñado para atraer nuevos clientes y proporcionar información detallada a los entusiastas del automovilismo."
+  "DIRVELANDM_OVERVIEW": "Este es el sitio web que desarrollé para Driveland Motorsport. Construido utilizando WordPress y Elementor, el sitio presenta un diseño elegante para mostrar los servicios de la empresa, su equipo y eventos. Está diseñado para atraer nuevos clientes y proporcionar información detallada a los entusiastas del automovilismo.",
+  "SUCCESS_TITLE": "Éxito",
+  "THANKS_FOR_YOUR_MESSAGE": "Gracias por tu mensaje!",
+  "SUCCESS_MESSAGE": "Me pondré en contacto contigo lo antes posible."
 }
