@@ -30,7 +30,6 @@ const index = () => {
             alt="/"
           />
           <div className="absolute bottom-8 left-0 right-0 z-10 flex flex-col items-center justify-center">
-            {" "}
             <div className="p-2 text-white">
               <h2 className="py-2 text-center text-3xl">IOR</h2>
               <h3 className="text-center text-xl">Wordpress / Elementor</h3>

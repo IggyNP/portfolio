@@ -7,6 +7,7 @@ import weatherApp from "public/images/weather-app.png";
 import ammde from "public/images/ammde.png";
 import ior from "public/images/ior.png";
 import drivelandMotorsport from "public/images/drivelandMotorsport.png";
+import weTangible from "public/images/weTangible.png";
 
 const Work = () => {
   return (
@@ -58,6 +59,12 @@ const Work = () => {
             title="Driveland Motorsport"
             backgroundImg={drivelandMotorsport}
             projectUrl="/driveland-motorsport"
+            tech="Wordpress | Elementor"
+          />
+          <ProjectItem
+            title="We Tangible"
+            backgroundImg={weTangible}
+            projectUrl="/we-tangible"
             tech="Wordpress | Elementor"
           />
         </div>
