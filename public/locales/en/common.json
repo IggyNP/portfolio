@@ -13,6 +13,7 @@
   "ABOUT_DESCRIPTION": "After completing my MBA in International Management, I discovered my passion and began self-learning programming. Since then, I have honed my skills in HTML, CSS, JavaScript, and React, and have completed several projects to apply my knowledge. My experience in business and digital marketing gives me a unique perspective on user experience and allows me to create visually appealing and effective websites.",
   "SKILLS_DESCRIPTION": "These are some of the technologies I've worked with",
   "WORK_BUTTON": "more info",
+  "WORK_TITLE": "Work",
   "CONTACT_TITLE": "contact",
   "CONTACT_ROLE": "frontend developer",
   "CONTACT_DESCRIPTION": "Ready to take on exciting projects. let's connect and discuss how I can contribute to your team!",
@@ -38,5 +39,6 @@
   "SUCCESS_TITLE": "Success",
   "THANKS_FOR_YOUR_MESSAGE": "Thank you for your message!",
   "SUCCESS_MESSAGE": "I'll get back to you as soon as possible.",
-  "WETANGIBLE_OVERVIEW": "This is the website I developed for WeTangible. Built using WordPress and Elementor, the site features a modern and engaging design to effectively present the company's innovative approach to experiential marketing. The website showcases WeTangible's diverse services, client projects, and team expertise. It is designed to attract potential clients by highlighting successful case studies and offering detailed insights into their unique marketing strategies."
+  "SOTOBP_OVERVIEW": "This is the website I developed for Soto Business Partners. Built using WordPress and Elementor, the site features a modern and clean design to effectively showcase the company's digital marketing consulting and advisory services. The website highlights Soto BP's areas of expertise, team members, and completed projects. It is designed to attract potential clients by emphasizing the company's experience and professionalism, and providing detailed information about their services.",
+  "OTHER_PROJECTS": "Other websites I've developed"
 }

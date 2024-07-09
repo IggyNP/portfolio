@@ -2,7 +2,7 @@ import React from "react";
 import Head from "next/head";
 import Navbar from "@/components/Navbar";
 import Image from "next/image";
-import weTangible from "public/images/weTangible.png";
+import sotoBp from "public/images/sotoBp.png";
 import { RiRadioButtonFill } from "react-icons/ri";
 import Link from "next/link";
 import { useTranslation } from "next-i18next";
@@ -13,7 +13,7 @@ const index = () => {
   return (
     <>
       <Head>
-        <title>IggyNP | We Tangible</title>
+        <title>IggyNP | Soto BP</title>
       </Head>
       <Navbar showSocials={false} />
 
@@ -26,12 +26,12 @@ const index = () => {
             className="absolute z-0"
             fill
             style={{ objectFit: "cover" }}
-            src={weTangible}
+            src={sotoBp}
             alt="/"
           />
           <div className="absolute bottom-8 left-0 right-0 z-10 flex flex-col items-center justify-center">
             <div className="p-2 text-white">
-              <h2 className="py-2 text-center text-3xl">We Tangible</h2>
+              <h2 className="py-2 text-center text-3xl">Soto BP</h2>
               <h3 className="text-center text-xl">Wordpress / Elementor</h3>
             </div>
           </div>
@@ -46,10 +46,10 @@ const index = () => {
           <h2 className="font-bol py-2 text-3xl capitalize">
             {t("PROJECT_T2")}
           </h2>
-          <p>{t("WETANGIBLE_OVERVIEW")}</p>
+          <p>{t("SOTOBP_OVERVIEW")}</p>
           <div className="flex items-center justify-center pt-6 lg:pt-10">
             <Link
-              href="https://wetangible.com"
+              href="https://sotobp.com"
               target="_blank"
               rel="noreferrer noopener"
               className="px-4"
@@ -77,6 +77,9 @@ const index = () => {
               </p>
               <p className="flex items-center py-2 pl-2 capitalize text-gray-600">
                 <RiRadioButtonFill size={15} className="pr-1" /> CSS
+              </p>
+              <p className="flex items-center py-2 pl-2 capitalize text-gray-600">
+                <RiRadioButtonFill size={15} className="pr-1" /> jQuery
               </p>
             </div>
           </div>

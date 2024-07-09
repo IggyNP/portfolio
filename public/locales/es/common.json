@@ -12,6 +12,7 @@
   "ABOUT_INTRO": "De gestión de negocios a desarrollo web",
   "ABOUT_DESCRIPTION": "Después de completar mi MBA en Gestión Internacional de la empresa, descubrí mi pasión y comencé a aprender programación por mi cuenta. Desde entonces, he perfeccionado mis habilidades en HTML, CSS, JavaScript y React, y he completado diferentes proyectos para aplicar mis conocimientos. Mi experiencia en negocios y marketing digital me brinda una perspectiva única sobre la experiencia del usuario y me permite crear sitios web visualmente atractivos y efectivos.",
   "SKILLS_DESCRIPTION": "Estas son algunas de las tecnologías que he utilizado:",
+  "WORK_TITLE": "Proyectos",
   "WORK_BUTTON": "más info",
   "CONTACT_TITLE": "contacto",
   "CONTACT_ROLE": "desarrollador frontend",
@@ -38,5 +39,6 @@
   "SUCCESS_TITLE": "Éxito",
   "THANKS_FOR_YOUR_MESSAGE": "Gracias por tu mensaje!",
   "SUCCESS_MESSAGE": "Me pondré en contacto contigo lo antes posible.",
-  "WETANGIBLE_OVERVIEW": "Este es el sitio web que desarrollé para WeTangible. Construido utilizando WordPress y Elementor, el sitio presenta un diseño moderno y atractivo para mostrar de manera efectiva el enfoque innovador de la empresa en marketing experiencial. El sitio web destaca los diversos servicios de WeTangible, los proyectos realizados para clientes y la experiencia del equipo. Está diseñado para atraer a potenciales clientes al resaltar casos de éxito y ofrecer información detallada sobre sus estrategias de marketing únicas."
+  "SOTOBP_OVERVIEW": "Este es el sitio web que desarrollé para Soto Business Partners. Construido utilizando WordPress y Elementor, el sitio presenta un diseño moderno y limpio para mostrar de manera efectiva los servicios de consultoría y asesoramiento de marketing digital de la empresa. El sitio web destaca las áreas de especialización de Soto BP, los miembros del equipo y los proyectos realizados. Está diseñado para atraer a potenciales clientes al resaltar la experiencia y profesionalismo de la empresa, y ofrecer información detallada sobre sus servicios.",
+  "OTHER_PROJECTS": "Otras webs que he desarrollado"
 }
