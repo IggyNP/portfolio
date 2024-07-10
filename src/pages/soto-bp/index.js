@@ -2,7 +2,7 @@ import React from "react";
 import Head from "next/head";
 import Navbar from "@/components/Navbar";
 import Image from "next/image";
-import sotoBp from "public/images/sotoBp.png";
+import sotoBp from "public/images/sotobp.png";
 import { RiRadioButtonFill } from "react-icons/ri";
 import Link from "next/link";
 import { useTranslation } from "next-i18next";
