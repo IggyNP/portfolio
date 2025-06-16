@@ -1,6 +1,5 @@
 import React from "react";
 import ProjectItem from "./ProjectItem";
-import siempreJamon from "public/images/siempre-jamon.png";
 import portfolio from "public/images/portfolio.png";
 import calculator from "public/images/calculator.png";
 import weatherApp from "public/images/weather-app.png";
@@ -22,12 +21,6 @@ const Work = () => {
           </h1>
         </div>
         <div className="grid gap-8 md:grid-cols-2">
-          <ProjectItem
-            title="Siempre Jamón"
-            backgroundImg={siempreJamon}
-            projectUrl="/siempre-jamon"
-            tech="React JS | Next.js | Tailwind CSS"
-          />
           <ProjectItem
             title="My Portfolio"
             backgroundImg={portfolio}
