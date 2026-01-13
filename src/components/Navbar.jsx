@@ -3,35 +3,20 @@ import Link from "next/link";
 import Image from "next/image";
 import ThemeBtn from "./ThemeBtn";
 import { useTheme } from "next-themes";
-import { FaBars, FaTimes, FaLinkedin, FaGithub } from "react-icons/fa";
-import { HiOutlineMail } from "react-icons/hi";
-import { BsFillPersonLinesFill } from "react-icons/bs";
+import { FaBars, FaTimes } from "react-icons/fa";
 import { useTranslation } from "next-i18next";
 import LocaleBtn from "./LocaleBtn";
 
-const Navbar = ({ showSocials = true }) => {
+const Navbar = () => {
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   const [nav, setNav] = useState(false);
   const handleClick = () => setNav(!nav);
-  const [hideSocials, setHideSocials] = useState(false);
   const { resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
   const { t } = useTranslation();
-
-  useEffect(() => {
-    setMounted(true);
-    const handleScroll = () => {
-      const triggerElement = document.getElementById("contact");
-      const triggerElementOffset = triggerElement?.offsetTop;
-      const currentScroll = window.pageYOffset;
-
-      currentScroll >= triggerElementOffset - 100
-        ? setHideSocials(true)
-        : setHideSocials(false);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   return (
     <div className="fixed z-50 flex h-[70px] w-full items-center justify-between bg-[#f8f8f8] px-5 text-[#191825] shadow-md shadow-[#040c16] dark:bg-[#191825] dark:text-gray-300 md:px-10">
@@ -163,58 +148,6 @@ const Navbar = ({ showSocials = true }) => {
           </ul>
         </div>
       </div>
-
-      {/* social icons */}
-      {!hideSocials && showSocials && (
-        <div
-          id="socials"
-          className="fixed left-0 top-[35%] hidden md:bottom-0 xl:flex xl:flex-col"
-        >
-          <ul>
-            <li className="ml-[-100px] flex h-[60px] w-[160px] bg-[#00A0DC] duration-300 hover:ml-0">
-              <Link
-                className="mr-4 flex w-full items-center justify-between text-gray-300"
-                href="https://www.linkedin.com/in/ignacio-navarro-poves/"
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                <p className="ml-4 capitalize">linkedin</p>{" "}
-                <FaLinkedin size={30} />
-              </Link>
-            </li>
-            <li className="ml-[-100px] flex h-[60px] w-[160px] items-center justify-between bg-[#313335] duration-300 hover:ml-0">
-              <Link
-                className="mr-4 flex w-full items-center justify-between text-gray-300"
-                href="https://github.com/IggyNP"
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                <p className="ml-4 capitalize">github</p> <FaGithub size={30} />
-              </Link>
-            </li>
-            <li className="ml-[-100px] flex h-[60px] w-[160px] items-center justify-between bg-[#DD5143] duration-300 hover:ml-0">
-              <Link
-                className="mr-4 flex w-full items-center justify-between text-gray-300"
-                href="mailto:ignacionp94@gmail.com"
-              >
-                <p className="ml-4 capitalize">email</p>{" "}
-                <HiOutlineMail size={30} />
-              </Link>
-            </li>
-            <li className="ml-[-100px] flex h-[60px] w-[160px] items-center justify-between bg-[#E68523] duration-300 hover:ml-0">
-              <Link
-                className="mr-4 flex w-full items-center justify-between text-gray-300"
-                href={t("CV")}
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                <p className="ml-4 capitalize">{t("RESUME")}</p>{" "}
-                <BsFillPersonLinesFill size={30} />
-              </Link>
-            </li>
-          </ul>
-        </div>
-      )}
     </div>
   );
 };

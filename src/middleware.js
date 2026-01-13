@@ -4,7 +4,7 @@ export function middleware(req) {
   const url = req.nextUrl;
   const { pathname } = url;
 
-  const maintenance = true;
+  const maintenance = false;
 
   // Permitir la página de mantenimiento y los assets estáticos
   if (

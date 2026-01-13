@@ -4,7 +4,7 @@ import { useTranslation } from "next-i18next";
 const About = () => {
   const { t } = useTranslation();
   return (
-    <div id="about" className="h-screen w-full px-6">
+    <div id="about" className="pb-36 w-full px-6">
       <div className="flex h-full w-full flex-col items-center justify-center text-center sm:text-justify">
         <div className="pb-6">
           <h1 className="inline border-b-4 border-[#FC5185] text-4xl font-bold capitalize dark:border-[#30E3CA]">

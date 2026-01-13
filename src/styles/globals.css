@@ -11,3 +11,7 @@
     @apply text-[#1f2937] dark:text-[#ccd6f6];
   }
 }
+
+.grecaptcha-badge {
+  visibility: hidden;
+}

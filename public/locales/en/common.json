@@ -6,7 +6,7 @@
   "LANGUAGE": "LANGUAGE:",
   "RESUME": "resume",
   "WELCOME_HELLO": "Hi! my name is",
-  "WELCOME_INFO": "a Frontend Developer.",
+  "WELCOME_INFO": "I build kickass websites one pixel at a time.",
   "WELCOME_BUTTON": "View work",
   "ABOUT_TITLE": "about",
   "ABOUT_INTRO": "Experienced business professional turned frontend developer.",
@@ -40,5 +40,10 @@
   "THANKS_FOR_YOUR_MESSAGE": "Thank you for your message!",
   "SUCCESS_MESSAGE": "I'll get back to you as soon as possible.",
   "SOTOBP_OVERVIEW": "This is the website I developed for Soto Business Partners. Built using WordPress and Elementor, the site features a modern and clean design to effectively showcase the company's digital marketing consulting and advisory services. The website highlights Soto BP's areas of expertise, team members, and completed projects. It is designed to attract potential clients by emphasizing the company's experience and professionalism, and providing detailed information about their services.",
-  "OTHER_PROJECTS": "Other websites I've developed"
+  "OTHER_PROJECTS": "Other websites I've developed",
+  "WEDDING_TEMPLATES_TITLE": "Wedding Templates",
+  "WEDDING_TEMPLATES_INTRO": "Create your perfect wedding website",
+  "WEDDING_TEMPLATES_DESCRIPTION": "Discover our customizable WordPress wedding templates, and if you want a unique touch, request our personalization service.",
+  "WEDDING_TEMPLATES_BUTTON": "Find out more",
+  "CONTACT_RECAPTCHA_INFO": "This site is protected by reCAPTCHA and the Google <privacyLink>Privacy Policy</privacyLink> and <termsLink>Terms of Service</termsLink> apply."
 }

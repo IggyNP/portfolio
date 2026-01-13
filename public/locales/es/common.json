@@ -5,8 +5,8 @@
   "CONTACT": "contacto",
   "LANGUAGE": "IDIOMA:",
   "RESUME": "currículum",
-  "WELCOME_HELLO": "¡hola! soy",
-  "WELCOME_INFO": "un desarrollador frontend.",
+  "WELCOME_HELLO": "¡Hola! soy",
+  "WELCOME_INFO": "Construyo webs cojonudas pixel a pixel.",
   "WELCOME_BUTTON": "Ver trabajo",
   "ABOUT_TITLE": "Sobre mí",
   "ABOUT_INTRO": "De gestión de negocios a desarrollo web",
@@ -40,5 +40,10 @@
   "THANKS_FOR_YOUR_MESSAGE": "Gracias por tu mensaje!",
   "SUCCESS_MESSAGE": "Me pondré en contacto contigo lo antes posible.",
   "SOTOBP_OVERVIEW": "Este es el sitio web que desarrollé para Soto Business Partners. Construido utilizando WordPress y Elementor, el sitio presenta un diseño moderno y limpio para mostrar de manera efectiva los servicios de consultoría y asesoramiento de marketing digital de la empresa. El sitio web destaca las áreas de especialización de Soto BP, los miembros del equipo y los proyectos realizados. Está diseñado para atraer a potenciales clientes al resaltar la experiencia y profesionalismo de la empresa, y ofrecer información detallada sobre sus servicios.",
-  "OTHER_PROJECTS": "Otras webs que he desarrollado"
+  "OTHER_PROJECTS": "Otras webs que he desarrollado",
+  "WEDDING_TEMPLATES_TITLE": "Plantillas para bodas",
+  "WEDDING_TEMPLATES_INTRO": "Crea la web de boda perfecta",
+  "WEDDING_TEMPLATES_DESCRIPTION": "Descubre nuestras plantillas WordPress personalizables y, si quieres un toque único, solicita nuestro servicio de personalización.",
+  "WEDDING_TEMPLATES_BUTTON": "Descubre más",
+  "CONTACT_RECAPTCHA_INFO": "Este sitio está protegido por reCAPTCHA y se aplican la <privacyLink>Política de Privacidad</privacyLink> y los <termsLink>Términos de Servicio</termsLink> de Google."
 }
