@@ -16,7 +16,7 @@ const DynamicAdjective = () => {
         setIndex((prev) => (prev + 1) % words.length);
         setFade(true); // fade in
       }, 300);
-    }, 2500);
+    }, 2000);
 
     return () => clearInterval(interval);
   }, [words]);
