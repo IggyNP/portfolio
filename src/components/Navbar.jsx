@@ -21,8 +21,10 @@ const Navbar = () => {
   return (
     <div className="fixed z-50 flex h-[70px] w-full items-center justify-between bg-[#f8f8f8] px-5 text-[#191825] shadow-md shadow-[#040c16] dark:bg-[#191825] dark:text-gray-300 md:px-10">
       <div className="flex w-full items-center justify-between">
+        {" "}
         {mounted && (
           <Link href="/#home" scroll={false}>
+            {" "}
             <Image
               src={
                 resolvedTheme === "dark"
@@ -30,45 +32,38 @@ const Navbar = () => {
                   : "/images/inp-b.png"
               }
               alt="INP's logo"
-              width="90"
-              height="90"
-            />
+              width="110"
+              height="110"
+            />{" "}
           </Link>
-        )}
+        )}{" "}
       </div>
 
       {/* menu */}
 
       <ul className="hidden md:flex">
         <Link href="/#home" scroll={false}>
-          <li className="mx-5 border-b-2 border-transparent text-sm uppercase hover:border-[#FC5185] dark:hover:border-[#30E3CA]">
-            {t("HOME")}
-          </li>
-        </Link>
-        <Link
-          href="/#about"
-          scroll={false}
-          className="mx-5 cursor-pointer border-b-2 border-transparent text-sm uppercase hover:border-[#FC5185] dark:hover:border-[#30E3CA]"
-        >
-          {t("ABOUT")}
+          <li className="nav-link mx-5 text-sm uppercase">{t("HOME")}</li>
         </Link>
 
-        <Link
-          href="/#skills"
-          scroll={false}
-          className="mx-5 cursor-pointer border-b-2 border-transparent text-sm uppercase hover:border-[#FC5185] dark:hover:border-[#30E3CA]"
-        >
-          Skills
+        <Link href="/#about" scroll={false}>
+          <li className="nav-link mx-5 cursor-pointer text-sm uppercase">
+            {t("ABOUT")}
+          </li>
         </Link>
+
+        <Link href="/#skills" scroll={false}>
+          <li className="nav-link mx-5 cursor-pointer text-sm uppercase">
+            Skills
+          </li>
+        </Link>
+
         <Link href="/#work" scroll={false}>
-          <li className="mx-5 border-b-2 border-transparent text-sm uppercase hover:border-[#FC5185] dark:hover:border-[#30E3CA]">
-            {t("WORK")}
-          </li>
+          <li className="nav-link mx-5 text-sm uppercase">{t("WORK")}</li>
         </Link>
+
         <Link href="/#contact" scroll={false}>
-          <li className="mx-5 border-b-2 border-transparent text-sm uppercase hover:border-[#FC5185] dark:hover:border-[#30E3CA]">
-            {t("CONTACT")}
-          </li>
+          <li className="nav-link mx-5 text-sm uppercase">{t("CONTACT")}</li>
         </Link>
         {mounted && <ThemeBtn />}
         <LocaleBtn />
