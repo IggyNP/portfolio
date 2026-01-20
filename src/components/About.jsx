@@ -43,7 +43,7 @@ const imageVariants = {
 };
 
 const About = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const { theme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
@@ -75,7 +75,7 @@ const About = () => {
       className="flex min-h-screen w-full items-center overflow-hidden px-6 py-20 transition-colors duration-300"
     >
       <motion.div
-        key={theme}
+        key={`${theme}-${i18n.language}`}
         className="mx-auto grid max-w-[1100px] items-center gap-12 md:grid-cols-5"
         variants={containerVariants}
         initial="hidden"

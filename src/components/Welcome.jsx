@@ -22,11 +22,10 @@ const itemVariants = {
 };
 
 const Welcome = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const { theme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
-  // Aseguramos el montaje para evitar errores de hidratación con el tema
   useEffect(() => {
     setMounted(true);
   }, []);
@@ -40,12 +39,8 @@ const Welcome = () => {
     >
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_30%,rgba(48,227,202,0.06),transparent_60%)]" />
 
-      {/* Al usar key={theme}, React desmonta y monta el componente 
-          cuando cambias de modo oscuro/claro, disparando la animación 
-          initial -> animate de forma natural y limpia.
-      */}
       <motion.div
-        key={theme}
+        key={`${theme}-${i18n.language}`}
         className="mx-auto flex max-w-[1000px] flex-col items-center px-8 text-center"
         variants={containerVariants}
         initial="hidden"
