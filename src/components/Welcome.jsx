@@ -1,14 +1,15 @@
 import Link from "next/link";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { HiArrowRight } from "react-icons/hi";
 import { useTranslation } from "next-i18next";
-import { motion, useAnimation } from "framer-motion";
+import { motion } from "framer-motion";
 import { useTheme } from "next-themes";
 import DynamicAdjective from "./DynamicAdjective";
 
 const containerVariants = {
-  hidden: {},
+  hidden: { opacity: 0 },
   visible: {
+    opacity: 1,
     transition: {
       staggerChildren: 0.12,
     },
@@ -22,32 +23,33 @@ const itemVariants = {
 
 const Welcome = () => {
   const { t } = useTranslation();
-  const controls = useAnimation();
   const { theme } = useTheme();
+  const [mounted, setMounted] = useState(false);
 
+  // Aseguramos el montaje para evitar errores de hidratación con el tema
   useEffect(() => {
-    // reinicia la animación cada vez que cambia el tema
-    // primero reseteamos a hidden, luego animamos visible
-    async function animate() {
-      await controls.set("hidden");
-      controls.start("visible");
-    }
-    animate();
-  }, [theme, controls]);
+    setMounted(true);
+  }, []);
+
+  if (!mounted) return null;
 
   return (
     <section
       id="home"
       className="relative flex h-screen w-full items-center justify-center"
     >
-      {/* capa decorativa */}
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_30%,rgba(48,227,202,0.06),transparent_60%)]" />
 
+      {/* Al usar key={theme}, React desmonta y monta el componente 
+          cuando cambias de modo oscuro/claro, disparando la animación 
+          initial -> animate de forma natural y limpia.
+      */}
       <motion.div
+        key={theme}
         className="mx-auto flex max-w-[1000px] flex-col items-center px-8 text-center"
         variants={containerVariants}
         initial="hidden"
-        animate={controls}
+        animate="visible"
       >
         <motion.p
           variants={itemVariants}

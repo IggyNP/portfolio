@@ -212,9 +212,27 @@ const Contact = () => {
                   />
                 </p>
 
-                <label className="flex items-start gap-3 text-sm">
-                  <input type="checkbox" name="privacy" className="mt-1" />
-                  <span>{t("CONTACT_PRIVACY_TEXT")}</span>
+                <label className="mt-2 flex items-start gap-3 text-sm">
+                  <input
+                    type="checkbox"
+                    name="privacy"
+                    className="mt-1 shrink-0"
+                  />
+                  <span className="leading-relaxed">
+                    <Trans
+                      i18nKey="CONTACT_PRIVACY_CONSENT"
+                      components={{
+                        privacyLink: (
+                          <a
+                            href="/privacy-policy"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="whitespace-nowrap underline hover:opacity-80"
+                          />
+                        ),
+                      }}
+                    />
+                  </span>
                 </label>
 
                 {privacyError && (

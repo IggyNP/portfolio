@@ -39,6 +39,7 @@
   "CONTACT_EMAIL": "email",
   "CONTACT_SUBJECT": "subject",
   "CONTACT_MESSAGE": "message",
+  "CONTACT_PRIVACY_CONSENT": "I agree to the processing of my data in accordance with the <privacyLink>Privacy Policy</privacyLink>.*",
   "CONTACT_SEND": "send message",
   "PROJECT_T1": "project",
   "PROJECT_T2": "overview",

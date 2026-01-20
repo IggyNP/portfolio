@@ -52,12 +52,6 @@ const Navbar = () => {
           </li>
         </Link>
 
-        <Link href="/#skills" scroll={false}>
-          <li className="nav-link mx-5 cursor-pointer text-sm uppercase">
-            Skills
-          </li>
-        </Link>
-
         <Link href="/#work" scroll={false}>
           <li className="nav-link mx-5 text-sm uppercase">{t("WORK")}</li>
         </Link>

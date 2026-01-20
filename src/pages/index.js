@@ -2,7 +2,6 @@ import Head from "next/head";
 import Navbar from "@/components/Navbar";
 import Welcome from "@/components/Welcome";
 import About from "@/components/About";
-import Skills from "@/components/Skills";
 import Work from "@/components/Work";
 import Weddings from "@/components/Weddings";
 import Contact from "@/components/Contact";
@@ -18,7 +17,6 @@ export default function Home() {
       <Navbar />
       <Welcome />
       <About />
-      <Skills />
       <Work />
       <Weddings />
       <Contact />
