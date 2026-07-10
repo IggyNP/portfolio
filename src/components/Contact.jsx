@@ -1,12 +1,23 @@
 import React, { useState } from "react";
-import Image from "next/image";
-import Ignacio from "public/images/ignacio2.png";
 import Link from "next/link";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
-import { HiOutlineMail, HiOutlineChevronDoubleUp } from "react-icons/hi";
+import { HiOutlineMail, HiOutlineChevronDoubleUp, HiArrowRight } from "react-icons/hi";
 import { BsFillPersonLinesFill } from "react-icons/bs";
 import { useTranslation, Trans } from "next-i18next";
 import { GoogleReCaptchaProvider, useGoogleReCaptcha } from "react-google-recaptcha-v3";
+import ContactScene from "./contact-scene/ContactScene";
+
+const inputClass =
+  "w-full bg-transparent border-0 border-b-[1.5px] border-gray-500/40 dark:border-white/25 " +
+  "px-0 py-2 text-[17px] text-gray-900 dark:text-[#f2f5fa] " +
+  "placeholder:text-gray-500/70 dark:placeholder:text-[#6b7890] " +
+  "focus:outline-none focus:ring-0 focus:border-[#FC5185] dark:focus:border-[#2ee6b6] transition-colors";
+
+const labelClass =
+  "block text-xs font-medium uppercase tracking-wider mb-2 text-gray-600 dark:text-[#8794aa]";
+
+const linkClass =
+  "underline text-[#FC5185] hover:opacity-80 dark:text-[#2ee6b6] dark:hover:text-[#5ff0cd]";
 
 const ContactForm = () => {
   const { t } = useTranslation();
@@ -37,7 +48,6 @@ const ContactForm = () => {
       }
 
       const token = await executeRecaptcha("contact_form");
-      console.log("RECAPTCHA TOKEN:", token);
 
       const res = await fetch("/api/contact", {
         method: "POST",
@@ -50,8 +60,6 @@ const ContactForm = () => {
           token,
         }),
       });
-
-      const data = await res.json();
 
       if (res.ok) {
         setResultMsg(t("CONTACT_SUCCESS_MESSAGE"));
@@ -68,163 +76,201 @@ const ContactForm = () => {
   };
 
   return (
-    <form
-      onSubmit={handleSubmit}
-      className="flex h-full flex-col justify-between rounded-xl shadow-sm shadow-gray-400"
-    >
-      {/* Inputs */}
-      <div>
-        <div className="grid w-full py-2 md:grid-cols-2">
-          <div className="w-full px-6 text-left">
-            <label className="block pt-6 text-xl font-bold">{t("CONTACT_NAME")}</label>
-            <input
-              required
-              type="text"
-              name="fullName"
-              className="my-4 w-full rounded-md border-2 px-4 py-2 focus:ring-2 focus:ring-[#FC5185] dark:bg-[#191825]"
-            />
-          </div>
-          <div className="w-full px-6 text-left">
-            <label className="block pt-6 text-xl font-bold">{t("CONTACT_EMAIL")}</label>
-            <input
-              required
-              type="email"
-              name="email"
-              className="my-4 w-full rounded-md border-2 px-4 py-2 focus:ring-2 focus:ring-[#FC5185] dark:bg-[#191825]"
-            />
-          </div>
-        </div>
-
-        <div className="w-full px-6 text-left">
-          <label className="block pt-6 text-xl font-bold">{t("CONTACT_SUBJECT")}</label>
+    <form onSubmit={handleSubmit}>
+      <div className="mb-7 grid gap-8 md:grid-cols-2">
+        <div>
+          <label className={labelClass}>{t("CONTACT_NAME")}</label>
           <input
             required
             type="text"
-            name="subject"
-            className="my-4 w-full rounded-md border-2 px-4 py-2 focus:ring-2 focus:ring-[#FC5185] dark:bg-[#191825]"
+            name="fullName"
+            placeholder={t("CONTACT_NAME_PLACEHOLDER")}
+            className={inputClass}
           />
         </div>
-
-        <div className="w-full px-6 text-left">
-          <label className="block pt-6 text-xl font-bold">{t("CONTACT_MESSAGE")}</label>
-          <textarea
+        <div>
+          <label className={labelClass}>{t("CONTACT_EMAIL")}</label>
+          <input
             required
-            name="message"
-            rows="7"
-            className="my-4 w-full rounded-md border-2 px-4 py-2 focus:ring-2 focus:ring-[#FC5185] dark:bg-[#191825]"
+            type="email"
+            name="email"
+            placeholder={t("CONTACT_EMAIL_PLACEHOLDER")}
+            className={inputClass}
           />
-        </div>
-
-        {/* PRIVACY */}
-        <div className="px-6">
-          <p className="mt-1 pb-4 text-sm text-gray-500 dark:text-gray-400">
-            <Trans
-              i18nKey="CONTACT_RECAPTCHA_INFO"
-              components={{
-                privacyLink: (
-                  <a
-                    href="https://policies.google.com/privacy"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="underline decoration-gray-500 transition-colors duration-300 hover:decoration-[#FC5185] dark:decoration-gray-400 dark:hover:decoration-[#30E3CA]"
-                  />
-                ),
-                termsLink: (
-                  <a
-                    href="https://policies.google.com/terms"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="underline decoration-gray-500 transition-colors duration-300 hover:decoration-[#FC5185] dark:decoration-gray-400 dark:hover:decoration-[#30E3CA]"
-                  />
-                ),
-              }}
-            />
-          </p>
-
-          <label className="mt-2 flex items-start gap-3 text-sm">
-            <input type="checkbox" name="privacy" className="mt-1 shrink-0" />
-            <span className="leading-relaxed">
-              <Trans
-                i18nKey="CONTACT_PRIVACY_CONSENT"
-                components={{
-                  privacyLink: (
-                    <a
-                      href="/privacy-policy"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="whitespace-nowrap underline hover:opacity-80"
-                    />
-                  ),
-                }}
-              />
-            </span>
-          </label>
-          {privacyError && <p className="pt-2 text-sm text-red-600">{t("CONTACT_PRIVACY_ERROR")}</p>}
         </div>
       </div>
 
-      {/* FOOTER */}
-      <div className="flex flex-col items-center py-6">
+      <div className="mb-7">
+        <label className={labelClass}>{t("CONTACT_SUBJECT")}</label>
+        <input
+          required
+          type="text"
+          name="subject"
+          placeholder={t("CONTACT_SUBJECT_PLACEHOLDER")}
+          className={inputClass}
+        />
+      </div>
+
+      <div className="mb-8">
+        <label className={labelClass}>{t("CONTACT_MESSAGE")}</label>
+        <textarea
+          required
+          name="message"
+          rows="2"
+          placeholder={t("CONTACT_MESSAGE_PLACEHOLDER")}
+          className={`${inputClass} min-h-[60px] resize-y`}
+        />
+      </div>
+
+      {/* PRIVACY */}
+      <label className="mb-3 flex cursor-pointer items-start gap-3">
+        <input
+          type="checkbox"
+          name="privacy"
+          className="mt-[3px] h-4 w-4 shrink-0 accent-[#FC5185] dark:accent-[#2ee6b6]"
+        />
+        <span className="text-[13px] leading-relaxed text-gray-600 dark:text-[#aab4c7]">
+          <Trans
+            i18nKey="CONTACT_PRIVACY_CONSENT"
+            components={{
+              privacyLink: (
+                <a
+                  href="/privacy-policy"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={linkClass}
+                />
+              ),
+            }}
+          />
+        </span>
+      </label>
+      {privacyError && (
+        <p className="mb-3 text-sm text-red-500">{t("CONTACT_PRIVACY_ERROR")}</p>
+      )}
+
+      <p className="mb-7 text-xs leading-relaxed text-gray-500 dark:text-[#7b8598]">
+        <Trans
+          i18nKey="CONTACT_RECAPTCHA_INFO"
+          components={{
+            privacyLink: (
+              <a
+                href="https://policies.google.com/privacy"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={linkClass}
+              />
+            ),
+            termsLink: (
+              <a
+                href="https://policies.google.com/terms"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={linkClass}
+              />
+            ),
+          }}
+        />
+      </p>
+
+      {/* SEND */}
+      <div className="flex items-center justify-between">
         <button
           type="submit"
           disabled={loading}
-          className="rounded border-2 px-6 py-2 uppercase transition hover:bg-[#FC5185] hover:text-white dark:hover:bg-[#30E3CA]"
+          className="group inline-flex items-center gap-3 font-heading text-[17px] font-semibold text-gray-900 transition-all hover:gap-5 hover:text-[#FC5185] disabled:opacity-60 dark:text-[#f2f5fa] dark:hover:text-[#2ee6b6]"
         >
-          {loading ? t("CONTACT_SENDING") : t("CONTACT_SEND")}
+          {loading ? t("CONTACT_SENDING") : t("CONTACT_SEND_SHORT")}
+          <span className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-[#FC5185] text-xl text-white transition-transform group-hover:scale-110 dark:bg-[#2ee6b6] dark:text-[#0a0e17]">
+            <HiArrowRight />
+          </span>
         </button>
-        {resultMsg && <p className="pt-4 text-center">{resultMsg}</p>}
+
+        {/* Social */}
+        <div className="flex items-center gap-4 text-gray-500 dark:text-[#8794aa]">
+          <Link
+            href="https://www.linkedin.com/in/ignacio-navarro-poves/"
+            target="_blank"
+            aria-label="LinkedIn"
+            className="transition hover:-translate-y-0.5 hover:text-[#FC5185] dark:hover:text-[#2ee6b6]"
+          >
+            <FaLinkedin size={20} />
+          </Link>
+          <Link
+            href="https://github.com/IggyNP"
+            target="_blank"
+            aria-label="GitHub"
+            className="transition hover:-translate-y-0.5 hover:text-[#FC5185] dark:hover:text-[#2ee6b6]"
+          >
+            <FaGithub size={20} />
+          </Link>
+          <Link
+            href="mailto:dev@iggynp.com"
+            aria-label="Email"
+            className="transition hover:-translate-y-0.5 hover:text-[#FC5185] dark:hover:text-[#2ee6b6]"
+          >
+            <HiOutlineMail size={22} />
+          </Link>
+          <Link
+            href="/cv.pdf"
+            target="_blank"
+            aria-label="CV"
+            className="transition hover:-translate-y-0.5 hover:text-[#FC5185] dark:hover:text-[#2ee6b6]"
+          >
+            <BsFillPersonLinesFill size={20} />
+          </Link>
+        </div>
       </div>
+
+      {resultMsg && (
+        <p className="pt-5 text-sm text-gray-700 dark:text-[#aab4c7]">{resultMsg}</p>
+      )}
     </form>
   );
 };
 
 const Contact = () => {
+  const { t } = useTranslation();
+
   return (
     <GoogleReCaptchaProvider reCaptchaKey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}>
-      <div id="contact" className="m-auto w-full px-6 lg:pt-40">
-        <div className="m-auto w-full max-w-[1240px] px-2 pt-16">
-          {/* Title */}
-          <div className="flex flex-col items-center justify-center pb-10">
-            <h1 className="inline border-b-4 border-[#FC5185] pt-6 text-4xl font-bold capitalize dark:border-[#30E3CA]">
-              Contact
-            </h1>
-          </div>
+      <section
+        id="contact"
+        className="relative flex min-h-[860px] w-full items-center overflow-hidden"
+      >
+        {/* Escena viva de fondo */}
+        <ContactScene />
 
-          {/* GRID LAYOUT */}
-          <div className="grid w-full grid-cols-1 gap-6 md:grid-cols-[40%_60%]">
-            {/* LEFT COLUMN */}
-            <div className="flex h-full flex-col items-center justify-center rounded-xl shadow-sm shadow-gray-400">
-              <Image
-                src={Ignacio}
-                className="w-[50%] rounded-full py-6"
-                alt="Ignacio Navarro"
-              />
-              <h2 className="text-2xl font-bold capitalize">Ignacio Navarro</h2>
-              <h3 className="py-2 text-lg capitalize">Frontend Developer</h3>
-              <p className="px-6 py-2 text-center normal-case">Contact description here.</p>
-              <h2 className="pt-6 text-lg font-bold uppercase text-[#FC5185] dark:text-[#30E3CA]">Connect</h2>
-              <div className="grid grid-cols-2 py-4 md:pb-6 lg:flex lg:gap-4 lg:pb-12">
-                <Link className="m-2 rounded-full p-6 shadow-sm shadow-gray-400 transition hover:-translate-y-1 hover:scale-110 hover:shadow-md hover:shadow-[#FC5185] dark:hover:shadow-[#30E3CA]" href="https://www.linkedin.com/in/ignacio-navarro-poves/" target="_blank"><FaLinkedin size={30} /></Link>
-                <Link className="m-2 rounded-full p-6 shadow-sm shadow-gray-400 transition hover:-translate-y-1 hover:scale-110 hover:shadow-md hover:shadow-[#FC5185] dark:hover:shadow-[#30E3CA]" href="https://github.com/IggyNP" target="_blank"><FaGithub size={30} /></Link>
-                <Link className="m-2 rounded-full p-6 shadow-sm shadow-gray-400 transition hover:-translate-y-1 hover:scale-110 hover:shadow-md hover:shadow-[#FC5185] dark:hover:shadow-[#30E3CA]" href="mailto:ignacionp94@gmail.com"><HiOutlineMail size={30} /></Link>
-                <Link className="m-2 rounded-full p-6 shadow-sm shadow-gray-400 transition hover:-translate-y-1 hover:scale-110 hover:shadow-md hover:shadow-[#FC5185] dark:hover:shadow-[#30E3CA]" href="/cv.pdf" target="_blank"><BsFillPersonLinesFill size={30} /></Link>
-              </div>
-            </div>
+        {/* Overlay para legibilidad (tema claro / oscuro) */}
+        <div
+          className="pointer-events-none absolute inset-0 z-[1] bg-[linear-gradient(180deg,rgba(248,248,248,0.68)_0%,rgba(248,248,248,0.84)_55%,rgba(248,248,248,0.94)_100%)] dark:bg-[linear-gradient(180deg,rgba(10,14,23,0.55)_0%,rgba(10,14,23,0.78)_55%,rgba(10,14,23,0.92)_100%)]"
+        />
 
-            {/* RIGHT COLUMN */}
-            <ContactForm />
-          </div>
+        {/* Contenido */}
+        <div className="relative z-[2] w-full max-w-[620px] px-8 py-20 md:px-[88px]">
+          <p className="mb-2.5 font-heading text-sm font-medium uppercase tracking-[3px] text-[#FC5185] dark:text-[#2ee6b6]">
+            {t("CONTACT_EYEBROW")}
+          </p>
+          <h2 className="mb-10 font-heading text-[38px] font-bold leading-[1.08] text-gray-900 dark:text-[#f2f5fa] md:text-[46px]">
+            {t("CONTACT_HEADLINE_1")}{" "}
+            <span className="text-[#FC5185] dark:text-[#2ee6b6]">
+              {t("CONTACT_HEADLINE_ACCENT")}
+            </span>{" "}
+            {t("CONTACT_HEADLINE_2")}
+          </h2>
 
-          {/* BACK TO TOP */}
-          <div className="flex justify-center py-16">
-            <Link href="/#home" scroll={false}>
-              <div className="rounded-full p-6 shadow-sm shadow-gray-400 transition hover:-translate-y-1 hover:scale-110 hover:shadow-md hover:shadow-[#FC5185] dark:hover:shadow-[#30E3CA]">
-                <HiOutlineChevronDoubleUp size={30} />
-              </div>
-            </Link>
-          </div>
+          <ContactForm />
         </div>
-      </div>
+
+        {/* Back to top */}
+        <div className="absolute bottom-6 right-6 z-[2]">
+          <Link href="/#home" scroll={false} aria-label="Back to top">
+            <div className="rounded-full bg-white/60 p-4 text-gray-700 backdrop-blur-sm transition hover:-translate-y-1 hover:text-[#FC5185] dark:bg-white/10 dark:text-[#f2f5fa] dark:hover:text-[#2ee6b6]">
+              <HiOutlineChevronDoubleUp size={22} />
+            </div>
+          </Link>
+        </div>
+      </section>
     </GoogleReCaptchaProvider>
   );
 };

@@ -1,10 +1,27 @@
 import "@/styles/globals.css";
 import { ThemeProvider } from "next-themes";
 import { appWithTranslation } from "next-i18next";
+import { Poppins, DM_Sans } from "next/font/google";
+
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: ["500", "600", "700"],
+  variable: "--font-poppins",
+  display: "swap",
+});
+
+const dmSans = DM_Sans({
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  variable: "--font-dm-sans",
+  display: "swap",
+});
 
 const App = ({ Component, pageProps }) => (
   <ThemeProvider enableSystem={true} attribute="class">
-    <Component {...pageProps} />
+    <div className={`${poppins.variable} ${dmSans.variable} font-sans`}>
+      <Component {...pageProps} />
+    </div>
   </ThemeProvider>
 );
 

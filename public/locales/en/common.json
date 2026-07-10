@@ -63,5 +63,18 @@
   "WEDDING_TEMPLATES_INTRO": "Create your perfect wedding website",
   "WEDDING_TEMPLATES_DESCRIPTION": "Discover our customizable WordPress wedding templates, and if you want a unique touch, request our personalization service.",
   "WEDDING_TEMPLATES_BUTTON": "Find out more",
-  "CONTACT_RECAPTCHA_INFO": "This site is protected by reCAPTCHA and the Google <privacyLink>Privacy Policy</privacyLink> and <termsLink>Terms of Service</termsLink> apply."
+  "CONTACT_RECAPTCHA_INFO": "This site is protected by reCAPTCHA and the Google <privacyLink>Privacy Policy</privacyLink> and <termsLink>Terms of Service</termsLink> apply.",
+  "CONTACT_EYEBROW": "Contact",
+  "CONTACT_HEADLINE_1": "It's okay to",
+  "CONTACT_HEADLINE_ACCENT": "distract me",
+  "CONTACT_HEADLINE_2": "a little.",
+  "CONTACT_NAME_PLACEHOLDER": "Your name",
+  "CONTACT_EMAIL_PLACEHOLDER": "youremail@email.com",
+  "CONTACT_SUBJECT_PLACEHOLDER": "How can I help you?",
+  "CONTACT_MESSAGE_PLACEHOLDER": "Tell me about your project...",
+  "CONTACT_SEND_SHORT": "Send",
+  "CONTACT_SENDING": "Sending...",
+  "CONTACT_SUCCESS_MESSAGE": "Message sent! I'll get back to you as soon as possible.",
+  "CONTACT_ERROR_MESSAGE": "Something went wrong sending your message. Please try again.",
+  "CONTACT_PRIVACY_ERROR": "You must accept the Privacy Policy to send the message."
 }

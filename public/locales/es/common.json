@@ -63,5 +63,18 @@
   "WEDDING_TEMPLATES_INTRO": "Crea la web de boda perfecta",
   "WEDDING_TEMPLATES_DESCRIPTION": "Descubre nuestras plantillas WordPress personalizables y, si quieres un toque único, solicita nuestro servicio de personalización.",
   "WEDDING_TEMPLATES_BUTTON": "Descubre más",
-  "CONTACT_RECAPTCHA_INFO": "Este sitio está protegido por reCAPTCHA y se aplican la <privacyLink>Política de Privacidad</privacyLink> y los <termsLink>Términos de Servicio</termsLink> de Google."
+  "CONTACT_RECAPTCHA_INFO": "Este sitio está protegido por reCAPTCHA y se aplican la <privacyLink>Política de Privacidad</privacyLink> y los <termsLink>Términos de Servicio</termsLink> de Google.",
+  "CONTACT_EYEBROW": "Contacto",
+  "CONTACT_HEADLINE_1": "Está bien",
+  "CONTACT_HEADLINE_ACCENT": "distraerme",
+  "CONTACT_HEADLINE_2": "un poco.",
+  "CONTACT_NAME_PLACEHOLDER": "Tu nombre",
+  "CONTACT_EMAIL_PLACEHOLDER": "tucorreo@email.com",
+  "CONTACT_SUBJECT_PLACEHOLDER": "¿En qué puedo ayudarte?",
+  "CONTACT_MESSAGE_PLACEHOLDER": "Cuéntame sobre tu proyecto...",
+  "CONTACT_SEND_SHORT": "Enviar",
+  "CONTACT_SENDING": "Enviando...",
+  "CONTACT_SUCCESS_MESSAGE": "¡Mensaje enviado! Te responderé lo antes posible.",
+  "CONTACT_ERROR_MESSAGE": "Algo ha fallado al enviar el mensaje. Inténtalo de nuevo.",
+  "CONTACT_PRIVACY_ERROR": "Debes aceptar la Política de Privacidad para enviar el mensaje."
 }
