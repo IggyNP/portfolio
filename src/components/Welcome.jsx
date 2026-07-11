@@ -43,6 +43,7 @@ const Welcome = () => {
         muted
         loop
         playsInline
+        preload="auto"
         className="absolute inset-0 z-0 h-full w-full object-cover"
         aria-hidden="true"
       >
@@ -57,7 +58,7 @@ const Welcome = () => {
 
       <motion.div
         key={`${theme}-${i18n.language}`}
-        className="relative z-10 mx-auto flex max-w-[1000px] flex-col items-center px-8 text-center"
+        className="relative z-10 mx-auto flex w-full max-w-[1240px] flex-col items-center px-6 text-center"
         variants={containerVariants}
         initial="hidden"
         animate="visible"

@@ -20,8 +20,9 @@ const Navbar = () => {
   const handleClick = () => setNav(!nav);
 
   return (
-    <div className="fixed z-50 flex h-[70px] w-full items-center justify-between bg-[#f8f8f8] px-5 text-[#191825] shadow-md shadow-[#040c16] dark:bg-[#191825] dark:text-gray-300 md:px-10">
-      <div className="flex w-full items-center justify-between">
+    <div className="fixed z-50 h-[70px] w-full bg-[#f8f8f8] text-[#191825] shadow-md shadow-[#040c16] dark:bg-[#191825] dark:text-gray-300">
+      {/* Contenido alineado al mismo contenedor centrado que el resto de la web */}
+      <div className="mx-auto flex h-full w-full max-w-[1240px] items-center justify-between px-6">
         {mounted && (
           <Link href="/#home" scroll={false}>
             <Image
@@ -38,35 +39,35 @@ const Navbar = () => {
             />
           </Link>
         )}
-      </div>
 
-      {/* menu desktop */}
-      <ul className="hidden md:flex">
-        <Link href="/#home" scroll={false}>
-          <li className="nav-link mx-5 text-sm uppercase">{t("HOME")}</li>
-        </Link>
+        {/* menu desktop */}
+        <ul className="hidden items-center md:flex">
+          <Link href="/#home" scroll={false}>
+            <li className="nav-link mx-5 text-sm uppercase">{t("HOME")}</li>
+          </Link>
 
-        <Link href="/#about" scroll={false}>
-          <li className="nav-link mx-5 cursor-pointer text-sm uppercase">
-            {t("ABOUT")}
-          </li>
-        </Link>
+          <Link href="/#about" scroll={false}>
+            <li className="nav-link mx-5 cursor-pointer text-sm uppercase">
+              {t("ABOUT")}
+            </li>
+          </Link>
 
-        <Link href="/#work" scroll={false}>
-          <li className="nav-link mx-5 text-sm uppercase">{t("WORK")}</li>
-        </Link>
+          <Link href="/#work" scroll={false}>
+            <li className="nav-link mx-5 text-sm uppercase">{t("WORK")}</li>
+          </Link>
 
-        <Link href="/#contact" scroll={false}>
-          <li className="nav-link mx-5 text-sm uppercase">{t("CONTACT")}</li>
-        </Link>
+          <Link href="/#contact" scroll={false}>
+            <li className="nav-link mx-5 text-sm uppercase">{t("CONTACT")}</li>
+          </Link>
 
-        {mounted && <ThemeBtn />}
-        <LocaleBtn />
-      </ul>
+          {mounted && <ThemeBtn />}
+          <LocaleBtn />
+        </ul>
 
-      {/* hamburger */}
-      <div onClick={handleClick} className="z-10 md:hidden">
-        {!nav ? <FaBars size={25} /> : <FaTimes size={25} />}
+        {/* hamburger */}
+        <div onClick={handleClick} className="z-10 md:hidden">
+          {!nav ? <FaBars size={25} /> : <FaTimes size={25} />}
+        </div>
       </div>
 
       {/* mobile menu */}

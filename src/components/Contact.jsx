@@ -246,20 +246,23 @@ const Contact = () => {
           className="pointer-events-none absolute inset-0 z-[1] bg-[linear-gradient(180deg,rgba(248,248,248,0.68)_0%,rgba(248,248,248,0.84)_55%,rgba(248,248,248,0.94)_100%)] dark:bg-[linear-gradient(180deg,rgba(10,14,23,0.55)_0%,rgba(10,14,23,0.78)_55%,rgba(10,14,23,0.92)_100%)]"
         />
 
-        {/* Contenido */}
-        <div className="relative z-[2] w-full max-w-[620px] px-8 py-20 md:px-[88px]">
-          <p className="mb-2.5 font-heading text-sm font-medium uppercase tracking-[3px] text-[#FC5185] dark:text-[#2ee6b6]">
-            {t("CONTACT_EYEBROW")}
-          </p>
-          <h2 className="mb-10 font-heading text-[38px] font-bold leading-[1.08] text-gray-900 dark:text-[#f2f5fa] md:text-[46px]">
-            {t("CONTACT_HEADLINE_1")}{" "}
-            <span className="text-[#FC5185] dark:text-[#2ee6b6]">
-              {t("CONTACT_HEADLINE_ACCENT")}
-            </span>{" "}
-            {t("CONTACT_HEADLINE_2")}
-          </h2>
+        {/* Contenido: mismo contenedor de 1240px que el resto; el formulario
+            (620px) queda alineado a la izquierda de esa banda. */}
+        <div className="relative z-[2] mx-auto w-full max-w-[1240px] px-6 py-20">
+          <div className="w-full max-w-[620px]">
+            <p className="mb-2.5 font-heading text-sm font-medium uppercase tracking-[3px] text-[#FC5185] dark:text-[#2ee6b6]">
+              {t("CONTACT_EYEBROW")}
+            </p>
+            <h2 className="mb-10 font-heading text-[38px] font-bold leading-[1.08] text-gray-900 dark:text-[#f2f5fa] md:text-[46px]">
+              {t("CONTACT_HEADLINE_1")}{" "}
+              <span className="text-[#FC5185] dark:text-[#2ee6b6]">
+                {t("CONTACT_HEADLINE_ACCENT")}
+              </span>{" "}
+              {t("CONTACT_HEADLINE_2")}
+            </h2>
 
-          <ContactForm />
+            <ContactForm />
+          </div>
         </div>
 
         {/* Back to top */}
