@@ -1,8 +1,9 @@
 import { NextResponse } from "next/server";
 
-// Producción (main): mantenimiento ACTIVADO. Reescribe todo a /maintenance.
-// (En develop este flag está en false; ver nota abajo sobre el matcher.)
-const maintenance = true;
+// Estado del mantenimiento controlado por variable de entorno (Vercel), no por
+// código. Así main y develop dejan de divergir: producción usa
+// MAINTENANCE_MODE=true; previews y local, false (o sin definir).
+const maintenance = process.env.MAINTENANCE_MODE === "true";
 
 export function middleware(req) {
   const { pathname } = req.nextUrl;
