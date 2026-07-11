@@ -1,8 +1,14 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useTranslation } from "next-i18next";
-import { motion } from "framer-motion";
+import {
+  motion,
+  useReducedMotion,
+  useScroll,
+  useSpring,
+  useTransform,
+} from "framer-motion";
 import { useTheme } from "next-themes";
 
 import ReactIcon from "../icons/ReactIcon.svg";
@@ -42,6 +48,58 @@ const imageVariants = {
   },
 };
 
+// Tarjeta de la foto. Réplica del efecto hover original (glow + zoom foto +
+// desplazamiento del marco) pero conducida por el scroll: el mismo conjunto
+// de transformaciones se enciende al centrarse la tarjeta en el viewport y
+// vuelve al reposo en los extremos (va y vuelve según la dirección del scroll).
+//
+// Vive en su propio componente porque `useScroll` necesita que el ref exista
+// desde el primer render, y `About` hace `return null` hasta estar montado.
+const AboutImage = () => {
+  const cardRef = useRef(null);
+  const prefersReducedMotion = useReducedMotion();
+
+  // Progreso 0 cuando la tarjeta asoma por abajo → 1 cuando su centro llega
+  // al centro del viewport. Fuera de ese rango el progreso queda fijado en 1
+  // (se mantiene el efecto), así solo se deshace al scrollear hacia arriba.
+  const { scrollYProgress } = useScroll({
+    target: cardRef,
+    offset: ["start end", "center center"],
+  });
+
+  const spring = { stiffness: 90, damping: 24 };
+  // Construcción monótona: reposo → estado "hover" pleno al centrarse.
+  // Mismos valores que el hover: glow dim→intenso, foto 1→1.02, marco 0→12px.
+  const glow = useSpring(useTransform(scrollYProgress, [0, 1], [0.5, 1]), spring);
+  const scale = useSpring(useTransform(scrollYProgress, [0, 1], [1, 1.02]), spring);
+  const shift = useSpring(useTransform(scrollYProgress, [0, 1], [0, 12]), spring);
+
+  return (
+    <motion.div
+      ref={cardRef}
+      className="relative z-10 md:col-span-2"
+      variants={imageVariants}
+    >
+      <motion.div
+        className="absolute -inset-4 rounded-full bg-[#FC5185]/40 blur-3xl dark:bg-[#30E3CA]/30"
+        style={{ opacity: prefersReducedMotion ? 0.5 : glow }}
+      ></motion.div>
+      <div className="relative">
+        <motion.img
+          src="/images/foto-iggy.png"
+          alt="Profile"
+          className="h-auto w-full rounded-2xl object-cover shadow-2xl"
+          style={{ scale: prefersReducedMotion ? 1 : scale }}
+        />
+        <motion.div
+          className="absolute -bottom-4 -right-4 -z-10 h-full w-full rounded-2xl border-2 border-[#FC5185] dark:border-[#30E3CA]"
+          style={prefersReducedMotion ? undefined : { x: shift, y: shift }}
+        ></motion.div>
+      </div>
+    </motion.div>
+  );
+};
+
 const About = () => {
   const { t, i18n } = useTranslation();
   const { theme } = useTheme();
@@ -72,11 +130,11 @@ const About = () => {
   return (
     <section
       id="about"
-      className="flex min-h-screen w-full items-center overflow-hidden px-6 py-20 transition-colors duration-300"
+      className="flex min-h-screen w-full items-center overflow-hidden py-20 transition-colors duration-300"
     >
       <motion.div
         key={`${theme}-${i18n.language}`}
-        className="mx-auto grid max-w-[1100px] items-center gap-12 md:grid-cols-5"
+        className="mx-auto grid w-full max-w-[1240px] items-center gap-12 px-6 md:grid-cols-5"
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
@@ -132,20 +190,7 @@ const About = () => {
           </div>
         </div>
 
-        <motion.div
-          className="group relative z-10 md:col-span-2"
-          variants={imageVariants}
-        >
-          <div className="absolute -inset-4 rounded-full bg-[#FC5185]/20 blur-3xl transition-all duration-500 group-hover:bg-[#FC5185]/40 dark:bg-[#30E3CA]/10 dark:group-hover:bg-[#30E3CA]/30"></div>
-          <div className="relative">
-            <img
-              src="/images/foto-iggy.png"
-              alt="Profile"
-              className="h-auto w-full rounded-2xl object-cover shadow-2xl transition-transform duration-500 group-hover:scale-[1.02]"
-            />
-            <div className="absolute -bottom-4 -right-4 -z-10 h-full w-full rounded-2xl border-2 border-[#FC5185] transition-transform duration-300 group-hover:translate-x-3 group-hover:translate-y-3 dark:border-[#30E3CA]"></div>
-          </div>
-        </motion.div>
+        <AboutImage />
       </motion.div>
     </section>
   );
