@@ -6,11 +6,12 @@ const LocaleBtn = () => {
   const { pathname, locale } = router;
 
   const handleChangeLanguage = (e) => {
+    const next = e.target.value;
+    // Fija la elección para que la autodetección del middleware la respete.
+    document.cookie = `NEXT_LOCALE=${next}; path=/; max-age=31536000`;
     const currentUrl = window.location.href.split("#");
     let pathExtra = currentUrl.length > 1 ? "#" + currentUrl.at(-1) : "";
-    router.push(`${pathname}${pathExtra}`, null, {
-      locale: `${e.target.value}`,
-    });
+    router.push(`${pathname}${pathExtra}`, null, { locale: next });
   };
 
   return (
