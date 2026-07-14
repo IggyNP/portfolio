@@ -21,6 +21,27 @@ import FirebaseIcon from "../icons/FirebaseIcon.svg";
 import PhpIcon from "../icons/PhpIcon.svg";
 import WordpressIcon from "../icons/WordpressIcon.svg";
 import ElementorIcon from "../icons/ElementorIcon.svg";
+import ClaudeIcon from "../icons/ClaudeIcon.svg";
+import ClerkIcon from "../icons/ClerkIcon.svg";
+import NeonIcon from "../icons/NeonIcon.svg";
+import ResendIcon from "../icons/ResendIcon.svg";
+import {
+  SiJavascript,
+  SiHtml5,
+  SiCss3,
+  SiFramer,
+  SiVercel,
+  SiGit,
+  SiGithub,
+  SiSupabase,
+  SiPrisma,
+  SiPostgresql,
+  SiMongodb,
+  SiExpress,
+  SiSanity,
+  SiDocker,
+  SiPlaywright,
+} from "react-icons/si";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -70,9 +91,18 @@ const AboutImage = () => {
   const spring = { stiffness: 90, damping: 24 };
   // Construcción monótona: reposo → estado "hover" pleno al centrarse.
   // Mismos valores que el hover: glow dim→intenso, foto 1→1.02, marco 0→12px.
-  const glow = useSpring(useTransform(scrollYProgress, [0, 1], [0.5, 1]), spring);
-  const scale = useSpring(useTransform(scrollYProgress, [0, 1], [1, 1.02]), spring);
-  const shift = useSpring(useTransform(scrollYProgress, [0, 1], [0, 12]), spring);
+  const glow = useSpring(
+    useTransform(scrollYProgress, [0, 1], [0.5, 1]),
+    spring,
+  );
+  const scale = useSpring(
+    useTransform(scrollYProgress, [0, 1], [1, 1.02]),
+    spring,
+  );
+  const shift = useSpring(
+    useTransform(scrollYProgress, [0, 1], [0, 12]),
+    spring,
+  );
 
   return (
     <motion.div
@@ -110,16 +140,43 @@ const About = () => {
   }, []);
 
   const techs = [
-    FirebaseIcon,
+    // Lenguajes
+    SiJavascript,
+    TypescriptIcon,
+    SiHtml5,
+    SiCss3,
     PhpIcon,
-    WordpressIcon,
-    ElementorIcon,
+    // Frontend
     ReactIcon,
     NextjsIcon,
-    TypescriptIcon,
     TailwindIcon,
+    SiFramer,
+    // Backend / runtime
     NodeIcon,
+    SiExpress,
+    // Bases de datos / ORM
+    SiPostgresql,
+    SiMongodb,
+    SiPrisma,
+    NeonIcon,
+    SiSupabase,
+    FirebaseIcon,
+    // Auth / email / servicios
+    ClerkIcon,
+    ResendIcon,
+    // CMS
+    WordpressIcon,
+    SiSanity,
+    ElementorIcon,
+    // DevOps / herramientas / diseño
+    SiGit,
+    SiGithub,
+    SiDocker,
+    SiVercel,
+    SiPlaywright,
     FigmaIcon,
+    // IA
+    ClaudeIcon,
   ];
 
   const techsLoop = [...techs, ...techs];
@@ -163,16 +220,24 @@ const About = () => {
             </motion.p>
 
             <motion.div variants={itemVariants} className="pt-6">
-              <div className="relative max-w-xl overflow-hidden">
-                <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-white to-transparent dark:from-slate-900" />
-                <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-white to-transparent dark:from-slate-900" />
+              {/* Máscara de degradado: los iconos se funden a transparente en
+                  ambos bordes, mezclándose con el fondo real (sin cortes). */}
+              <div
+                className="relative max-w-xl overflow-hidden"
+                style={{
+                  WebkitMaskImage:
+                    "linear-gradient(to right, transparent 0, #000 14%, #000 86%, transparent 100%)",
+                  maskImage:
+                    "linear-gradient(to right, transparent 0, #000 14%, #000 86%, transparent 100%)",
+                }}
+              >
                 <motion.div
                   className="flex items-center"
                   animate={{ x: ["0%", "-50%"] }}
                   transition={{
                     repeat: Infinity,
                     ease: "linear",
-                    duration: 20,
+                    duration: 40,
                   }}
                   style={{ width: "max-content" }}
                 >
