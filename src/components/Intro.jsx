@@ -24,10 +24,16 @@ const itemVariants = {
 
 // Capa del hero (vídeo + textos + indicador de scroll). Los `*Style` son
 // motion values opcionales; sin ellos queda estático (reduced-motion).
-function HeroLayer({ t, theme, i18n, videoStyle, textStyle, hintStyle }) {
+function HeroLayer({ t, resolvedTheme, i18n, videoStyle, textStyle, hintStyle }) {
+  // Vídeo específico por tema: claro (fondo blanco + cubos rosa) / oscuro.
+  const videoSrc =
+    resolvedTheme === "dark"
+      ? "/videos/hero-bg.mp4"
+      : "/videos/hero-bg-light.mp4";
   return (
     <>
       <motion.video
+        key={videoSrc}
         autoPlay
         muted
         loop
@@ -37,15 +43,15 @@ function HeroLayer({ t, theme, i18n, videoStyle, textStyle, hintStyle }) {
         aria-hidden="true"
         style={videoStyle}
       >
-        <source src="/videos/hero-bg.mp4" type="video/mp4" />
+        <source src={videoSrc} type="video/mp4" />
       </motion.video>
 
-      <div className="absolute inset-0 z-[1] bg-white/70 dark:bg-[#191825]/75" />
+      <div className="absolute inset-0 z-[1] bg-white/40 dark:bg-[#191825]/75" />
       <div className="pointer-events-none absolute inset-0 z-[2] bg-[radial-gradient(circle_at_50%_30%,rgba(48,227,202,0.06),transparent_60%)]" />
 
       <motion.div className="relative z-10 w-full" style={textStyle}>
         <motion.div
-          key={`${theme}-${i18n.language}`}
+          key={`${resolvedTheme}-${i18n.language}`}
           className="mx-auto flex w-full max-w-[1240px] flex-col items-center px-6 text-center"
           variants={containerVariants}
           initial="hidden"
@@ -102,7 +108,7 @@ function HeroLayer({ t, theme, i18n, videoStyle, textStyle, hintStyle }) {
 // Escena unificada: buceo en el vídeo → crossfade a About (patrón WorkGallery).
 export default function Intro() {
   const { t, i18n } = useTranslation();
-  const { theme } = useTheme();
+  const { resolvedTheme } = useTheme();
   const reduced = useReducedMotion();
   const [mounted, setMounted] = useState(false);
   const sectionRef = useRef(null);
@@ -137,7 +143,9 @@ export default function Intro() {
           id="home"
           className="relative flex h-screen w-full items-center justify-center overflow-hidden"
         >
-          {mounted && <HeroLayer t={t} theme={theme} i18n={i18n} />}
+          {mounted && (
+            <HeroLayer t={t} resolvedTheme={resolvedTheme} i18n={i18n} />
+          )}
         </section>
         <section
           id="about"
@@ -150,11 +158,7 @@ export default function Intro() {
   }
 
   return (
-    <section
-      ref={sectionRef}
-      id="home"
-      className="relative w-full h-[260vh]"
-    >
+    <section ref={sectionRef} id="home" className="relative h-[260vh] w-full">
       {/* Ancla de nav: About cae aquí (donde ya está revelada) */}
       <div id="about" className="absolute left-0" style={{ top: "58%" }} />
 
@@ -167,7 +171,7 @@ export default function Intro() {
           >
             <HeroLayer
               t={t}
-              theme={theme}
+              resolvedTheme={resolvedTheme}
               i18n={i18n}
               videoStyle={{ scale: videoScale, filter: videoFilter }}
               textStyle={{ opacity: heroTextOpacity, scale: heroTextScale }}
