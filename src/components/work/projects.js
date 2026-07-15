@@ -60,15 +60,18 @@ export const PROJECTS = [
   },
 ];
 
+// `img`: captura de la web en /public/images/others/<slug>.webp (thum.io,
+// convertidas con cwebp). El mosaico oculta las que no existan (onError), así
+// que para sustituir una basta con reemplazar su .webp —sin tocar código—.
 export const OTHER_PROJECTS = [
-  { name: "Driveland Events", url: "https://driveland.es" },
-  { name: "We Tangible", url: "https://wetangible.com" },
-  { name: "Boda Sofía y Rafa", url: "https://bodasofiayrafa.com" },
-  { name: "Gustum Areas", url: "https://gustumareas.com" },
-  { name: "Smart & City", url: "https://smartandcity.com" },
-  { name: "El Quinto Alimento", url: "https://elquintoalimento.com" },
-  { name: "Dillepasa", url: "https://dillepasa.com" },
-  { name: "QTI", url: "https://quenet-torrent.com" },
-  { name: "We Klimax", url: "https://weklimax.com" },
-  { name: "Pangaea Oncology", url: "https://panoncology.com" },
+  { name: "Driveland Events", url: "https://driveland.es", img: "/images/others/driveland-events.webp" },
+  { name: "Driveland Garage", url: "https://www.drivelandgarage.es", img: "/images/others/driveland-garage.webp" },
+  { name: "La Cañada Golf", url: "https://lacanadagolf.com", img: "/images/others/lacanada-golf.webp" },
+  { name: "We Tangible", url: "https://wetangible.com", img: "/images/others/we-tangible.webp" },
+  { name: "Smart & City", url: "https://smartandcity.com", img: "/images/others/smart-city.webp" },
+  { name: "Bornsouth Studio", url: "https://bornsouthstudio.com", img: "/images/others/bornsouth-studio.webp" },
+  { name: "Dillepasa", url: "https://dillepasa.com", img: "/images/others/dillepasa.webp" },
+  { name: "QTI", url: "https://quenet-torrent.com", img: "/images/others/qti.webp" },
+  { name: "We Klimax", url: "https://weklimax.com", img: "/images/others/we-klimax.webp" },
+  { name: "Pangaea Oncology", url: "https://panoncology.com", img: "/images/others/pangaea-oncology.webp" },
 ];
