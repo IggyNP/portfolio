@@ -39,6 +39,8 @@
   "WORK_PROJECTS_LABEL": "Projects",
   "WORK_VIEW_PROJECT": "View project",
   "WORK_OTHERS_CARD": "And many more…",
+  "WORK_OTHERS_CARD_LEAD": "And many",
+  "WORK_OTHERS_CARD_ACCENT": "more…",
   "WORK_OTHERS_SOME": "Some of them",
   "CONTACT_TITLE": "contact",
   "CONTACT_ROLE": "frontend developer",

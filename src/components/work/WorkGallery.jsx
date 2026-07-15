@@ -14,6 +14,7 @@ import {
 import { HiArrowUpRight } from "react-icons/hi2";
 import { RiRadioButtonFill } from "react-icons/ri";
 import { PROJECTS, OTHER_PROJECTS } from "./projects";
+import OthersMosaic from "./OthersMosaic";
 
 const N = PROJECTS.length; // 7
 const W = 440; // ancho de cara (px)
@@ -345,12 +346,13 @@ export default function WorkGallery() {
                     );
                   })}
 
-                  {/* Cara superior "Y muchas más…". Posición geométrica real
-                      (tapa el cubo durante toda la rotación, sin huecos); el
-                      texto se rota 180° para salir derecho al bascular. */}
+                  {/* Cara superior "Y muchos más…" — mosaico de proyectos.
+                      Posición geométrica real (tapa el cubo durante toda la
+                      rotación, sin huecos); la capa interior se rota 180° para
+                      leerse derecha al bascular. */}
                   <div
                     aria-hidden="true"
-                    className="absolute grid place-items-center overflow-hidden bg-gradient-to-br from-[#FC5185] to-[#ff89ac] dark:from-[#2ee6b6] dark:to-[#12b3a0]"
+                    className="absolute overflow-hidden bg-[#0a0e17]"
                     style={{
                       width: W,
                       height: W,
@@ -361,12 +363,15 @@ export default function WorkGallery() {
                       transform: `rotateX(90deg) translateZ(${H / 2}px)`,
                     }}
                   >
-                    <span
-                      className="px-12 text-center font-heading text-6xl font-bold leading-tight text-white dark:text-[#0a0e17]"
+                    <div
+                      className="absolute inset-0"
                       style={{ transform: "rotate(180deg)" }}
                     >
-                      {t("WORK_OTHERS_CARD")}
-                    </span>
+                      <OthersMosaic
+                        lead={t("WORK_OTHERS_CARD_LEAD")}
+                        accent={t("WORK_OTHERS_CARD_ACCENT")}
+                      />
+                    </div>
                   </div>
 
                   {/* Cara inferior (cierra el cubo, relleno de marca) */}
