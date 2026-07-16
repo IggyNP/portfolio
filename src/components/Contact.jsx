@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { HiOutlineMail, HiOutlineChevronDoubleUp, HiArrowRight } from "react-icons/hi";
-import { BsFillPersonLinesFill } from "react-icons/bs";
 import { useTranslation, Trans } from "next-i18next";
 import { GoogleReCaptchaProvider, useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import ContactScene from "./contact-scene/ContactScene";
@@ -211,14 +210,6 @@ const ContactForm = () => {
           >
             <HiOutlineMail size={22} />
           </Link>
-          <Link
-            href="/cv.pdf"
-            target="_blank"
-            aria-label="CV"
-            className="transition hover:-translate-y-0.5 hover:text-[#FC5185] dark:hover:text-[#2ee6b6]"
-          >
-            <BsFillPersonLinesFill size={20} />
-          </Link>
         </div>
       </div>
 
@@ -236,14 +227,16 @@ const Contact = () => {
     <GoogleReCaptchaProvider reCaptchaKey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}>
       <section
         id="contact"
-        className="relative flex min-h-[860px] w-full items-center overflow-hidden"
+        className="relative flex min-h-screen w-full items-center overflow-hidden"
       >
         {/* Escena viva de fondo */}
         <ContactScene />
 
-        {/* Overlay para legibilidad (tema claro / oscuro) */}
+        {/* Overlay para legibilidad. Móvil: vertical suave (form a todo el ancho).
+            Desktop: horizontal → protege el form (izquierda) y deja ver el vídeo
+            a la derecha, sin lavarlo. */}
         <div
-          className="pointer-events-none absolute inset-0 z-[1] bg-[linear-gradient(180deg,rgba(248,248,248,0.68)_0%,rgba(248,248,248,0.84)_55%,rgba(248,248,248,0.94)_100%)] dark:bg-[linear-gradient(180deg,rgba(10,14,23,0.55)_0%,rgba(10,14,23,0.78)_55%,rgba(10,14,23,0.92)_100%)]"
+          className="pointer-events-none absolute inset-0 z-[1] bg-[linear-gradient(180deg,rgba(248,248,248,0.5)_0%,rgba(248,248,248,0.72)_55%,rgba(248,248,248,0.88)_100%)] dark:bg-[linear-gradient(180deg,rgba(10,14,23,0.55)_0%,rgba(10,14,23,0.78)_55%,rgba(10,14,23,0.92)_100%)] md:bg-[linear-gradient(90deg,rgba(248,248,248,0.97)_0%,rgba(248,248,248,0.88)_34%,rgba(248,248,248,0.45)_64%,rgba(248,248,248,0.08)_100%)] dark:md:bg-[linear-gradient(90deg,rgba(10,14,23,0.94)_0%,rgba(10,14,23,0.74)_40%,rgba(10,14,23,0.34)_70%,rgba(10,14,23,0.08)_100%)]"
         />
 
         {/* Contenido: mismo contenedor de 1240px que el resto; el formulario

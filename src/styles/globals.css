@@ -16,6 +16,17 @@
   visibility: hidden;
 }
 
+/* Marquee horizontal en bucle (mosaico "Y muchos más…"). El track duplica su
+   contenido, así que -50% reinicia sin salto. */
+@keyframes marq {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
 .nav-link {
   position: relative;
   padding-bottom: 4px;
