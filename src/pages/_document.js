@@ -4,6 +4,8 @@ export default function Document() {
   return (
     <Html lang="en">
       <Head>
+        {/* Live pero fuera de buscadores por ahora. Quitar para permitir SEO. */}
+        <meta name="robots" content="noindex, nofollow" />
         <link
           rel="icon"
           type="image/png"

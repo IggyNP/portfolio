@@ -1,0 +1,4 @@
+# Live pero sin indexar por ahora. Para permitir SEO, cambiar a "Allow: /" y
+# quitar el <meta name="robots" content="noindex"> de src/pages/_document.js.
+User-agent: *
+Disallow: /
