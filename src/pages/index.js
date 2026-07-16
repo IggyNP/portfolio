@@ -2,7 +2,7 @@ import Head from "next/head";
 import Navbar from "@/components/Navbar";
 import Intro from "@/components/Intro";
 import Work from "@/components/Work";
-import Weddings from "@/components/Weddings";
+// import Weddings from "@/components/Weddings"; // oculto por ahora
 import Contact from "@/components/Contact";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
@@ -16,7 +16,7 @@ export default function Home() {
       <Navbar />
       <Intro />
       <Work />
-      <Weddings />
+      {/* <Weddings /> oculto por ahora */}
       <Contact />
     </>
   );
