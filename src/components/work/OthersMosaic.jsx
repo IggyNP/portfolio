@@ -36,17 +36,33 @@ function shuffle(arr, seed) {
   return a;
 }
 
+// Reparte las imágenes en 3 conjuntos DISJUNTOS (por índice i%3, para que cada
+// uno quede bien mezclado): cada imagen vive en una sola fila. Al no compartir
+// ninguna imagen entre filas, es IMPOSIBLE que coincida la misma en dos filas a
+// la vez, sea cual sea la dirección, el desfase o la velocidad. Eso permite que
+// la fila central vaya en sentido opuesto sin romper la garantía.
+const MOSAIC_BASE = shuffle(MOSAIC_IMGS, 0x51e7);
+const ROW_SETS = [[], [], []];
+MOSAIC_BASE.forEach((src, i) => ROW_SETS[i % 3].push(src));
+
+// Misma velocidad lineal en las 3: la duración es proporcional al nº de
+// miniaturas de la fila (px/segundo idéntico aunque los conjuntos difieran).
+const SEC_PER_TILE = 2;
 const MOSAIC_ROWS = [
-  { top: 40, reverse: false, dur: 30, imgs: shuffle(MOSAIC_IMGS, 0x1111) },
-  { top: 174, reverse: true, dur: 26, imgs: shuffle(MOSAIC_IMGS, 0x9a3b) },
-  { top: 308, reverse: false, dur: 34, imgs: shuffle(MOSAIC_IMGS, 0xf00d) },
+  { top: 40, imgs: ROW_SETS[0], reverse: false },
+  { top: 174, imgs: ROW_SETS[1], reverse: true }, // central: sentido opuesto
+  { top: 308, imgs: ROW_SETS[2], reverse: false },
 ];
 
-function Row({ top, reverse, dur, imgs }) {
+function Row({ top, imgs, reverse }) {
+  const dur = imgs.length * SEC_PER_TILE;
   return (
     <div className="absolute left-0 flex overflow-hidden" style={{ top }}>
+      {/* Sin `gap`: el espaciado va como `mr` en cada miniatura para que el
+          paso sea exactamente 162px (150 + 12) y el -50% coincida con una copia
+          entera → bucle sin salto. */}
       <div
-        className="flex shrink-0 gap-3"
+        className="flex shrink-0"
         style={{
           animation: `marq ${dur}s linear infinite`,
           animationDirection: reverse ? "reverse" : "normal",
@@ -61,7 +77,7 @@ function Row({ top, reverse, dur, imgs }) {
             onError={(e) => {
               e.currentTarget.style.display = "none";
             }}
-            className="h-[92px] w-[150px] shrink-0 rounded-md object-cover"
+            className="mr-3 h-[92px] w-[150px] shrink-0 rounded-md object-cover"
           />
         ))}
       </div>
