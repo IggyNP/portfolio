@@ -1,10 +1,32 @@
 /** @type {import('next').NextConfig} */
 const { i18n } = require("./next-i18next.config");
 
+// Rutas viejas de proyecto → nuevas páginas de detalle (/project/<slug>). Next
+// conserva el prefijo de locale (/es/… → /es/project/…). Los proyectos
+// retirados (weather/calculator) van al home.
+const PROJECT_REDIRECTS = [
+  "portfolio",
+  "ior",
+  "soto-bp",
+  "driveland-motorsport",
+  "ammde",
+].map((slug) => ({
+  source: `/${slug}`,
+  destination: `/project/${slug}`,
+  permanent: false,
+}));
+
 const nextConfig = {
   i18n,
   reactStrictMode: true,
   output: "standalone",
+  async redirects() {
+    return [
+      ...PROJECT_REDIRECTS,
+      { source: "/weather-app", destination: "/", permanent: false },
+      { source: "/calculator", destination: "/", permanent: false },
+    ];
+  },
   webpack(config) {
     // 1. Encontrar la regla de Next.js que maneja los SVG
     const fileLoaderRule = config.module.rules.find((rule) =>
