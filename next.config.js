@@ -20,6 +20,8 @@ const nextConfig = {
   i18n,
   reactStrictMode: true,
   output: "standalone",
+  // El build no debe fallar por lint: se ejecuta aparte (`npm run lint`).
+  eslint: { ignoreDuringBuilds: true },
   async redirects() {
     return [
       ...PROJECT_REDIRECTS,
