@@ -2,6 +2,7 @@ import { useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useTranslation } from "next-i18next";
+import { useRouter } from "next/router";
 import {
   AnimatePresence,
   motion,
@@ -13,7 +14,7 @@ import {
 } from "framer-motion";
 import { HiArrowUpRight } from "react-icons/hi2";
 import { RiRadioButtonFill } from "react-icons/ri";
-import { PROJECTS, OTHER_PROJECTS } from "./projects";
+import { PROJECTS, OTHER_PROJECTS, projectHref } from "./projects";
 import OthersMosaic from "./OthersMosaic";
 
 const N = PROJECTS.length; // 7
@@ -98,7 +99,7 @@ const panelMotion = {
   transition: { duration: 0.4, ease: "easeOut" },
 };
 
-function InfoPanel({ step, t }) {
+function InfoPanel({ step, t, locale }) {
   const p = PROJECTS[step];
   return (
     <motion.div key="info" className="relative" {...panelMotion}>
@@ -126,9 +127,11 @@ function InfoPanel({ step, t }) {
             <h3 className="font-heading text-4xl font-bold leading-tight text-slate-900 dark:text-white sm:text-5xl">
               {p.title}
             </h3>
-            <p className="mt-2 text-slate-500 dark:text-slate-400">{p.tech}</p>
+            <p className="mt-2 text-slate-500 dark:text-slate-400">
+              {p.tech.join(" · ")}
+            </p>
             <Link
-              href={p.url}
+              href={projectHref(p.slug, locale)}
               className="group mt-6 inline-flex items-center gap-3 font-heading text-[17px] font-semibold text-gray-900 transition-all hover:gap-5 hover:text-[#FC5185] dark:text-[#f2f5fa] dark:hover:text-[#2ee6b6]"
             >
               {t("WORK_VIEW_PROJECT")}
@@ -172,7 +175,7 @@ function OthersPanel({ t }) {
   );
 }
 
-function GridFallback({ t }) {
+function GridFallback({ t, locale }) {
   return (
     <div className="mx-auto max-w-[1240px] px-6 py-20">
       <div className="mb-12">
@@ -182,7 +185,7 @@ function GridFallback({ t }) {
         {PROJECTS.map((p) => (
           <Link
             key={p.title}
-            href={p.url}
+            href={projectHref(p.slug, locale)}
             className="group overflow-hidden rounded-2xl ring-1 ring-black/5 dark:ring-white/10"
           >
             <div className="relative aspect-[16/10] overflow-hidden">
@@ -199,7 +202,7 @@ function GridFallback({ t }) {
                 {p.title}
               </h3>
               <p className="text-sm text-slate-500 dark:text-slate-400">
-                {p.tech}
+                {p.tech.join(" · ")}
               </p>
             </div>
           </Link>
@@ -221,6 +224,7 @@ function GridFallback({ t }) {
 
 export default function WorkGallery() {
   const { t } = useTranslation();
+  const { locale } = useRouter();
   const reduced = useReducedMotion();
   const sectionRef = useRef(null);
   const [step, setStep] = useState(0);
@@ -260,7 +264,7 @@ export default function WorkGallery() {
     setShowOthers(p >= TEND + SEG * 0.4);
   });
 
-  if (reduced) return <GridFallback t={t} />;
+  if (reduced) return <GridFallback t={t} locale={locale} />;
 
   return (
     <>
@@ -316,7 +320,7 @@ export default function WorkGallery() {
                     return (
                       <Link
                         key={f}
-                        href={p.url}
+                        href={projectHref(p.slug, locale)}
                         aria-label={p.title}
                         className="group/face absolute inset-0 block overflow-hidden bg-[#FC5185] ring-1 ring-black/10 dark:bg-[#2ee6b6] dark:ring-white/15"
                         style={{
@@ -397,7 +401,7 @@ export default function WorkGallery() {
                   {showOthers ? (
                     <OthersPanel key="others" t={t} />
                   ) : (
-                    <InfoPanel key="info" step={step} t={t} />
+                    <InfoPanel key="info" step={step} t={t} locale={locale} />
                   )}
                 </AnimatePresence>
               </div>
@@ -408,7 +412,7 @@ export default function WorkGallery() {
 
       {/* Móvil: intro + rejilla + otras webs */}
       <div className="md:hidden">
-        <GridFallback t={t} />
+        <GridFallback t={t} locale={locale} />
       </div>
     </>
   );
