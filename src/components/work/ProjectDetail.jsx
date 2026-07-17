@@ -24,7 +24,7 @@ const reveal = {
 
 function Section({ label, title, children }) {
   return (
-    <motion.section className="mt-14 first:mt-0" {...reveal}>
+    <motion.section className="mt-12 first:mt-0 sm:mt-14" {...reveal}>
       {label && (
         <p className="font-heading text-sm font-semibold uppercase tracking-[0.25em] text-[#FC5185] dark:text-[#2ee6b6]">
           {label}
@@ -35,7 +35,7 @@ function Section({ label, title, children }) {
           {title}
         </h2>
       )}
-      <div className="mt-4 text-lg leading-relaxed text-slate-600 dark:text-slate-300">
+      <div className="mt-4 text-base leading-relaxed text-slate-600 dark:text-slate-300 sm:text-lg">
         {children}
       </div>
     </motion.section>
@@ -59,7 +59,7 @@ export default function ProjectDetail({ slug }) {
       <Navbar showSocials={false} />
 
       {/* Hero */}
-      <header className="relative h-[62vh] min-h-[420px] w-full overflow-hidden">
+      <header className="relative h-[62svh] min-h-[380px] w-full overflow-hidden sm:h-[62vh] sm:min-h-[420px]">
         <Image
           src={p.hero}
           alt={p.title}
@@ -68,9 +68,9 @@ export default function ProjectDetail({ slug }) {
           sizes="100vw"
           className="object-cover object-top"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/45 to-black/85" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/45 to-black/90 sm:to-black/85" />
         <div className="absolute inset-x-0 bottom-0">
-          <div className="mx-auto max-w-[1240px] px-6 pb-12">
+          <div className="mx-auto max-w-[1240px] px-6 pb-8 sm:pb-12">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -92,7 +92,7 @@ export default function ProjectDetail({ slug }) {
               <h1 className="mt-4 max-w-3xl font-heading text-4xl font-bold leading-[1.05] text-white sm:text-6xl">
                 {p.title}
               </h1>
-              <p className="mt-4 text-lg text-slate-200">
+              <p className="mt-3 truncate text-base text-slate-200 sm:mt-4 sm:whitespace-normal sm:text-lg">
                 {p.tech.join(" · ")}
               </p>
             </motion.div>
@@ -101,8 +101,8 @@ export default function ProjectDetail({ slug }) {
       </header>
 
       {/* Cuerpo */}
-      <div className="mx-auto grid max-w-[1240px] gap-x-14 gap-y-10 px-6 py-16 lg:grid-cols-[1fr_320px]">
-        <div>
+      <div className="mx-auto grid max-w-[1240px] gap-x-14 gap-y-10 px-6 py-12 sm:py-16 lg:grid-cols-[1fr_320px]">
+        <div className="order-2 lg:order-1">
           <Section label={t("PROJECT_OVERVIEW_LABEL")}>
             <p>{t(`${K}_OVERVIEW`)}</p>
           </Section>
@@ -134,7 +134,7 @@ export default function ProjectDetail({ slug }) {
 
         {/* Sidebar */}
         <motion.aside
-          className="h-fit lg:sticky lg:top-28"
+          className="order-1 h-fit lg:order-2 lg:sticky lg:top-28"
           {...reveal}
         >
           <div className="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-black/5 dark:bg-white/5 dark:ring-white/10">
@@ -159,7 +159,7 @@ export default function ProjectDetail({ slug }) {
                     href={p.liveUrl}
                     target="_blank"
                     rel="noreferrer noopener"
-                    className="group inline-flex items-center justify-center gap-2 rounded-full bg-[#FC5185] px-5 py-3 font-heading font-semibold text-white transition-transform hover:scale-[1.02] dark:bg-[#2ee6b6] dark:text-[#0a0e17]"
+                    className="group inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#FC5185] px-5 py-3.5 font-heading font-semibold text-white transition-transform hover:scale-[1.02] active:scale-[0.98] dark:bg-[#2ee6b6] dark:text-[#0a0e17] sm:py-3"
                   >
                     {t("PROJECT_WEB")}
                     <HiArrowUpRight className="transition-transform group-hover:translate-x-0.5" />
@@ -170,7 +170,7 @@ export default function ProjectDetail({ slug }) {
                     href={p.codeUrl}
                     target="_blank"
                     rel="noreferrer noopener"
-                    className="inline-flex items-center justify-center gap-2 rounded-full px-5 py-3 font-heading font-semibold text-slate-900 ring-1 ring-slate-300 transition-colors hover:border-transparent hover:bg-slate-900 hover:text-white dark:text-white dark:ring-white/20 dark:hover:bg-white dark:hover:text-[#0a0e17]"
+                    className="inline-flex w-full items-center justify-center gap-2 rounded-full px-5 py-3.5 font-heading font-semibold text-slate-900 ring-1 ring-slate-300 transition-colors hover:border-transparent hover:bg-slate-900 hover:text-white active:scale-[0.98] dark:text-white dark:ring-white/20 dark:hover:bg-white dark:hover:text-[#0a0e17] sm:py-3"
                   >
                     {t("PROJECT_CODE")}
                     <HiArrowUpRight />
