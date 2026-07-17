@@ -111,10 +111,16 @@ export default function Intro() {
   const { resolvedTheme } = useTheme();
   const reduced = useReducedMotion();
   const [mounted, setMounted] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const sectionRef = useRef(null);
 
   useEffect(() => {
     setMounted(true);
+    const mq = window.matchMedia("(max-width: 767px)");
+    const update = () => setIsMobile(mq.matches);
+    update();
+    mq.addEventListener("change", update);
+    return () => mq.removeEventListener("change", update);
   }, []);
 
   const { scrollYProgress } = useScroll({
@@ -135,8 +141,11 @@ export default function Intro() {
   // Progreso que alimenta el efecto de la foto (glow/zoom/marco) al acercarse.
   const revealProgress = useTransform(scrollYProgress, [0.5, 0.92], [0, 1]);
 
-  // reduced-motion: apilado estático (hero + About), sin pin ni crossfade.
-  if (reduced) {
+  // reduced-motion Y móvil: apilado estático (hero + About), sin pin ni
+  // crossfade. La escena fijada de 260vh (buceo de vídeo con zoom + blur) es
+  // pesada y desorientadora en el móvil (y los 100vh fijados fallan con la
+  // barra dinámica de iOS Safari).
+  if (reduced || isMobile) {
     return (
       <>
         <section
