@@ -133,8 +133,9 @@ export default function AboutContent({ revealProgress }) {
         </h2>
       </div>
 
-      {/* Cuerpo: intro + descripción + marquee (order-3 en móvil) */}
-      <div className="order-3 min-w-0 md:order-none md:col-span-3 md:col-start-1 md:row-start-2">
+      {/* Cuerpo: intro + descripción + marquee (order-3 en móvil). mt extra en
+          móvil para separar del marco/glow de la foto, que sobresalen por abajo. */}
+      <div className="order-3 mt-4 min-w-0 md:order-none md:col-span-3 md:col-start-1 md:row-start-2 md:mt-0">
         <div className="space-y-5 md:space-y-6">
           <p className="text-2xl font-bold leading-snug text-slate-800 dark:text-slate-200 md:text-3xl md:leading-tight">
             {t("ABOUT_INTRO")}
