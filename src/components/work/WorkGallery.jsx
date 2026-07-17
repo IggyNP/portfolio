@@ -17,15 +17,18 @@ import { RiRadioButtonFill } from "react-icons/ri";
 import { PROJECTS, OTHER_PROJECTS, projectHref } from "./projects";
 import OthersMosaic from "./OthersMosaic";
 
-const N = PROJECTS.length; // 7
+const N = PROJECTS.length; // 6
 const W = 440; // ancho de cara (px)
 const H = 248; // alto (16:9)
 const DEPTH = W / 2; // translateZ de las caras laterales
-const SEG = 1 / (N + 2); // un segmento de scroll (intro + N proyectos + otras)
-const HEIGHT_VH = (N + 2) * 90; // alto total de la sección
+const SEG_VH = 90; // alto de un segmento de scroll (intro + N proyectos + reveal)
+const HOLD_VH = 80; // dwell sobre "Y tantos más…" antes de soltar a la sección siguiente
+const HEIGHT_VH = (N + 2) * SEG_VH + HOLD_VH; // alto total de la sección
+const SEG = SEG_VH / HEIGHT_VH; // un segmento como fracción del scroll total
 const TSPLIT = SEG; // fin del intro
-const TEND = 1 - SEG; // fin de la rotación Y / inicio del basculado
-const Y_TOTAL = -(N - 1) * 90; // -540°: rotación Y total de los proyectos
+const TEND = (N + 1) * SEG; // fin de la rotación Y / inicio del basculado
+const TREVEAL = (N + 2) * SEG; // basculado completo → empieza el hold ([TREVEAL, 1])
+const Y_TOTAL = -(N - 1) * 90; // rotación Y total de los proyectos
 const TILT_DEG = -90; // basculado que revela la cara superior
 
 const FACE_ROT = [0, 90, 180, 270];
@@ -252,16 +255,16 @@ export default function WorkGallery() {
   // Rotación Y (proyectos) y basculado X (revela la cara superior al final).
   const rawRotate = useTransform(scrollYProgress, [TSPLIT, TEND], [0, Y_TOTAL]);
   const rotateY = useSpring(rawRotate, { stiffness: 120, damping: 30 });
-  const rawTiltX = useTransform(scrollYProgress, [TEND, 1], [0, TILT_DEG]);
+  const rawTiltX = useTransform(scrollYProgress, [TEND, TREVEAL], [0, TILT_DEG]);
   const rotateX = useSpring(rawTiltX, { stiffness: 120, damping: 30 });
-  const barScaleX = useTransform(scrollYProgress, [TSPLIT, 1], [0, 1]);
+  const barScaleX = useTransform(scrollYProgress, [TSPLIT, TREVEAL], [0, 1]);
 
   useMotionValueEvent(scrollYProgress, "change", (p) => {
     const cp = clamp((p - TSPLIT) / (TEND - TSPLIT), 0, 1);
     setStep(clamp(Math.round(cp * (N - 1)), 0, N - 1));
     setInteractive(p >= TSPLIT * 0.6);
-    // El panel cambia cuando el basculado supera el 40% (rango [TEND, 1]).
-    setShowOthers(p >= TEND + SEG * 0.4);
+    // El panel cambia cuando el basculado supera el 40% (rango [TEND, TREVEAL]).
+    setShowOthers(p >= TEND + (TREVEAL - TEND) * 0.4);
   });
 
   if (reduced) return <GridFallback t={t} locale={locale} />;
