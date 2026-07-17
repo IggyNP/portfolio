@@ -7,7 +7,6 @@ const { i18n } = require("./next-i18next.config");
 const PROJECT_REDIRECTS = [
   "portfolio",
   "ior",
-  "soto-bp",
   "driveland-motorsport",
   "ammde",
 ].map((slug) => ({
@@ -15,6 +14,13 @@ const PROJECT_REDIRECTS = [
   destination: `/project/${slug}`,
   permanent: false,
 }));
+
+// Soto BP se sustituyó por MB Dream Living: rutas viejas → nuevo detalle.
+const SOTOBP_REDIRECTS = [
+  { source: "/soto-bp", destination: "/project/mb-dream-living", permanent: false },
+  { source: "/project/soto-bp", destination: "/project/mb-dream-living", permanent: false },
+  { source: "/proyecto/soto-bp", destination: "/proyecto/mb-dream-living", permanent: false },
+];
 
 const nextConfig = {
   i18n,
@@ -25,6 +31,7 @@ const nextConfig = {
   async redirects() {
     return [
       ...PROJECT_REDIRECTS,
+      ...SOTOBP_REDIRECTS,
       { source: "/weather-app", destination: "/", permanent: false },
       { source: "/calculator", destination: "/", permanent: false },
     ];

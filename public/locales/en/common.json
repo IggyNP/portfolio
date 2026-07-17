@@ -64,7 +64,6 @@
   "SUCCESS_TITLE": "Success",
   "THANKS_FOR_YOUR_MESSAGE": "Thank you for your message!",
   "SUCCESS_MESSAGE": "I'll get back to you as soon as possible.",
-  "SOTOBP_OVERVIEW": "Corporate website for Soto Business Partners, a consulting and digital-marketing advisory firm. The site organises their service offering and conveys experience and professionalism to prospective clients.",
   "OTHER_PROJECTS": "Other websites I've developed",
   "WEDDING_TEMPLATES_TITLE": "Wedding Templates",
   "WEDDING_TEMPLATES_INTRO": "Create your perfect wedding website",
@@ -106,14 +105,6 @@
     "Professional design aligned with the association's identity",
     "Activities and member-benefits sections"
   ],
-  "SOTOBP_CHALLENGE": "A consultancy sells on credibility: areas of expertise and work had to be communicated with a clean design that projects solvency, avoiding the generic template look.",
-  "SOTOBP_SOLUTION": "I built the site with WordPress and Elementor, with a modern, refined design that highlights services, team and completed projects and guides visitors toward getting in touch.",
-  "SOTOBP_FEATURES": [
-    "Clean, corporate design focused on credibility",
-    "Clear presentation of services and areas of expertise",
-    "Team and completed-projects sections",
-    "Content management with WordPress + Elementor"
-  ],
   "DRIVELANDM_CHALLENGE": "The challenge was translating the energy of the motorsport world to the web while keeping service and vehicle information tidy and easy to browse.",
   "DRIVELANDM_SOLUTION": "I built the site with WordPress and Elementor, with a bold, visual design showcasing services, team, vehicles and events to attract new clients.",
   "DRIVELANDM_FEATURES": [
@@ -141,5 +132,15 @@
     "Modern Next.js 16 architecture (App Router, caching)",
     "Transactional email with Resend",
     "Foundations for members area and store"
+  ],
+  "MBDREAMLIVING_OVERVIEW": "MB Dream Living is a luxury holiday-rentals company in Marbella. An end-to-end project: I developed their corporate identity, the designs, the website and the booking-engine integration, and led the company's communication and marketing for a year.",
+  "MBDREAMLIVING_CHALLENGE": "A high-end vacation-rental brand has to convey trust and aspiration (luxury Marbella), let guests search and book effortlessly, and keep a consistent identity across every channel. Everything had to be built from scratch: brand, website and presence.",
+  "MBDREAMLIVING_SOLUTION": "A 360° engagement: I created the corporate identity and visual system, designed and built the website with WordPress and Elementor (with custom CSS, JavaScript and PHP) and integrated the booking engine for real-time search and availability. I also ran the company's communication and marketing for a year.",
+  "MBDREAMLIVING_FEATURES": [
+    "Corporate identity and visual system from scratch",
+    "Web design & development (WordPress + Elementor, custom CSS/JS/PHP)",
+    "Booking-engine integration (search & availability)",
+    "Communication and marketing management for a year",
+    "Focused on a luxury, trust-building brand for Marbella holiday rentals"
   ]
 }

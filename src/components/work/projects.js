@@ -7,7 +7,7 @@
 // (ProjectDetail via /project/[slug] y /proyecto/[slug]).
 import portfolio from "public/images/portfolio.png";
 import ior from "public/images/ior.png";
-import sotobp from "public/images/sotobp.png";
+import mbDreamLiving from "public/images/mbdreamliving.png";
 import drivelandMotorsport from "public/images/drivelandMotorsport.png";
 import ammde from "public/images/ammde.png";
 import cofradia from "public/images/cofradia.png";
@@ -38,14 +38,14 @@ export const PROJECTS = [
     status: "live",
   },
   {
-    slug: "soto-bp",
-    key: "SOTOBP",
-    title: "Soto BP",
+    slug: "mb-dream-living",
+    key: "MBDREAMLIVING",
+    title: "MB Dream Living",
     category: "WordPress",
-    tech: ["WordPress", "Elementor", "CSS"],
-    img: sotobp,
-    hero: "/images/projects/sotobp.webp",
-    liveUrl: "https://sotobp.com",
+    tech: ["WordPress", "Elementor", "CSS", "JavaScript", "PHP"],
+    img: mbDreamLiving,
+    hero: "/images/projects/mb-dream-living.webp",
+    liveUrl: "https://mbdreamliving.com",
     codeUrl: null,
     status: "live",
   },
