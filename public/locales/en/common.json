@@ -26,8 +26,8 @@
   "WELCOME_INFO_PART2": "websites\n with love",
   "WELCOME_BUTTON": "View work",
   "ABOUT_TITLE": "about",
-  "ABOUT_INTRO": "Frontend developer obsessed with the details — and how a site feels",
-  "ABOUT_DESCRIPTION": "For several years I've been building websites for businesses — from fast, easy-to-manage WordPress sites that clients can run themselves, to bespoke applications hand-built from scratch with Next.js and React.\n\nWhat makes the difference is the care in the details: clean, fast interfaces, natural motion, and a genuine focus on the user experience. I work with modern tools —TypeScript, Tailwind, Framer Motion, headless CMS— and use Claude day to day to move faster and solve problems better. The result is websites that don't just look professional; they feel considered and work without friction.",
+  "ABOUT_INTRO": "Frontend developer obsessed with the details, and how a site feels",
+  "ABOUT_DESCRIPTION": "For several years I've been building websites for businesses, from fast, easy-to-manage WordPress sites that clients can run themselves, to bespoke applications hand-built from scratch with Next.js and React.\n\nWhat makes the difference is the care in the details: clean, fast interfaces, natural motion, and a genuine focus on the user experience. I work with modern tools like TypeScript, Tailwind, Framer Motion and headless CMS, and use Claude day to day to move faster and solve problems better. The result is websites that don't just look professional; they feel considered and work without friction.",
   "SKILLS_DESCRIPTION": "These are some of the technologies I've worked with",
   "WORK_BUTTON": "more info",
   "WORK_TITLE": "Work",
@@ -56,7 +56,7 @@
   "PROJECT_CODE": "view code",
   "PROJECT_TECHNOLOGIES": "Technologies",
   "PROJECT_BACK": "back",
-  "PORTFOLIO_OVERVIEW": "This very portfolio: an immersive personal site built from scratch with Next.js. More than a showcase, it's a piece in itself —scroll-driven animations, a 3D cube for the projects and light/dark mode— designed to demonstrate my frontend work in practice.",
+  "PORTFOLIO_OVERVIEW": "This very portfolio: an immersive personal site built from scratch with Next.js. More than a showcase, it's a piece in itself, with scroll-driven animations, a 3D cube for the projects and light/dark mode, designed to demonstrate my frontend work in practice.",
   "AMMDE_OVERVIEW": "Website for AMMDE, the multi-sector association of women executives and entrepreneurs. An institutional space to give the association visibility, communicate its mission and activities, and help attract new members.",
   "CV": "/pdfs/cv-inp-en.pdf",
   "IOR_OVERVIEW": "Website for Instituto Oncológico Dr. Rosell, a clinic specialising in precision oncology. The goal was to convey both medical rigour and warmth, presenting treatments, the medical team and facilities clearly for patients arriving at a delicate moment.",
@@ -89,7 +89,7 @@
   "PROJECT_FEATURES": "key features",
   "PROJECT_WEB": "visit site",
   "PROJECT_WIP": "In progress",
-  "IOR_CHALLENGE": "A healthcare site has to inspire immediate trust and make sensitive information easy to find without overwhelming. A large amount of clinical content —services, specialists, technology— had to be organised legibly and accessibly, with interactions that lighten the reading.",
+  "IOR_CHALLENGE": "A healthcare site has to inspire immediate trust and make sensitive information easy to find without overwhelming. A large amount of clinical content (services, specialists, technology) had to be organised legibly and accessibly, with interactions that lighten the reading.",
   "IOR_SOLUTION": "I built the site with WordPress and Elementor so the client could maintain content independently, and reinforced specific sections with custom jQuery to reveal and hide information dynamically. The result is a tidy site with clear visual hierarchy and simple navigation between services and team.",
   "IOR_FEATURES": [
     "Independent content management with WordPress + Elementor",
@@ -113,7 +113,7 @@
     "Team and events sections",
     "Client-editable with WordPress + Elementor"
   ],
-  "PORTFOLIO_CHALLENGE": "I wanted a portfolio that wouldn't look like yet another template —something alive and detail-crafted, with solid performance, accessible and bilingual, without sacrificing smooth animation.",
+  "PORTFOLIO_CHALLENGE": "I wanted a portfolio that wouldn't look like yet another template, but something alive and detail-crafted, with solid performance, accessible and bilingual, without sacrificing smooth animation.",
   "PORTFOLIO_SOLUTION": "I built it with Next.js, Tailwind CSS and Framer Motion, with a scroll-driven work section (a 3D cube rotating through projects), es/en internationalisation via next-i18next, light/dark theme and carefully tuned micro-interactions.",
   "PORTFOLIO_FEATURES": [
     "Projects as a scroll-driven 3D cube",
@@ -124,7 +124,7 @@
   ],
   "COFRADIA_OVERVIEW": "Official website for the Hermandad de la Divina Pastora, currently in development. The project goes beyond an informational site: it integrates a CMS so the brotherhood can manage its own content, plus foundations for member management, legal content and a store.",
   "COFRADIA_CHALLENGE": "A brotherhood needs a site it can maintain itself, with rich, structured content, while laying the groundwork for more complex features (members area, store, documents) on a modern, secure architecture.",
-  "COFRADIA_SOLUTION": "I'm building it with Next.js 16 (App Router) and TypeScript, using Sanity as a headless CMS for editable content, Clerk for authentication, Neon (serverless Postgres) for data and Resend for email —all deployed on Vercel with a branch-based workflow and preview deployments.",
+  "COFRADIA_SOLUTION": "I'm building it with Next.js 16 (App Router) and TypeScript, using Sanity as a headless CMS for editable content, Clerk for authentication, Neon (serverless Postgres) for data and Resend for email, all deployed on Vercel with a branch-based workflow and preview deployments.",
   "COFRADIA_FEATURES": [
     "Headless CMS with Sanity (self-editable content)",
     "User authentication with Clerk",
