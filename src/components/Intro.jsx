@@ -121,7 +121,6 @@ export default function Intro() {
   const reduced = useReducedMotion();
   const [mounted, setMounted] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
-  const sectionRef = useRef(null);
 
   useEffect(() => {
     setMounted(true);
@@ -131,24 +130,6 @@ export default function Intro() {
     mq.addEventListener("change", update);
     return () => mq.removeEventListener("change", update);
   }, []);
-
-  const { scrollYProgress } = useScroll({
-    target: reduced ? undefined : sectionRef,
-    offset: ["start start", "end end"],
-  });
-
-  const videoScale = useTransform(scrollYProgress, [0, 0.6], [1, 2.6]);
-  const videoBlurPx = useTransform(scrollYProgress, [0.3, 0.6], [0, 6]);
-  const videoFilter = useMotionTemplate`blur(${videoBlurPx}px)`;
-  const heroTextOpacity = useTransform(scrollYProgress, [0, 0.28], [1, 0]);
-  const heroTextScale = useTransform(scrollYProgress, [0, 0.5], [1, 1.5]);
-  const scrollHintOpacity = useTransform(scrollYProgress, [0, 0.1], [1, 0]);
-  const heroLayerOpacity = useTransform(scrollYProgress, [0.45, 0.62], [1, 0]);
-  const aboutOpacity = useTransform(scrollYProgress, [0.5, 0.68], [0, 1]);
-  // About crece de pequeño a grande (lo encontramos al final del zoom).
-  const aboutScale = useTransform(scrollYProgress, [0.48, 0.9], [0.6, 1]);
-  // Progreso que alimenta el efecto de la foto (glow/zoom/marco) al acercarse.
-  const revealProgress = useTransform(scrollYProgress, [0.5, 0.92], [0, 1]);
 
   // reduced-motion Y móvil: apilado estático (hero + About), sin pin ni
   // crossfade. La escena fijada de 260vh (buceo de vídeo con zoom + blur) es
@@ -174,6 +155,43 @@ export default function Intro() {
       </>
     );
   }
+
+  return (
+    <DesktopScene
+      t={t}
+      resolvedTheme={resolvedTheme}
+      i18n={i18n}
+      mounted={mounted}
+    />
+  );
+}
+
+// Escena desktop scroll-driven (buceo en el vídeo → crossfade a About).
+// VIVE EN SU PROPIO COMPONENTE a propósito: `useScroll` engancha `sectionRef`
+// en el mount y no vuelve a leerlo si el elemento se desmonta/re-monta. Si este
+// bloque compartiera el hook con el layout móvil de Intro, al conmutar
+// móvil↔desktop por resize el ref se perdería y el scroll quedaría roto. Al
+// aislarlo, cada vez que se entra en desktop se MONTA de cero y mide bien.
+function DesktopScene({ t, resolvedTheme, i18n, mounted }) {
+  const sectionRef = useRef(null);
+
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start start", "end end"],
+  });
+
+  const videoScale = useTransform(scrollYProgress, [0, 0.6], [1, 2.6]);
+  const videoBlurPx = useTransform(scrollYProgress, [0.3, 0.6], [0, 6]);
+  const videoFilter = useMotionTemplate`blur(${videoBlurPx}px)`;
+  const heroTextOpacity = useTransform(scrollYProgress, [0, 0.28], [1, 0]);
+  const heroTextScale = useTransform(scrollYProgress, [0, 0.5], [1, 1.5]);
+  const scrollHintOpacity = useTransform(scrollYProgress, [0, 0.1], [1, 0]);
+  const heroLayerOpacity = useTransform(scrollYProgress, [0.45, 0.62], [1, 0]);
+  const aboutOpacity = useTransform(scrollYProgress, [0.5, 0.68], [0, 1]);
+  // About crece de pequeño a grande (lo encontramos al final del zoom).
+  const aboutScale = useTransform(scrollYProgress, [0.48, 0.9], [0.6, 1]);
+  // Progreso que alimenta el efecto de la foto (glow/zoom/marco) al acercarse.
+  const revealProgress = useTransform(scrollYProgress, [0.5, 0.92], [0, 1]);
 
   return (
     <section ref={sectionRef} id="home" className="relative h-[260vh] w-full">
