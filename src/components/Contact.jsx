@@ -126,7 +126,7 @@ const ContactForm = () => {
         <textarea
           required
           name="message"
-          rows="4"
+          rows="2"
           autoCapitalize="sentences"
           enterKeyHint="send"
           placeholder={t("CONTACT_MESSAGE_PLACEHOLDER")}
@@ -135,7 +135,7 @@ const ContactForm = () => {
       </div>
 
       {/* PRIVACY */}
-      <label className="-my-1 mb-2 flex cursor-pointer items-start gap-3 py-1">
+      <label className="-my-1 mb-2 flex cursor-pointer items-start gap-3 py-1 md:my-0 md:mb-3 md:py-0">
         <input
           type="checkbox"
           name="privacy"
@@ -186,11 +186,11 @@ const ContactForm = () => {
       </p>
 
       {/* SEND */}
-      <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+      <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between md:gap-0">
         <button
           type="submit"
           disabled={loading}
-          className="group inline-flex w-full items-center justify-center gap-3 rounded-full bg-[#FC5185] px-6 py-4 font-heading text-[17px] font-semibold text-white transition-all active:scale-[0.98] disabled:opacity-60 dark:bg-[#2ee6b6] dark:text-[#0a0e17] md:w-auto md:justify-start md:rounded-none md:bg-transparent md:px-0 md:py-0 md:text-gray-900 md:hover:gap-5 md:hover:text-[#FC5185] md:dark:bg-transparent md:dark:text-[#f2f5fa] md:dark:hover:text-[#2ee6b6]"
+          className="group inline-flex w-full items-center justify-center gap-3 rounded-full bg-[#FC5185] px-6 py-4 font-heading text-[17px] font-semibold text-white transition-all active:scale-[0.98] disabled:opacity-60 dark:bg-[#2ee6b6] dark:text-[#0a0e17] md:w-auto md:active:scale-100 md:justify-start md:rounded-none md:bg-transparent md:px-0 md:py-0 md:text-gray-900 md:hover:gap-5 md:hover:text-[#FC5185] md:dark:bg-transparent md:dark:text-[#f2f5fa] md:dark:hover:text-[#2ee6b6]"
         >
           {loading ? t("CONTACT_SENDING") : t("CONTACT_SEND_SHORT")}
           <HiArrowRight className="text-xl md:hidden" />
