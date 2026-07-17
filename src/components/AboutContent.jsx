@@ -5,6 +5,7 @@ import {
   useTransform,
 } from "framer-motion";
 import { useTranslation } from "next-i18next";
+import useMediaQuery from "@/hooks/useMediaQuery";
 
 import ReactIcon from "../icons/ReactIcon.svg";
 import NextjsIcon from "../icons/NextjsIcon.svg";
@@ -50,9 +51,9 @@ function AboutImage({ revealProgress }) {
   const shift = useSpring(useTransform(src, [0, 1], [0, 14]), spring);
 
   return (
-    <div className="relative z-10 mx-auto w-full max-w-[280px] md:col-span-2 md:mx-0 md:max-w-none">
+    <div className="relative z-10 order-first mx-auto w-full max-w-[280px] md:order-none md:col-span-2 md:mx-0 md:max-w-none">
       <motion.div
-        className="absolute -inset-4 rounded-full bg-[#FC5185]/40 blur-3xl dark:bg-[#30E3CA]/30"
+        className="absolute -inset-3 rounded-full bg-[#FC5185]/25 blur-2xl dark:bg-[#30E3CA]/20 md:-inset-4 md:bg-[#FC5185]/40 md:blur-3xl md:dark:bg-[#30E3CA]/30"
         style={{ opacity: glow }}
       />
       <div className="relative">
@@ -63,7 +64,7 @@ function AboutImage({ revealProgress }) {
           style={{ scale }}
         />
         <motion.div
-          className="absolute -bottom-4 -right-4 -z-10 h-full w-full rounded-2xl border-2 border-[#FC5185] dark:border-[#30E3CA]"
+          className="absolute -bottom-3 -right-3 -z-10 h-full w-full rounded-2xl border-2 border-[#FC5185] dark:border-[#30E3CA] md:-bottom-4 md:-right-4"
           style={{ x: shift, y: shift }}
         />
       </div>
@@ -117,46 +118,53 @@ export default function AboutContent({ revealProgress }) {
   ];
 
   const techsLoop = [...techs, ...techs];
+  // El marquee necesita valores más densos/rápidos y máscara más estrecha en
+  // móvil (framer `duration` y `maskImage` no son responsive por clases).
+  const isMobile = useMediaQuery("(max-width: 767px)");
+  const maskFade = isMobile ? "8%" : "14%";
+  const maskImage = `linear-gradient(to right, transparent 0, #000 ${maskFade}, #000 calc(100% - ${maskFade}), transparent 100%)`;
 
   return (
-    <div className="mx-auto grid w-full max-w-[1240px] items-center gap-12 px-6 md:grid-cols-5">
+    <div className="mx-auto grid w-full max-w-[1240px] items-center gap-8 px-6 md:grid-cols-5 md:gap-12">
       <div className="z-10 md:col-span-3">
-        <div className="pb-8">
-          <h2 className="inline border-b-4 border-[#FC5185] text-4xl font-bold capitalize text-slate-900 dark:border-[#30E3CA] dark:text-white">
+        <div className="pb-6 md:pb-8">
+          <h2 className="inline border-b-2 border-[#FC5185] text-3xl font-bold capitalize text-slate-900 dark:border-[#30E3CA] dark:text-white md:border-b-4 md:text-4xl">
             {t("ABOUT_TITLE")}
           </h2>
         </div>
 
-        <div className="space-y-6">
-          <p className="text-3xl font-bold leading-tight text-slate-800 dark:text-slate-200">
+        <div className="space-y-5 md:space-y-6">
+          <p className="text-2xl font-bold leading-snug text-slate-800 dark:text-slate-200 md:text-3xl md:leading-tight">
             {t("ABOUT_INTRO")}
           </p>
 
-          <p className="max-w-xl whitespace-pre-line text-lg leading-relaxed text-slate-600 dark:text-slate-400">
+          <p className="max-w-xl whitespace-pre-line text-base leading-relaxed text-slate-600 dark:text-slate-400 md:text-lg">
             {t("ABOUT_DESCRIPTION")}
           </p>
 
-          <div className="pt-6">
+          <div className="pt-4 md:pt-6">
             {/* Máscara de degradado: los iconos se funden a transparente en
                 ambos bordes, mezclándose con el fondo real (sin cortes). */}
             <div
               className="relative max-w-xl overflow-hidden"
-              style={{
-                WebkitMaskImage:
-                  "linear-gradient(to right, transparent 0, #000 14%, #000 86%, transparent 100%)",
-                maskImage:
-                  "linear-gradient(to right, transparent 0, #000 14%, #000 86%, transparent 100%)",
-              }}
+              style={{ WebkitMaskImage: maskImage, maskImage }}
             >
               <motion.div
                 className="flex items-center"
                 animate={{ x: ["0%", "-50%"] }}
-                transition={{ repeat: Infinity, ease: "linear", duration: 40 }}
+                transition={{
+                  repeat: Infinity,
+                  ease: "linear",
+                  duration: isMobile ? 28 : 40,
+                }}
                 style={{ width: "max-content" }}
               >
                 {techsLoop.map((TechIcon, i) => (
-                  <div key={i} className="flex w-24 shrink-0 justify-center">
-                    <TechIcon className="h-10 w-10 fill-current text-[#FC5185] dark:text-[#30E3CA]" />
+                  <div
+                    key={i}
+                    className="flex w-16 shrink-0 justify-center md:w-24"
+                  >
+                    <TechIcon className="h-8 w-8 fill-current text-[#FC5185] dark:text-[#30E3CA] md:h-10 md:w-10" />
                   </div>
                 ))}
               </motion.div>
