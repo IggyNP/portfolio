@@ -5,7 +5,6 @@ import {
   useTransform,
 } from "framer-motion";
 import { useTranslation } from "next-i18next";
-import { useTheme } from "next-themes";
 
 import ReactIcon from "../icons/ReactIcon.svg";
 import NextjsIcon from "../icons/NextjsIcon.svg";
@@ -76,7 +75,6 @@ function AboutImage({ revealProgress }) {
 // la aparición la maneja la capa de la escena en Intro.jsx).
 export default function AboutContent({ revealProgress }) {
   const { t } = useTranslation();
-  const { theme } = useTheme();
 
   const techs = [
     // Lenguajes
@@ -119,7 +117,6 @@ export default function AboutContent({ revealProgress }) {
   ];
 
   const techsLoop = [...techs, ...techs];
-  const fillColor = theme === "dark" ? "#30E3CA" : "#FC5185";
 
   return (
     <div className="mx-auto grid w-full max-w-[1240px] items-center gap-12 px-6 md:grid-cols-5">
@@ -159,10 +156,7 @@ export default function AboutContent({ revealProgress }) {
               >
                 {techsLoop.map((TechIcon, i) => (
                   <div key={i} className="flex w-24 shrink-0 justify-center">
-                    <TechIcon
-                      className="h-10 w-10"
-                      style={{ color: fillColor, fill: "currentColor" }}
-                    />
+                    <TechIcon className="h-10 w-10 fill-current text-[#FC5185] dark:text-[#30E3CA]" />
                   </div>
                 ))}
               </motion.div>
