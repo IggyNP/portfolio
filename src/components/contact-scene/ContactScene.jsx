@@ -45,13 +45,13 @@ export default function ContactScene() {
         src={POSTER_SRC}
         alt=""
         draggable={false}
-        className="pointer-events-none absolute inset-0 h-full w-full select-none object-cover"
+        className="pointer-events-none absolute inset-0 h-full w-full scale-105 select-none object-cover blur-[2px] brightness-[0.82] md:scale-100 md:blur-0 md:brightness-100"
       />
       {/* Vídeo siempre visible; su propio poster cubre hasta tener fotogramas */}
       {!reduced && (
         <video
           ref={videoRef}
-          className="pointer-events-none absolute inset-0 h-full w-full object-cover"
+          className="pointer-events-none absolute inset-0 h-full w-full scale-105 object-cover blur-[2px] brightness-[0.82] md:scale-100 md:blur-0 md:brightness-100"
           autoPlay
           muted
           loop

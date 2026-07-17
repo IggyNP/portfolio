@@ -8,7 +8,7 @@ import ContactScene from "./contact-scene/ContactScene";
 
 const inputClass =
   "w-full bg-transparent border-0 border-b-[1.5px] border-gray-500/40 dark:border-white/25 " +
-  "px-0 py-2 text-[17px] text-gray-900 dark:text-[#f2f5fa] " +
+  "px-0 py-3 md:py-2 text-[17px] text-gray-900 dark:text-[#f2f5fa] " +
   "placeholder:text-gray-500/70 dark:placeholder:text-[#6b7890] " +
   "focus:outline-none focus:ring-0 focus:border-[#FC5185] dark:focus:border-[#2ee6b6] transition-colors";
 
@@ -83,6 +83,9 @@ const ContactForm = () => {
             required
             type="text"
             name="fullName"
+            autoComplete="name"
+            autoCapitalize="words"
+            enterKeyHint="next"
             placeholder={t("CONTACT_NAME_PLACEHOLDER")}
             className={inputClass}
           />
@@ -93,6 +96,12 @@ const ContactForm = () => {
             required
             type="email"
             name="email"
+            inputMode="email"
+            autoComplete="email"
+            autoCapitalize="none"
+            autoCorrect="off"
+            spellCheck={false}
+            enterKeyHint="next"
             placeholder={t("CONTACT_EMAIL_PLACEHOLDER")}
             className={inputClass}
           />
@@ -105,6 +114,8 @@ const ContactForm = () => {
           required
           type="text"
           name="subject"
+          autoCapitalize="sentences"
+          enterKeyHint="next"
           placeholder={t("CONTACT_SUBJECT_PLACEHOLDER")}
           className={inputClass}
         />
@@ -115,20 +126,22 @@ const ContactForm = () => {
         <textarea
           required
           name="message"
-          rows="2"
+          rows="4"
+          autoCapitalize="sentences"
+          enterKeyHint="send"
           placeholder={t("CONTACT_MESSAGE_PLACEHOLDER")}
-          className={`${inputClass} min-h-[60px] resize-y`}
+          className={`${inputClass} min-h-[120px] resize-y md:min-h-[60px]`}
         />
       </div>
 
       {/* PRIVACY */}
-      <label className="mb-3 flex cursor-pointer items-start gap-3">
+      <label className="-my-1 mb-2 flex cursor-pointer items-start gap-3 py-1">
         <input
           type="checkbox"
           name="privacy"
-          className="mt-[3px] h-4 w-4 shrink-0 accent-[#FC5185] dark:accent-[#2ee6b6]"
+          className="mt-[2px] h-5 w-5 shrink-0 accent-[#FC5185] dark:accent-[#2ee6b6] md:mt-[3px] md:h-4 md:w-4"
         />
-        <span className="text-[13px] leading-relaxed text-gray-600 dark:text-[#aab4c7]">
+        <span className="text-sm leading-relaxed text-gray-600 dark:text-[#aab4c7] md:text-[13px]">
           <Trans
             i18nKey="CONTACT_PRIVACY_CONSENT"
             components={{
@@ -173,25 +186,26 @@ const ContactForm = () => {
       </p>
 
       {/* SEND */}
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
         <button
           type="submit"
           disabled={loading}
-          className="group inline-flex items-center gap-3 font-heading text-[17px] font-semibold text-gray-900 transition-all hover:gap-5 hover:text-[#FC5185] disabled:opacity-60 dark:text-[#f2f5fa] dark:hover:text-[#2ee6b6]"
+          className="group inline-flex w-full items-center justify-center gap-3 rounded-full bg-[#FC5185] px-6 py-4 font-heading text-[17px] font-semibold text-white transition-all active:scale-[0.98] disabled:opacity-60 dark:bg-[#2ee6b6] dark:text-[#0a0e17] md:w-auto md:justify-start md:rounded-none md:bg-transparent md:px-0 md:py-0 md:text-gray-900 md:hover:gap-5 md:hover:text-[#FC5185] md:dark:bg-transparent md:dark:text-[#f2f5fa] md:dark:hover:text-[#2ee6b6]"
         >
           {loading ? t("CONTACT_SENDING") : t("CONTACT_SEND_SHORT")}
-          <span className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-[#FC5185] text-xl text-white transition-transform group-hover:scale-110 dark:bg-[#2ee6b6] dark:text-[#0a0e17]">
+          <HiArrowRight className="text-xl md:hidden" />
+          <span className="hidden h-11 w-11 items-center justify-center rounded-full bg-[#FC5185] text-xl text-white transition-transform group-hover:scale-110 dark:bg-[#2ee6b6] dark:text-[#0a0e17] md:inline-flex">
             <HiArrowRight />
           </span>
         </button>
 
         {/* Social */}
-        <div className="flex items-center gap-4 text-gray-500 dark:text-[#8794aa]">
+        <div className="flex items-center justify-center gap-1 text-gray-500 dark:text-[#8794aa] md:justify-start md:gap-4">
           <Link
             href="https://www.linkedin.com/in/ignacio-navarro-poves/"
             target="_blank"
             aria-label="LinkedIn"
-            className="transition hover:-translate-y-0.5 hover:text-[#FC5185] dark:hover:text-[#2ee6b6]"
+            className="inline-flex h-11 w-11 items-center justify-center transition hover:-translate-y-0.5 hover:text-[#FC5185] dark:hover:text-[#2ee6b6] md:h-auto md:w-auto"
           >
             <FaLinkedin size={20} />
           </Link>
@@ -199,14 +213,14 @@ const ContactForm = () => {
             href="https://github.com/IggyNP"
             target="_blank"
             aria-label="GitHub"
-            className="transition hover:-translate-y-0.5 hover:text-[#FC5185] dark:hover:text-[#2ee6b6]"
+            className="inline-flex h-11 w-11 items-center justify-center transition hover:-translate-y-0.5 hover:text-[#FC5185] dark:hover:text-[#2ee6b6] md:h-auto md:w-auto"
           >
             <FaGithub size={20} />
           </Link>
           <Link
             href="mailto:dev@iggynp.com"
             aria-label="Email"
-            className="transition hover:-translate-y-0.5 hover:text-[#FC5185] dark:hover:text-[#2ee6b6]"
+            className="inline-flex h-11 w-11 items-center justify-center transition hover:-translate-y-0.5 hover:text-[#FC5185] dark:hover:text-[#2ee6b6] md:h-auto md:w-auto"
           >
             <HiOutlineMail size={22} />
           </Link>
@@ -227,7 +241,7 @@ const Contact = () => {
     <GoogleReCaptchaProvider reCaptchaKey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}>
       <section
         id="contact"
-        className="relative flex min-h-screen w-full items-center overflow-hidden"
+        className="relative flex min-h-[100svh] w-full items-center overflow-hidden"
       >
         {/* Escena viva de fondo */}
         <ContactScene />
@@ -241,8 +255,8 @@ const Contact = () => {
 
         {/* Contenido: mismo contenedor de 1240px que el resto; el formulario
             (620px) queda alineado a la izquierda de esa banda. */}
-        <div className="relative z-[2] mx-auto w-full max-w-[1240px] px-6 py-20">
-          <div className="w-full max-w-[620px]">
+        <div className="relative z-[2] mx-auto w-full max-w-[1240px] px-6 py-16 md:py-20">
+          <div className="w-full max-w-[620px] rounded-2xl bg-[#f8f8f8]/85 p-6 shadow-[0_8px_40px_rgba(10,14,23,0.25)] ring-1 ring-black/5 backdrop-blur-xl dark:bg-[#191825]/80 dark:ring-white/10 md:rounded-none md:bg-transparent md:p-0 md:shadow-none md:ring-0 md:backdrop-blur-0">
             <p className="mb-2.5 font-heading text-sm font-medium uppercase tracking-[3px] text-[#FC5185] dark:text-[#2ee6b6]">
               {t("CONTACT_EYEBROW")}
             </p>
@@ -259,7 +273,7 @@ const Contact = () => {
         </div>
 
         {/* Back to top */}
-        <div className="absolute bottom-6 right-6 z-[2]">
+        <div className="absolute bottom-[max(1.5rem,env(safe-area-inset-bottom))] right-[max(1.5rem,env(safe-area-inset-right))] z-[2] hidden md:block">
           <Link href="/#home" scroll={false} aria-label="Back to top">
             <div className="rounded-full bg-white/60 p-4 text-gray-700 backdrop-blur-sm transition hover:-translate-y-1 hover:text-[#FC5185] dark:bg-white/10 dark:text-[#f2f5fa] dark:hover:text-[#2ee6b6]">
               <HiOutlineChevronDoubleUp size={22} />
