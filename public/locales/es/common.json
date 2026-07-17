@@ -63,7 +63,6 @@
   "SUCCESS_TITLE": "Éxito",
   "THANKS_FOR_YOUR_MESSAGE": "Gracias por tu mensaje!",
   "SUCCESS_MESSAGE": "Me pondré en contacto contigo lo antes posible.",
-  "SOTOBP_OVERVIEW": "Web corporativa de Soto Business Partners, consultora de asesoramiento y marketing digital. El sitio ordena su oferta de servicios y transmite experiencia y profesionalidad a clientes potenciales.",
   "OTHER_PROJECTS": "Otras webs que he desarrollado",
   "WEDDING_TEMPLATES_TITLE": "Plantillas para bodas",
   "WEDDING_TEMPLATES_INTRO": "Crea la web de boda perfecta",
@@ -105,14 +104,6 @@
     "Diseño profesional acorde a la identidad de la asociación",
     "Secciones de actividades y beneficios para miembros"
   ],
-  "SOTOBP_CHALLENGE": "Una consultora se vende por credibilidad: había que comunicar áreas de especialización y trabajo con un diseño limpio que proyectara solvencia, sin caer en la plantilla genérica.",
-  "SOTOBP_SOLUTION": "Desarrollé el sitio con WordPress y Elementor, con un diseño moderno y depurado que destaca servicios, equipo y proyectos realizados, y guía al visitante hacia el contacto.",
-  "SOTOBP_FEATURES": [
-    "Diseño limpio y corporativo centrado en la credibilidad",
-    "Presentación clara de servicios y áreas de especialización",
-    "Secciones de equipo y proyectos realizados",
-    "Gestión de contenido con WordPress + Elementor"
-  ],
   "DRIVELANDM_OVERVIEW": "Web de Driveland Motorsport, especialistas en preparación y servicios de automoción deportiva. Un sitio con carácter, pensado para enganchar a los entusiastas del motor y presentar los servicios de la empresa.",
   "DRIVELANDM_CHALLENGE": "El reto era trasladar la energía del mundo del motorsport a la web manteniendo la información de servicios y vehículos ordenada y fácil de recorrer.",
   "DRIVELANDM_SOLUTION": "Construí el sitio con WordPress y Elementor, con un diseño potente y visual para mostrar servicios, equipo, vehículos y eventos, y atraer a nuevos clientes.",
@@ -141,5 +132,15 @@
     "Arquitectura moderna Next.js 16 (App Router, caché)",
     "Correo transaccional con Resend",
     "Bases para el área de hermanos y la tienda"
+  ],
+  "MBDREAMLIVING_OVERVIEW": "MB Dream Living es una empresa de alquiler vacacional de lujo en Marbella. Un proyecto integral: desarrollé su identidad corporativa, los diseños, la web y la integración del motor de reservas, y llevé la comunicación y el marketing de la empresa durante un año.",
+  "MBDREAMLIVING_CHALLENGE": "Una marca de alquiler vacacional de gama alta tiene que transmitir confianza y aspiración (la Marbella de lujo), permitir buscar y reservar con facilidad, y mantener una identidad coherente en todos los canales. Había que construirlo todo desde cero: marca, web y presencia.",
+  "MBDREAMLIVING_SOLUTION": "Trabajo 360°: creé la identidad corporativa y el sistema visual, diseñé y desarrollé la web con WordPress y Elementor (con CSS, JavaScript y PHP a medida) e integré el motor de reservas para búsqueda y disponibilidad en tiempo real. Además gestioné la comunicación y el marketing de la empresa durante un año.",
+  "MBDREAMLIVING_FEATURES": [
+    "Identidad corporativa y sistema visual desde cero",
+    "Diseño y desarrollo web (WordPress + Elementor, CSS/JS/PHP a medida)",
+    "Integración del motor de reservas (búsqueda y disponibilidad)",
+    "Gestión de comunicación y marketing durante un año",
+    "Enfoque en marca de lujo y confianza para el alquiler vacacional en Marbella"
   ]
 }
