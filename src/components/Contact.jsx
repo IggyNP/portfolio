@@ -256,7 +256,7 @@ const Contact = () => {
         {/* Contenido: mismo contenedor de 1240px que el resto; el formulario
             (620px) queda alineado a la izquierda de esa banda. */}
         <div className="relative z-[2] mx-auto w-full max-w-[1240px] px-6 py-16 md:py-20">
-          <div className="w-full max-w-[620px] rounded-2xl bg-[#f8f8f8]/85 p-6 shadow-[0_8px_40px_rgba(10,14,23,0.25)] ring-1 ring-black/5 backdrop-blur-xl dark:bg-[#191825]/80 dark:ring-white/10 md:rounded-none md:bg-transparent md:p-0 md:shadow-none md:ring-0 md:backdrop-blur-0">
+          <div className="w-full max-w-[620px] max-md:rounded-2xl max-md:bg-[#f8f8f8]/85 max-md:p-6 max-md:shadow-[0_8px_40px_rgba(10,14,23,0.25)] max-md:ring-1 max-md:ring-black/5 max-md:backdrop-blur-xl max-md:dark:bg-[#191825]/80 max-md:dark:ring-white/10">
             <p className="mb-2.5 font-heading text-sm font-medium uppercase tracking-[3px] text-[#FC5185] dark:text-[#2ee6b6]">
               {t("CONTACT_EYEBROW")}
             </p>
