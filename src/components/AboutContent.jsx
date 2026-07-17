@@ -51,7 +51,7 @@ function AboutImage({ revealProgress }) {
   const shift = useSpring(useTransform(src, [0, 1], [0, 14]), spring);
 
   return (
-    <div className="relative z-10 order-first mx-auto w-full max-w-[280px] md:order-none md:col-span-2 md:mx-0 md:max-w-none">
+    <div className="relative z-10 order-2 mx-auto w-full min-w-0 max-w-[280px] md:order-none md:col-span-2 md:col-start-4 md:row-span-2 md:row-start-1 md:mx-0 md:max-w-none">
       <motion.div
         className="absolute -inset-3 rounded-full bg-[#FC5185]/25 blur-2xl dark:bg-[#30E3CA]/20 md:-inset-4 md:bg-[#FC5185]/40 md:blur-3xl md:dark:bg-[#30E3CA]/30"
         style={{ opacity: glow }}
@@ -125,14 +125,16 @@ export default function AboutContent({ revealProgress }) {
   const maskImage = `linear-gradient(to right, transparent 0, #000 ${maskFade}, #000 calc(100% - ${maskFade}), transparent 100%)`;
 
   return (
-    <div className="mx-auto grid w-full max-w-[1240px] items-center gap-8 px-6 md:grid-cols-5 md:gap-12">
-      <div className="z-10 md:col-span-3">
-        <div className="pb-6 md:pb-8">
-          <h2 className="inline border-b-2 border-[#FC5185] text-3xl font-bold capitalize text-slate-900 dark:border-[#30E3CA] dark:text-white md:border-b-4 md:text-4xl">
-            {t("ABOUT_TITLE")}
-          </h2>
-        </div>
+    <div className="mx-auto grid w-full min-w-0 max-w-[1240px] items-center gap-8 px-6 md:grid-cols-5 md:gap-x-12 md:gap-y-0">
+      {/* Título (arriba del todo; en móvil la foto va justo debajo, order-2) */}
+      <div className="order-1 min-w-0 pb-0 md:order-none md:col-span-3 md:col-start-1 md:row-start-1 md:pb-8">
+        <h2 className="inline border-b-2 border-[#FC5185] text-3xl font-bold capitalize text-slate-900 dark:border-[#30E3CA] dark:text-white md:border-b-4 md:text-4xl">
+          {t("ABOUT_TITLE")}
+        </h2>
+      </div>
 
+      {/* Cuerpo: intro + descripción + marquee (order-3 en móvil) */}
+      <div className="order-3 min-w-0 md:order-none md:col-span-3 md:col-start-1 md:row-start-2">
         <div className="space-y-5 md:space-y-6">
           <p className="text-2xl font-bold leading-snug text-slate-800 dark:text-slate-200 md:text-3xl md:leading-tight">
             {t("ABOUT_INTRO")}
@@ -144,9 +146,10 @@ export default function AboutContent({ revealProgress }) {
 
           <div className="pt-4 md:pt-6">
             {/* Máscara de degradado: los iconos se funden a transparente en
-                ambos bordes, mezclándose con el fondo real (sin cortes). */}
+                ambos bordes. `min-w-0` evita que el track (max-content) empuje
+                la columna más ancha que el viewport. */}
             <div
-              className="relative max-w-xl overflow-hidden"
+              className="relative min-w-0 max-w-xl overflow-hidden"
               style={{ WebkitMaskImage: maskImage, maskImage }}
             >
               <motion.div
