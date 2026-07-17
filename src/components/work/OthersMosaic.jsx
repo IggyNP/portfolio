@@ -96,7 +96,7 @@ export default function OthersMosaic({ lead, accent }) {
           composición 3D de la cara. */}
       <div className="absolute inset-0 bg-[#0a0e17]/75" />
       <div className="absolute inset-0 bg-[#FC5185]/12 dark:bg-[#2ee6b6]/12" />
-      <div className="absolute inset-0 grid place-items-center">
+      <div className="absolute inset-0 grid select-none place-items-center">
         <span className="px-12 text-center font-heading text-6xl font-bold leading-tight text-white">
           {lead}{" "}
           <span className="text-[#FC5185] dark:text-[#2ee6b6]">{accent}</span>

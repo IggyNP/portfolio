@@ -369,7 +369,7 @@ export default function WorkGallery() {
                   >
                     <div
                       className="absolute inset-0"
-                      style={{ transform: "rotate(180deg)" }}
+                      style={{ transform: "rotate(-90deg)" }}
                     >
                       <OthersMosaic
                         lead={t("WORK_OTHERS_CARD_LEAD")}
