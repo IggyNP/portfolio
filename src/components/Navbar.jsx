@@ -32,9 +32,9 @@ const Navbar = () => {
                   : "/images/inp-b.png"
               }
               alt="INP's logo"
-              width={110}
-              height={110}
-              className="h-full w-auto"
+              width={371}
+              height={157}
+              className="h-10 w-auto"
               priority
             />
           </Link>
