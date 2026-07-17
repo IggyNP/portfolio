@@ -44,16 +44,17 @@ function IntroText({ t }) {
       <p className="font-heading text-sm font-semibold uppercase tracking-[0.3em] text-[#FC5185] dark:text-[#2ee6b6]">
         {t("WORK_LABEL")}
       </p>
-      <h2 className="mt-4 max-w-3xl font-heading text-5xl font-bold leading-[1.05] tracking-tight text-slate-900 dark:text-white sm:text-6xl lg:text-7xl">
+      <h2 className="mt-4 max-w-3xl font-heading text-4xl font-bold leading-[1.1] tracking-tight text-slate-900 dark:text-white sm:text-6xl sm:leading-[1.05] lg:text-7xl">
         {t("WORK_INTRO_LEAD")}{" "}
         <span className="text-[#FC5185] dark:text-[#2ee6b6]">
           {t("WORK_INTRO_ACCENT")}
         </span>
       </h2>
-      <p className="mt-6 max-w-xl text-lg leading-relaxed text-slate-500 dark:text-slate-400">
+      <p className="mt-5 max-w-xl text-base leading-relaxed text-slate-500 dark:text-slate-400 sm:mt-6 sm:text-lg">
         {t("WORK_SUBTITLE")}
       </p>
-      <div className="mt-14 flex items-center gap-3 text-slate-400 dark:text-slate-600">
+      {/* El indicador de scroll solo tiene sentido con el cubo (desktop). */}
+      <div className="mt-14 hidden items-center gap-3 text-slate-400 dark:text-slate-600 md:flex">
         <span className="font-heading text-xs font-semibold uppercase tracking-[0.3em]">
           {t("WORK_SCROLL")}
         </span>
@@ -72,20 +73,20 @@ function IntroText({ t }) {
 // Lista de otras webs (2 columnas), reutilizada en el panel y en el fallback.
 function OtherProjectsList() {
   return (
-    <ul className="grid grid-cols-2 gap-x-8">
+    <ul className="grid grid-cols-1 gap-x-8 sm:grid-cols-2">
       {OTHER_PROJECTS.map((p) => (
         <li key={p.url}>
           <a
             href={p.url}
             target="_blank"
             rel="noreferrer"
-            className="group flex items-center gap-1.5 py-1.5 text-slate-600 transition-colors hover:text-[#FC5185] dark:text-slate-300 dark:hover:text-[#2ee6b6]"
+            className="group flex items-center gap-2 py-2.5 text-slate-600 transition-colors hover:text-[#FC5185] active:text-[#FC5185] dark:text-slate-300 dark:hover:text-[#2ee6b6] dark:active:text-[#2ee6b6] sm:py-1.5"
           >
             <RiRadioButtonFill
               size={11}
               className="shrink-0 text-[#FC5185] dark:text-[#2ee6b6]"
             />
-            <span className="underline-offset-2 group-hover:underline">
+            <span className="underline-offset-2 group-hover:underline group-active:underline">
               {p.name}
             </span>
           </a>
@@ -180,33 +181,41 @@ function OthersPanel({ t }) {
 
 function GridFallback({ t, locale }) {
   return (
-    <div className="mx-auto max-w-[1240px] px-6 py-20">
-      <div className="mb-12">
+    <div className="mx-auto max-w-[1240px] px-6 py-14 sm:py-20">
+      <div className="mb-10 sm:mb-12">
         <IntroText t={t} />
       </div>
-      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="grid gap-5 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3">
         {PROJECTS.map((p) => (
           <Link
             key={p.title}
             href={projectHref(p.slug, locale)}
-            className="group overflow-hidden rounded-2xl ring-1 ring-black/5 dark:ring-white/10"
+            className="group block overflow-hidden rounded-2xl ring-1 ring-black/5 transition-transform duration-300 active:scale-[0.98] motion-reduce:transition-none dark:ring-white/10"
           >
-            <div className="relative aspect-[16/10] overflow-hidden">
+            <div className="relative aspect-[16/11] overflow-hidden sm:aspect-[16/10]">
               <Image
                 src={p.img}
                 alt={p.title}
                 fill
-                className="object-cover transition-transform duration-500 group-hover:scale-105"
-                sizes="400px"
+                className="object-cover transition-transform duration-500 group-hover:scale-105 group-active:scale-105"
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 400px"
               />
             </div>
-            <div className="p-4">
-              <h3 className="font-heading font-bold text-slate-900 dark:text-white">
-                {p.title}
-              </h3>
-              <p className="text-sm text-slate-500 dark:text-slate-400">
-                {p.tech.join(" · ")}
-              </p>
+            <div className="flex items-center justify-between gap-3 p-4">
+              <div className="min-w-0">
+                <h3 className="truncate font-heading font-bold text-slate-900 transition-colors group-hover:text-[#FC5185] group-active:text-[#FC5185] dark:text-white dark:group-hover:text-[#2ee6b6] dark:group-active:text-[#2ee6b6]">
+                  {p.title}
+                </h3>
+                <p className="truncate text-sm text-slate-500 dark:text-slate-400">
+                  {p.tech.join(" · ")}
+                </p>
+              </div>
+              <span
+                aria-hidden="true"
+                className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-[#FC5185]/10 text-[#FC5185] transition-transform group-hover:translate-x-0.5 dark:bg-[#2ee6b6]/10 dark:text-[#2ee6b6]"
+              >
+                <HiArrowUpRight />
+              </span>
             </div>
           </Link>
         ))}

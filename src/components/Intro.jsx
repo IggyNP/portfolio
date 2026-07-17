@@ -30,6 +30,11 @@ function HeroLayer({ t, resolvedTheme, i18n, videoStyle, textStyle, hintStyle })
     resolvedTheme === "dark"
       ? "/videos/hero-bg.mp4"
       : "/videos/hero-bg-light.mp4";
+  // Póster (1er frame) para pintado instantáneo y buen LCP en móvil.
+  const posterSrc =
+    resolvedTheme === "dark"
+      ? "/videos/hero-bg-poster.webp"
+      : "/videos/hero-bg-light-poster.webp";
   return (
     <>
       <motion.video
@@ -38,7 +43,8 @@ function HeroLayer({ t, resolvedTheme, i18n, videoStyle, textStyle, hintStyle })
         muted
         loop
         playsInline
-        preload="auto"
+        preload="metadata"
+        poster={posterSrc}
         className="absolute inset-0 z-0 h-full w-full object-cover"
         aria-hidden="true"
         style={videoStyle}
@@ -46,32 +52,35 @@ function HeroLayer({ t, resolvedTheme, i18n, videoStyle, textStyle, hintStyle })
         <source src={videoSrc} type="video/mp4" />
       </motion.video>
 
-      <div className="absolute inset-0 z-[1] bg-white/40 dark:bg-[#191825]/75" />
+      {/* Velo por tema (más fuerte en móvil para legibilidad sobre el vídeo). */}
+      <div className="absolute inset-0 z-[1] bg-white/60 dark:bg-[#191825]/80 md:bg-white/40 md:dark:bg-[#191825]/75" />
+      {/* Scrim vertical solo en móvil: ancla el texto sin lavar el vídeo. */}
+      <div className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-b from-black/5 via-transparent to-black/25 dark:from-black/25 dark:to-black/45 md:hidden" />
       <div className="pointer-events-none absolute inset-0 z-[2] bg-[radial-gradient(circle_at_50%_30%,rgba(48,227,202,0.06),transparent_60%)]" />
 
       <motion.div className="relative z-10 w-full" style={textStyle}>
         <motion.div
           key={`${resolvedTheme}-${i18n.language}`}
-          className="mx-auto flex w-full max-w-[1240px] flex-col items-center px-6 text-center"
+          className="mx-auto flex w-full max-w-[1240px] flex-col items-center px-6 text-center [text-shadow:0_1px_14px_rgba(0,0,0,0.28)] md:[text-shadow:none]"
           variants={containerVariants}
           initial="hidden"
           animate="visible"
         >
           <motion.p
             variants={itemVariants}
-            className="mb-2 text-sm tracking-widest text-[#FC5185] dark:text-[#30E3CA] sm:text-base"
+            className="mb-3 text-sm tracking-widest text-[#FC5185] dark:text-[#30E3CA] sm:mb-2 sm:text-base"
           >
             {t("WELCOME_HELLO")}
           </motion.p>
           <motion.h1
             variants={itemVariants}
-            className="text-4xl font-bold tracking-tight sm:text-7xl"
+            className="text-5xl font-bold tracking-tight sm:text-7xl"
           >
             IGGY NP
           </motion.h1>
           <motion.h2
             variants={itemVariants}
-            className="mt-2 max-w-[700px] whitespace-pre-line text-2xl font-semibold text-[#8892b0] sm:text-5xl"
+            className="mt-3 max-w-[20rem] whitespace-pre-line text-xl font-semibold leading-snug text-[#4b5563] dark:text-[#8892b0] sm:mt-2 sm:max-w-[700px] sm:text-5xl sm:leading-tight sm:text-[#8892b0]"
           >
             {t("WELCOME_INFO_PART1")} <DynamicAdjective />{" "}
             {t("WELCOME_INFO_PART2")}
@@ -81,7 +90,7 @@ function HeroLayer({ t, resolvedTheme, i18n, videoStyle, textStyle, hintStyle })
 
       <motion.div
         aria-hidden="true"
-        className="pointer-events-none absolute bottom-8 left-1/2 z-10 -translate-x-1/2"
+        className="pointer-events-none absolute bottom-[max(2rem,env(safe-area-inset-bottom))] left-1/2 z-10 -translate-x-1/2 md:bottom-8"
         style={hintStyle}
       >
         <motion.div
@@ -150,7 +159,7 @@ export default function Intro() {
       <>
         <section
           id="home"
-          className="relative flex h-screen w-full items-center justify-center overflow-hidden"
+          className="relative flex min-h-[100svh] w-full items-center justify-center overflow-hidden"
         >
           {mounted && (
             <HeroLayer t={t} resolvedTheme={resolvedTheme} i18n={i18n} />

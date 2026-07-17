@@ -1,4 +1,5 @@
 import "@/styles/globals.css";
+import Head from "next/head";
 import { ThemeProvider } from "next-themes";
 import { appWithTranslation } from "next-i18next";
 import { useRouter } from "next/router";
@@ -34,6 +35,14 @@ const App = ({ Component, pageProps }) => {
   const showChrome = !router.pathname.startsWith("/maintenance");
   return (
     <ThemeProvider enableSystem={true} attribute="class">
+      <Head>
+        {/* viewport-fit=cover habilita env(safe-area-inset-*) en iOS (notch /
+            home indicator). Sin esto las safe-area del móvil no tienen efecto. */}
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, viewport-fit=cover"
+        />
+      </Head>
       <div className={`${poppins.variable} ${dmSans.variable} font-sans`}>
         {showChrome && <Preloader />}
         {showChrome && <MouseCube />}
