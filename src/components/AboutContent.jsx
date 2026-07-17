@@ -51,7 +51,7 @@ function AboutImage({ revealProgress }) {
   const shift = useSpring(useTransform(src, [0, 1], [0, 14]), spring);
 
   return (
-    <div className="relative z-10 md:col-span-2">
+    <div className="relative z-10 mx-auto w-full max-w-[280px] md:col-span-2 md:mx-0 md:max-w-none">
       <motion.div
         className="absolute -inset-4 rounded-full bg-[#FC5185]/40 blur-3xl dark:bg-[#30E3CA]/30"
         style={{ opacity: glow }}
