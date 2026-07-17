@@ -142,5 +142,8 @@
     "Booking-engine integration (search & availability)",
     "Communication and marketing management for a year",
     "Focused on a luxury, trust-building brand for Marbella holiday rentals"
-  ]
+  ],
+  "MENU": "Menu",
+  "MENU_OPEN": "Open menu",
+  "MENU_CLOSE": "Close menu"
 }

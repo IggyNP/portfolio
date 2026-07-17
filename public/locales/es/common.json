@@ -142,5 +142,8 @@
     "Integración del motor de reservas (búsqueda y disponibilidad)",
     "Gestión de comunicación y marketing durante un año",
     "Enfoque en marca de lujo y confianza para el alquiler vacacional en Marbella"
-  ]
+  ],
+  "MENU": "Menú",
+  "MENU_OPEN": "Abrir menú",
+  "MENU_CLOSE": "Cerrar menú"
 }
