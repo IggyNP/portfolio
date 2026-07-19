@@ -5,7 +5,7 @@ import Link from "next/link";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
 
-const success = () => {
+const Success = () => {
   const { t } = useTranslation();
   return (
     <>
@@ -32,7 +32,7 @@ const success = () => {
   );
 };
 
-export default success;
+export default Success;
 
 export async function getStaticProps(context) {
   const { locale } = context;

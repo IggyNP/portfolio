@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function Maintenance() {
   const year = new Date().getFullYear();
 
@@ -31,10 +33,12 @@ export default function Maintenance() {
       </p>
 
       {/* Logo */}
-      <img
+      <Image
         src="/images/inp.png"
         alt="IggyNP Logo"
-        className="mb-2 h-14 opacity-90"
+        width={371}
+        height={157}
+        className="mb-2 h-14 w-auto opacity-90"
       />
 
       {/* Footer */}
