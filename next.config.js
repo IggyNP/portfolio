@@ -25,7 +25,7 @@ const SOTOBP_REDIRECTS = [
 const nextConfig = {
   i18n,
   reactStrictMode: true,
-  // El build no debe fallar por lint: se ejecuta aparte (`npm run lint`).
+  // El build no debe fallar por lint: lo garantiza CI (.github/workflows/ci.yml).
   eslint: { ignoreDuringBuilds: true },
   async redirects() {
     return [
