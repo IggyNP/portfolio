@@ -1,4 +1,4 @@
-import WorkGallery from "./work/WorkGallery";
+import WorkGallery from "./WorkGallery";
 
 const Work = () => (
   <div id="work" className="w-full">

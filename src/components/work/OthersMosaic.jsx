@@ -1,4 +1,4 @@
-import { PROJECTS, OTHER_PROJECTS } from "./projects";
+import { PROJECTS, OTHER_PROJECTS } from "@/data/projects";
 
 /* --------------------------------------------------------------------------
    Fondo del mosaico "Y muchos más…": varias filas de miniaturas en marquee

@@ -1,8 +1,8 @@
 import Head from "next/head";
-import Navbar from "@/components/Navbar";
-import Intro from "@/components/Intro";
-import Work from "@/components/Work";
-import Contact from "@/components/Contact";
+import Navbar from "@/components/layout/Navbar";
+import Intro from "@/components/intro/Intro";
+import Work from "@/components/work/Work";
+import Contact from "@/components/contact/Contact";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
 

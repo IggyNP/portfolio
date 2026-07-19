@@ -5,8 +5,8 @@ import { motion } from "framer-motion";
 import { useTranslation } from "next-i18next";
 import { HiArrowUpRight, HiArrowLeft } from "react-icons/hi2";
 import { RiRadioButtonFill } from "react-icons/ri";
-import Navbar from "@/components/Navbar";
-import { getProject } from "./projects";
+import Navbar from "@/components/layout/Navbar";
+import { getProject } from "@/data/projects";
 
 /* --------------------------------------------------------------------------
    Plantilla única de página de detalle de proyecto (caso de estudio). Recibe un

@@ -4,7 +4,7 @@ import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { HiOutlineMail, HiOutlineChevronDoubleUp, HiArrowRight } from "react-icons/hi";
 import { useTranslation, Trans } from "next-i18next";
 import { GoogleReCaptchaProvider, useGoogleReCaptcha } from "react-google-recaptcha-v3";
-import ContactScene from "./contact-scene/ContactScene";
+import ContactScene from "./ContactScene";
 
 const inputClass =
   "w-full bg-transparent border-0 border-b-[1.5px] border-gray-500/40 dark:border-white/25 " +

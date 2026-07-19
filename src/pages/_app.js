@@ -4,8 +4,8 @@ import { ThemeProvider } from "next-themes";
 import { appWithTranslation } from "next-i18next";
 import { useRouter } from "next/router";
 import localFont from "next/font/local";
-import Preloader from "@/components/Preloader";
-import MouseCube from "@/components/MouseCube";
+import Preloader from "@/components/ui/Preloader";
+import MouseCube from "@/components/ui/MouseCube";
 
 // Fuentes autohospedadas (src/fonts/*.woff2) para que el build NO dependa de
 // descargar de Google Fonts en tiempo de compilación (evita los ETIMEDOUT
