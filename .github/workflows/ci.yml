@@ -15,6 +15,10 @@ jobs:
         with:
           node-version: 20
           cache: npm
+      # El lockfile se genera en local con npm 11, que omite los peers
+      # opcionales de typescript; el npm 10 que trae Node 20 los exige y
+      # rechaza el lock en `npm ci`.
+      - run: npm install -g npm@11
       - run: npm ci
       - run: npm run lint
       - run: npm run build
