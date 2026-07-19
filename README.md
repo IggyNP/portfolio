@@ -10,7 +10,7 @@ Personal portfolio of Ignacio Navarro (IggyNP), frontend developer. Bilingual (E
 - [Tailwind CSS](https://tailwindcss.com/) with class-based dark mode ([next-themes](https://github.com/pacocoursey/next-themes))
 - [Framer Motion](https://www.framer.com/motion/) for scroll-driven animations
 - [next-i18next](https://github.com/i18next/next-i18next) for EN/ES localization
-- Contact form: reCAPTCHA v3 + [nodemailer](https://nodemailer.com/) (Gmail OAuth2) via API route
+- Contact form: reCAPTCHA v3 + [Resend](https://resend.com/) via API route, with best-effort in-memory rate limiting
 - Deployed on [Vercel](https://vercel.com/)
 
 ## Getting started
@@ -27,7 +27,7 @@ Open [http://localhost:3000](http://localhost:3000).
 
 ## Environment variables
 
-See [`.env.example`](.env.example) for the full list: reCAPTCHA v3 keys, Gmail OAuth2 credentials for the contact form, and `MAINTENANCE_MODE`. The Gmail refresh token can be generated with `node scripts/getRefreshToken.js`.
+See [`.env.example`](.env.example) for the full list: reCAPTCHA v3 keys, the Resend API key + destination address for the contact form, and `MAINTENANCE_MODE`.
 
 ## Scripts
 
