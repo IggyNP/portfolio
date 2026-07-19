@@ -1,14 +1,26 @@
 import nodemailer from "nodemailer";
 
+// Límites defensivos: la API no confía en el cliente aunque el formulario
+// ya restrinja los campos.
+const MAX_LENGTHS = { fullName: 100, email: 200, subject: 150, message: 5000 };
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
 export default async function handler(req, res) {
   if (req.method !== "POST") {
     return res.status(405).json({ success: false, message: "Method not allowed" });
   }
 
-  const { fullName, email, subject, message, token } = req.body;
+  const { fullName, email, subject, message, token } = req.body ?? {};
 
-  if (!fullName || !email || !subject || !message || !token) {
-    return res.status(400).json({ success: false, message: "Missing fields" });
+  const invalidField = Object.entries({ fullName, email, subject, message }).some(
+    ([field, value]) =>
+      typeof value !== "string" ||
+      !value.trim() ||
+      value.length > MAX_LENGTHS[field],
+  );
+
+  if (invalidField || typeof token !== "string" || !token || !EMAIL_RE.test(email)) {
+    return res.status(400).json({ success: false, message: "Invalid fields" });
   }
 
   try {
@@ -18,18 +30,20 @@ export default async function handler(req, res) {
       {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: `secret=${process.env.RECAPTCHA_SECRET_KEY}&response=${token}`,
+        body: new URLSearchParams({
+          secret: process.env.RECAPTCHA_SECRET_KEY,
+          response: token,
+        }),
       }
     );
 
     const recaptchaData = await recaptchaRes.json();
-    console.log("RECAPTCHA DATA:", recaptchaData);
 
     // Validación extra para v3
     if (
-      !recaptchaData.success ||                // token inválido
+      !recaptchaData.success ||                  // token inválido
       recaptchaData.action !== "contact_form" || // acción diferente
-      recaptchaData.score < 0.5                // score demasiado bajo
+      recaptchaData.score < 0.5                  // score demasiado bajo
     ) {
       return res.status(400).json({ success: false, message: "reCAPTCHA failed" });
     }
