@@ -145,5 +145,7 @@
   ],
   "MENU": "Menú",
   "MENU_OPEN": "Abrir menú",
-  "MENU_CLOSE": "Cerrar menú"
+  "MENU_CLOSE": "Cerrar menú",
+  "SEO_HOME_TITLE": "Iggy NP · Frontend Engineer",
+  "SEO_HOME_DESC": "Frontend engineer especializado en interfaces web rápidas y animadas con Next.js y React. Portfolio de Ignacio Navarro (IggyNP)."
 }
