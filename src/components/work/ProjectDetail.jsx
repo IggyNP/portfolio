@@ -1,4 +1,4 @@
-import Head from "next/head";
+import Seo from "@/components/seo/Seo";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
@@ -53,9 +53,11 @@ export default function ProjectDetail({ slug }) {
 
   return (
     <>
-      <Head>
-        <title>{`IggyNP | ${p.title}`}</title>
-      </Head>
+      <Seo
+        title={`${p.title} · Iggy NP`}
+        description={t(`${K}_OVERVIEW`)}
+        image={p.hero}
+      />
       <Navbar showSocials={false} />
 
       {/* Hero */}

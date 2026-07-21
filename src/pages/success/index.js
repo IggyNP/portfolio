@@ -10,6 +10,7 @@ const Success = () => {
   return (
     <>
       <Head>
+        <meta name="robots" content="noindex, nofollow" />
         <title>IggyNP | {t("SUCCESS_TITLE")}</title>
       </Head>
       <Navbar showSocials={true} />
