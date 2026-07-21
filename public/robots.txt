@@ -1,4 +1,5 @@
-# Live pero sin indexar por ahora. Para permitir SEO, cambiar a "Allow: /" y
-# quitar el <meta name="robots" content="noindex"> de src/pages/_document.js.
+# Sitio indexable. Sitemap dinámico en /sitemap.xml.
 User-agent: *
-Disallow: /
+Allow: /
+
+Sitemap: https://iggynp.com/sitemap.xml
