@@ -1,0 +1,35 @@
+<!doctype html><html><head><meta charset="utf-8">
+<style>
+@font-face{font-family:'Poppins';src:url('../../src/fonts/poppins-700.woff2') format('woff2');font-weight:700}
+@font-face{font-family:'DM Sans';src:url('../../src/fonts/dm-sans-400.woff2') format('woff2');font-weight:400}
+@font-face{font-family:'DM Sans';src:url('../../src/fonts/dm-sans-500.woff2') format('woff2');font-weight:500}
+*{margin:0;padding:0;box-sizing:border-box}
+body{width:1200px;height:630px;overflow:hidden}
+.card{width:1200px;height:630px;position:relative;overflow:hidden;background:#191825;color:#fff;font-family:'DM Sans',sans-serif}
+.g1{position:absolute;width:820px;height:820px;border-radius:50%;filter:blur(150px);opacity:.34;background:radial-gradient(circle,#30e3ca,transparent 68%);top:-340px;right:-200px}
+.frame{position:absolute;inset:40px;border:1.5px solid rgba(48,227,202,.30);border-radius:26px}
+.cn{position:absolute;width:34px;height:34px;border:3px solid #30e3ca}
+.tl{top:40px;left:40px;border-right:0;border-bottom:0;border-top-left-radius:26px}
+.tr{top:40px;right:40px;border-left:0;border-bottom:0;border-top-right-radius:26px}
+.bl{bottom:40px;left:40px;border-right:0;border-top:0;border-bottom-left-radius:26px}
+.br{bottom:40px;right:40px;border-left:0;border-top:0;border-bottom-right-radius:26px}
+.content{position:absolute;inset:40px;padding:66px;display:flex;flex-direction:column;justify-content:space-between}
+.logo{height:60px;width:auto;align-self:flex-start;opacity:.95}
+.name{font-family:'Poppins';font-weight:700;font-size:140px;line-height:.98;letter-spacing:-5px}
+.name .dot{color:#30e3ca}
+.role{font-family:'DM Sans';font-weight:500;font-size:38px;color:#30e3ca;margin-top:22px;letter-spacing:.5px}
+.foot{display:flex;justify-content:space-between;align-items:center;font-family:'DM Sans';font-weight:400;font-size:29px;color:#8b8ba0}
+</style></head>
+<body><div class="card">
+ <div class="g1"></div>
+ <div class="frame"></div>
+ <div class="cn tl"></div><div class="cn tr"></div><div class="cn bl"></div><div class="cn br"></div>
+ <div class="content">
+  <img class="logo" src="../../public/images/inp.png">
+  <div>
+   <div class="name">Iggy NP<span class="dot">.</span></div>
+   <div class="role">Frontend Engineer</div>
+  </div>
+  <div class="foot"><span>iggynp.com</span><span>Frontend · UI · Motion</span></div>
+ </div>
+</div></body></html>
