@@ -1,4 +1,5 @@
 import Seo from "@/components/seo/Seo";
+import Head from "next/head";
 import Navbar from "@/components/layout/Navbar";
 import Intro from "@/components/intro/Intro";
 import Work from "@/components/work/Work";
@@ -26,10 +27,12 @@ export default function Home() {
   return (
     <>
       <Seo title={t("SEO_HOME_TITLE")} description={t("SEO_HOME_DESC")} />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(PERSON_LD) }}
-      />
+      <Head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(PERSON_LD) }}
+        />
+      </Head>
       <Navbar />
       <Intro />
       <Work />

@@ -7,12 +7,13 @@ const SITE_URL = "https://iggynp.com";
 // canonical y hreflang (en/es/x-default). Las URLs se construyen desde la ruta
 // actual (asPath sin query/hash) y los locales de next-i18next. El locale por
 // defecto (en) va sin prefijo; el resto (es) bajo /<locale>.
-export default function Seo({ title, description, image = "/images/og/og-home.png", noindex = false }) {
+export default function Seo({ title, description, image = "/images/og/og-home.png", noindex = false, paths }) {
   const { asPath, locale, locales, defaultLocale } = useRouter();
 
   const path = asPath.split(/[?#]/)[0];
   const prefix = (l) => (l === defaultLocale ? "" : `/${l}`);
-  const urlFor = (l) => `${SITE_URL}${prefix(l)}${path === "/" ? "" : path}`;
+  const pathFor = (l) => (paths && paths[l]) || path;
+  const urlFor = (l) => `${SITE_URL}${prefix(l)}${pathFor(l) === "/" ? "" : pathFor(l)}`;
 
   const canonical = urlFor(locale);
   const ogImage = image.startsWith("http") ? image : `${SITE_URL}${image}`;

@@ -57,6 +57,7 @@ export default function ProjectDetail({ slug }) {
         title={`${p.title} · Iggy NP`}
         description={t(`${K}_OVERVIEW`)}
         image={p.hero}
+        paths={{ en: `/project/${p.slug}`, es: `/proyecto/${p.slug}` }}
       />
       <Navbar showSocials={false} />
 

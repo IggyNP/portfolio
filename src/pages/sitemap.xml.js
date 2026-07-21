@@ -35,7 +35,7 @@ function buildSitemap() {
 }
 
 export async function getServerSideProps({ res }) {
-  res.setHeader("Content-Type", "text/xml");
+  res.setHeader("Content-Type", "application/xml");
   res.write(buildSitemap());
   res.end();
   return { props: {} };
