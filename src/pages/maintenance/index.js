@@ -1,7 +1,14 @@
+import Head from "next/head";
+import Image from "next/image";
+
 export default function Maintenance() {
   const year = new Date().getFullYear();
 
   return (
+    <>
+      <Head>
+        <meta name="robots" content="noindex, nofollow" />
+      </Head>
     <div className="flex min-h-screen flex-col items-center justify-center bg-[#0F0F1A] px-6 text-center text-gray-200">
       {/* Icono o ilustración */}
       <div className="mb-6">
@@ -31,14 +38,17 @@ export default function Maintenance() {
       </p>
 
       {/* Logo */}
-      <img
+      <Image
         src="/images/inp.png"
         alt="IggyNP Logo"
-        className="mb-2 h-14 opacity-90"
+        width={371}
+        height={157}
+        className="mb-2 h-14 w-auto opacity-90"
       />
 
       {/* Footer */}
       <p className="text-sm text-gray-500">IggyNP © {year}</p>
     </div>
+    </>
   );
 }

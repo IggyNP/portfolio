@@ -7,20 +7,20 @@ import {
 import { useTranslation } from "next-i18next";
 import useMediaQuery from "@/hooks/useMediaQuery";
 
-import ReactIcon from "../icons/ReactIcon.svg";
-import NextjsIcon from "../icons/NextjsIcon.svg";
-import TypescriptIcon from "../icons/TypescriptIcon.svg";
-import TailwindIcon from "../icons/TailwindIcon.svg";
-import NodeIcon from "../icons/NodeIcon.svg";
-import FigmaIcon from "../icons/FigmaIcon.svg";
-import FirebaseIcon from "../icons/FirebaseIcon.svg";
-import PhpIcon from "../icons/PhpIcon.svg";
-import WordpressIcon from "../icons/WordpressIcon.svg";
-import ElementorIcon from "../icons/ElementorIcon.svg";
-import ClaudeIcon from "../icons/ClaudeIcon.svg";
-import ClerkIcon from "../icons/ClerkIcon.svg";
-import NeonIcon from "../icons/NeonIcon.svg";
-import ResendIcon from "../icons/ResendIcon.svg";
+import ReactIcon from "@/icons/ReactIcon.svg";
+import NextjsIcon from "@/icons/NextjsIcon.svg";
+import TypescriptIcon from "@/icons/TypescriptIcon.svg";
+import TailwindIcon from "@/icons/TailwindIcon.svg";
+import NodeIcon from "@/icons/NodeIcon.svg";
+import FigmaIcon from "@/icons/FigmaIcon.svg";
+import FirebaseIcon from "@/icons/FirebaseIcon.svg";
+import PhpIcon from "@/icons/PhpIcon.svg";
+import WordpressIcon from "@/icons/WordpressIcon.svg";
+import ElementorIcon from "@/icons/ElementorIcon.svg";
+import ClaudeIcon from "@/icons/ClaudeIcon.svg";
+import ClerkIcon from "@/icons/ClerkIcon.svg";
+import NeonIcon from "@/icons/NeonIcon.svg";
+import ResendIcon from "@/icons/ResendIcon.svg";
 import {
   SiJavascript,
   SiHtml5,

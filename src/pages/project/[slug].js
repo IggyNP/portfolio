@@ -1,5 +1,5 @@
 import ProjectDetail from "@/components/work/ProjectDetail";
-import { PROJECTS } from "@/components/work/projects";
+import { PROJECTS } from "@/data/projects";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 // Ruta de detalle en inglés: /project/<slug>. La versión española es

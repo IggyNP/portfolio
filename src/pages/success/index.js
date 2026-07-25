@@ -1,15 +1,16 @@
 import React from "react";
 import Head from "next/head";
-import Navbar from "@/components/Navbar";
+import Navbar from "@/components/layout/Navbar";
 import Link from "next/link";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
 
-const success = () => {
+const Success = () => {
   const { t } = useTranslation();
   return (
     <>
       <Head>
+        <meta name="robots" content="noindex, nofollow" />
         <title>IggyNP | {t("SUCCESS_TITLE")}</title>
       </Head>
       <Navbar showSocials={true} />
@@ -32,7 +33,7 @@ const success = () => {
   );
 };
 
-export default success;
+export default Success;
 
 export async function getStaticProps(context) {
   const { locale } = context;

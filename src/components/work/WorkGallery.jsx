@@ -14,7 +14,7 @@ import {
 } from "framer-motion";
 import { HiArrowUpRight } from "react-icons/hi2";
 import { RiRadioButtonFill } from "react-icons/ri";
-import { PROJECTS, OTHER_PROJECTS, projectHref } from "./projects";
+import { PROJECTS, OTHER_PROJECTS, projectHref } from "@/data/projects";
 import OthersMosaic from "./OthersMosaic";
 
 const N = PROJECTS.length; // 6
