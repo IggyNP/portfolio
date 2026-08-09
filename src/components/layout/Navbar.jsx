@@ -30,6 +30,27 @@ const Navbar = () => {
   const close = () => setNav(false);
   const toggle = () => setNav((v) => !v);
 
+  // "INICIO"/"INFO" son estados de la escena interactiva del Intro (hero=p0,
+  // About=p1), no posiciones de scroll. Cuando esa escena está montada
+  // (desktop con motion), delegamos en ella vía evento; en móvil/reduced-motion
+  // no está y estos enlaces caen a su navegación por anclaje normal.
+  const onLinkClick = (e, key) => {
+    close();
+    if (
+      (key === "HOME" || key === "ABOUT") &&
+      typeof window !== "undefined" &&
+      window.__introInteractive
+    ) {
+      e.preventDefault();
+      window.scrollTo(0, 0);
+      window.dispatchEvent(
+        new CustomEvent("intro:goto", {
+          detail: { target: key === "ABOUT" ? 1 : 0 },
+        })
+      );
+    }
+  };
+
   // Cerrar el menú al navegar (cambio de hash o de ruta).
   useEffect(() => {
     const onDone = () => setNav(false);
@@ -83,7 +104,12 @@ const Navbar = () => {
         {/* menú desktop (sin cambios) */}
         <ul className="hidden items-center md:flex">
           {LINKS.map((l) => (
-            <Link key={l.key} href={l.href} scroll={false}>
+            <Link
+              key={l.key}
+              href={l.href}
+              scroll={false}
+              onClick={(e) => onLinkClick(e, l.key)}
+            >
               <li className="nav-link mx-5 cursor-pointer text-sm uppercase">
                 {t(l.key)}
               </li>
@@ -152,7 +178,7 @@ const Navbar = () => {
                     <Link
                       href={l.href}
                       scroll={false}
-                      onClick={close}
+                      onClick={(e) => onLinkClick(e, l.key)}
                       className="flex min-h-[56px] items-center justify-center py-2 text-center font-heading text-3xl uppercase tracking-wide text-[#191825] transition-colors hover:text-[#FC5185] active:text-[#FC5185] dark:text-gray-200 dark:hover:text-[#30E3CA] dark:active:text-[#30E3CA]"
                     >
                       {t(l.key)}

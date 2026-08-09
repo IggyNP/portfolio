@@ -2,10 +2,11 @@ import React, { useEffect, useRef, useState } from "react";
 import { HiChevronDoubleDown } from "react-icons/hi";
 import { useTranslation } from "next-i18next";
 import {
+  animate,
   motion,
   useMotionTemplate,
+  useMotionValue,
   useReducedMotion,
-  useScroll,
   useTransform,
 } from "framer-motion";
 import { useTheme } from "next-themes";
@@ -24,7 +25,17 @@ const itemVariants = {
 
 // Capa del hero (vídeo + textos + indicador de scroll). Los `*Style` son
 // motion values opcionales; sin ellos queda estático (reduced-motion).
-function HeroLayer({ t, resolvedTheme, i18n, videoStyle, textStyle, hintStyle }) {
+// `onCue`: si se pasa, el indicador "Scroll"/flecha pasa a ser un botón que
+// dispara la transición hacia adelante (mismo efecto que un gesto de scroll).
+function HeroLayer({
+  t,
+  resolvedTheme,
+  i18n,
+  videoStyle,
+  textStyle,
+  hintStyle,
+  onCue,
+}) {
   // Vídeo específico por tema: claro (fondo blanco + cubos rosa) / oscuro.
   const videoSrc =
     resolvedTheme === "dark"
@@ -35,6 +46,7 @@ function HeroLayer({ t, resolvedTheme, i18n, videoStyle, textStyle, hintStyle })
     resolvedTheme === "dark"
       ? "/videos/hero-bg-poster.webp"
       : "/videos/hero-bg-light-poster.webp";
+  const cueLabel = i18n?.language === "es" ? "Ir a Sobre Mí" : "Go to About";
   return (
     <>
       <motion.video
@@ -89,26 +101,50 @@ function HeroLayer({ t, resolvedTheme, i18n, videoStyle, textStyle, hintStyle })
       </motion.div>
 
       <motion.div
-        aria-hidden="true"
-        className="pointer-events-none absolute bottom-[max(2rem,env(safe-area-inset-bottom))] left-1/2 z-10 -translate-x-1/2 md:bottom-8"
+        className={`absolute bottom-[max(2rem,env(safe-area-inset-bottom))] left-1/2 z-10 -translate-x-1/2 md:bottom-8 ${
+          onCue ? "" : "pointer-events-none"
+        }`}
         style={hintStyle}
       >
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.3, duration: 0.8 }}
-          className="flex flex-col items-center gap-2 text-[#FC5185] dark:text-[#30E3CA]"
-        >
-          <span className="font-heading text-[11px] font-medium uppercase tracking-[0.3em] opacity-70">
-            Scroll
-          </span>
-          <motion.span
-            animate={{ y: [0, 8, 0], opacity: [0.5, 1, 0.5] }}
-            transition={{ repeat: Infinity, duration: 1.6, ease: "easeInOut" }}
+        {onCue ? (
+          <motion.button
+            type="button"
+            onClick={onCue}
+            aria-label={cueLabel}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1.3, duration: 0.8 }}
+            className="pointer-events-auto flex cursor-pointer flex-col items-center gap-2 rounded-md p-2 text-[#FC5185] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FC5185] dark:text-[#30E3CA] dark:focus-visible:ring-[#30E3CA]"
           >
-            <HiChevronDoubleDown size={20} />
-          </motion.span>
-        </motion.div>
+            <span className="font-heading text-[11px] font-medium uppercase tracking-[0.3em] opacity-70">
+              Scroll
+            </span>
+            <motion.span
+              animate={{ y: [0, 8, 0], opacity: [0.5, 1, 0.5] }}
+              transition={{ repeat: Infinity, duration: 1.6, ease: "easeInOut" }}
+            >
+              <HiChevronDoubleDown size={20} />
+            </motion.span>
+          </motion.button>
+        ) : (
+          <motion.div
+            aria-hidden="true"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1.3, duration: 0.8 }}
+            className="flex flex-col items-center gap-2 text-[#FC5185] dark:text-[#30E3CA]"
+          >
+            <span className="font-heading text-[11px] font-medium uppercase tracking-[0.3em] opacity-70">
+              Scroll
+            </span>
+            <motion.span
+              animate={{ y: [0, 8, 0], opacity: [0.5, 1, 0.5] }}
+              transition={{ repeat: Infinity, duration: 1.6, ease: "easeInOut" }}
+            >
+              <HiChevronDoubleDown size={20} />
+            </motion.span>
+          </motion.div>
+        )}
       </motion.div>
     </>
   );
@@ -132,9 +168,9 @@ export default function Intro() {
   }, []);
 
   // reduced-motion Y móvil: apilado estático (hero + About), sin pin ni
-  // crossfade. La escena fijada de 260vh (buceo de vídeo con zoom + blur) es
-  // pesada y desorientadora en el móvil (y los 100vh fijados fallan con la
-  // barra dinámica de iOS Safari).
+  // crossfade. La escena interactiva (buceo de vídeo con zoom + blur) es pesada
+  // y desorientadora en el móvil (y bloquear el scroll ahí perjudica la
+  // accesibilidad).
   if (reduced || isMobile) {
     return (
       <>
@@ -166,44 +202,367 @@ export default function Intro() {
   );
 }
 
-// Escena desktop scroll-driven (buceo en el vídeo → crossfade a About).
-// VIVE EN SU PROPIO COMPONENTE a propósito: `useScroll` engancha `sectionRef`
-// en el mount y no vuelve a leerlo si el elemento se desmonta/re-monta. Si este
-// bloque compartiera el hook con el layout móvil de Intro, al conmutar
-// móvil↔desktop por resize el ref se perdería y el scroll quedaría roto. Al
-// aislarlo, cada vez que se entra en desktop se MONTA de cero y mide bien.
+// Escena desktop "trigger-by-time" (patrón hafner-studio HeroScroll). El
+// progreso `p` (0→1) NO sigue la posición de scroll: se anima por tiempo. Un
+// gesto/tecla/clic dispara la transición ENTERA con el scroll pineado; al
+// completar se suelta y el usuario continúa a Work. Hacia arriba (en la vista
+// de About, arriba del todo) la reproduce en reversa.
+//
+// VIVE EN SU PROPIO COMPONENTE a propósito: sus efectos y su controlador se
+// montan de cero cada vez que se entra en desktop, así el estado nunca se
+// corrompe al conmutar móvil↔desktop por resize.
 function DesktopScene({ t, resolvedTheme, i18n, mounted }) {
-  const sectionRef = useRef(null);
+  // Fuente única del progreso (antes era `scrollYProgress`; ahora la mueve el
+  // controlador por tiempo). Todos los efectos de abajo son VERBATIM del diseño
+  // scroll-driven previo: solo cambia de dónde leen.
+  const progress = useMotionValue(0);
+  const apiRef = useRef(null);
 
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start start", "end end"],
-  });
-
-  const videoScale = useTransform(scrollYProgress, [0, 0.6], [1, 2.6]);
-  const videoBlurPx = useTransform(scrollYProgress, [0.3, 0.6], [0, 6]);
+  const videoScale = useTransform(progress, [0, 0.6], [1, 2.6]);
+  const videoBlurPx = useTransform(progress, [0.3, 0.6], [0, 6]);
   const videoFilter = useMotionTemplate`blur(${videoBlurPx}px)`;
-  const heroTextOpacity = useTransform(scrollYProgress, [0, 0.28], [1, 0]);
-  const heroTextScale = useTransform(scrollYProgress, [0, 0.5], [1, 1.5]);
-  const scrollHintOpacity = useTransform(scrollYProgress, [0, 0.1], [1, 0]);
-  const heroLayerOpacity = useTransform(scrollYProgress, [0.45, 0.62], [1, 0]);
-  const aboutOpacity = useTransform(scrollYProgress, [0.5, 0.68], [0, 1]);
+  const heroTextOpacity = useTransform(progress, [0, 0.28], [1, 0]);
+  const heroTextScale = useTransform(progress, [0, 0.5], [1, 1.5]);
+  const scrollHintOpacity = useTransform(progress, [0, 0.1], [1, 0]);
+  const heroLayerOpacity = useTransform(progress, [0.45, 0.62], [1, 0]);
+  const aboutOpacity = useTransform(progress, [0.5, 0.68], [0, 1]);
   // About crece de pequeño a grande (lo encontramos al final del zoom).
-  const aboutScale = useTransform(scrollYProgress, [0.48, 0.9], [0.6, 1]);
+  const aboutScale = useTransform(progress, [0.48, 0.9], [0.6, 1]);
   // Progreso que alimenta el efecto de la foto (glow/zoom/marco) al acercarse.
-  const revealProgress = useTransform(scrollYProgress, [0.5, 0.92], [0, 1]);
+  const revealProgress = useTransform(progress, [0.5, 0.92], [0, 1]);
+  // Punteros: evitar que capas invisibles roben clics.
+  const heroPointer = useTransform(progress, (p) => (p > 0.4 ? "none" : "auto"));
+  const aboutPointer = useTransform(progress, (p) =>
+    p > 0.5 ? "auto" : "none"
+  );
+
+  useEffect(() => {
+    if (!mounted) return undefined;
+
+    // Duración de la reproducción por gesto. Un gesto pequeño reproduce toda la
+    // transición en ~1.6s; la curva la pone `ease` (easeInOut).
+    const DUR = 1.6; // segundos
+    // Anti-trap: solo un flick MUY agresivo (mucho delta en una ventana corta)
+    // salta directo al final; un scroll normal deja correr los ~1.6s.
+    const SNAP_WINDOW = 150; // ms: solo cuenta el delta tan pronto tras iniciar
+    const SNAP_DELTA = 900; // px de |wheel| acumulado en la ventana → saltar
+    const TOUCH_SNAP_DELTA = 220; // px de swipe acumulado → saltar
+    const IDLE_GAP = 200; // ms de quietud que termina un gesto (resetea acumulador)
+    const ABSORB_IDLE = 180; // ms de quietud tras completar → soltar el scroll
+
+    let locked = false; // scroll pineado mientras se reproduce
+    let pinY = 0; // posición capturada al pinear (objetivo del clamp)
+    let targetVal = 0; // destino del tween en curso (0 ó 1)
+    let current = null; // animación framer en vuelo
+    let raf = 0; // rAF del clamp de scroll (solo activo mientras locked)
+    let safety = 0; // watchdog: garantiza que el pin nunca se quede pegado
+    let touchY = 0;
+    // Absorción de la cola del gesto tras completar hacia adelante.
+    let absorbing = false;
+    let absorbIdle = 0;
+    // Acumulador de delta en ventana corta (decide el salto anti-trap).
+    let accum = 0;
+    let winStart = 0;
+    let lastEvt = 0;
+    let accDir = 0;
+
+    // Señal para que el Navbar sepa que puede delegar "INICIO"/"INFO" en la
+    // escena (en móvil/reduced no está montada → nav con anclajes normales).
+    window.__introInteractive = true;
+
+    const p = () => progress.get();
+    const atTop = () => window.scrollY <= 0;
+
+    const feed = (mag, dir, threshold) => {
+      const now = performance.now();
+      if (now - lastEvt > IDLE_GAP || dir !== accDir) {
+        winStart = now;
+        accum = 0;
+        accDir = dir;
+      }
+      lastEvt = now;
+      if (now - winStart <= SNAP_WINDOW) accum += mag;
+      return accum >= threshold;
+    };
+
+    const clearSafety = () => {
+      if (safety) {
+        window.clearTimeout(safety);
+        safety = 0;
+      }
+    };
+    // Clamp real del scroll: mientras `locked`, devuelve la ventana a `pinY`
+    // cada frame (lo que scrollbar-drag y scrollTo no pueden burlar). Solo corre
+    // mientras locked, así que se auto-cura en cuanto se libera.
+    const startClamp = () => {
+      if (raf) return;
+      const tick = () => {
+        if (locked && window.scrollY !== pinY) window.scrollTo(0, pinY);
+        raf = locked ? requestAnimationFrame(tick) : 0;
+      };
+      raf = requestAnimationFrame(tick);
+    };
+    const unlock = () => {
+      locked = false;
+      accum = 0;
+      accDir = 0;
+      clearSafety();
+      if (raf) {
+        cancelAnimationFrame(raf);
+        raf = 0;
+      }
+      syncListeners();
+    };
+
+    const stopAbsorb = () => {
+      absorbing = false;
+      if (absorbIdle) {
+        window.clearTimeout(absorbIdle);
+        absorbIdle = 0;
+      }
+      syncListeners();
+    };
+    const bumpAbsorb = () => {
+      if (!absorbing) return;
+      if (absorbIdle) window.clearTimeout(absorbIdle);
+      absorbIdle = window.setTimeout(stopAbsorb, ABSORB_IDLE);
+    };
+    const beginAbsorb = () => {
+      absorbing = true;
+      bumpAbsorb();
+    };
+
+    const lock = () => {
+      if (locked) return;
+      locked = true;
+      pinY = window.scrollY;
+      startClamp();
+      clearSafety();
+      // Aunque se pierda un frame o un evento, el pin se fuerza a soltar poco
+      // después de que el tween debería haber acabado.
+      safety = window.setTimeout(() => {
+        if (current) current.stop();
+        current = null;
+        progress.set(targetVal);
+        unlock();
+        if (targetVal === 1) beginAbsorb();
+      }, DUR * 1000 + 1500);
+    };
+
+    // Lanza el tween por tiempo hacia `v` (0 ó 1) con el scroll pineado.
+    const runTo = (v, onDone) => {
+      if (current) current.stop();
+      lock();
+      targetVal = v;
+      current = animate(progress, v, {
+        duration: DUR,
+        ease: "easeInOut",
+        onComplete: () => {
+          current = null;
+          unlock();
+          if (onDone) onDone();
+        },
+      });
+    };
+    const startForward = () => {
+      if (p() >= 1) return;
+      if (locked && targetVal === 1) return; // ya vamos hacia adelante
+      runTo(1, beginAbsorb);
+    };
+    const startReverse = () => {
+      if (p() <= 0) return;
+      if (locked && targetVal === 0) return; // ya vamos hacia atrás
+      runTo(0, null);
+    };
+    // Salto instantáneo (flick agresivo / teclado): sin tween.
+    const snapTo = (v) => {
+      if (current) current.stop();
+      current = null;
+      progress.set(v);
+      targetVal = v;
+      unlock();
+    };
+
+    // --- Manejadores de intención ---------------------------------------
+    const onWheel = (e) => {
+      const dy = e.deltaY;
+      if (absorbing) {
+        e.preventDefault();
+        bumpAbsorb();
+        return;
+      }
+      if (dy > 0) {
+        if (p() < 1) {
+          e.preventDefault();
+          startForward();
+          if (feed(Math.abs(dy), 1, SNAP_DELTA)) {
+            snapTo(1);
+            beginAbsorb();
+          }
+        }
+      } else if (dy < 0) {
+        if (atTop() && p() > 0) {
+          e.preventDefault();
+          startReverse();
+          if (feed(Math.abs(dy), -1, SNAP_DELTA)) snapTo(0);
+        }
+      }
+    };
+
+    const onTouchStart = (e) => {
+      touchY = e.touches[0]?.clientY ?? 0;
+      winStart = performance.now();
+      accum = 0;
+      accDir = 0;
+    };
+    const onTouchMove = (e) => {
+      const y = e.touches[0]?.clientY ?? touchY;
+      const dy = touchY - y; // >0 = swipe arriba = scroll abajo
+      touchY = y;
+      if (absorbing) {
+        e.preventDefault();
+        bumpAbsorb();
+        return;
+      }
+      if (Math.abs(dy) < 2) return;
+      if (dy > 0) {
+        if (p() < 1) {
+          e.preventDefault();
+          startForward();
+          if (feed(dy, 1, TOUCH_SNAP_DELTA)) {
+            snapTo(1);
+            beginAbsorb();
+          }
+        }
+      } else if (atTop() && p() > 0) {
+        e.preventDefault();
+        startReverse();
+        if (feed(-dy, -1, TOUCH_SNAP_DELTA)) snapTo(0);
+      }
+    };
+
+    const FWD_KEYS = new Set([
+      "PageDown",
+      "End",
+      " ",
+      "Spacebar",
+      "ArrowDown",
+      "ArrowRight",
+    ]);
+    const REV_KEYS = new Set(["PageUp", "Home", "ArrowUp", "ArrowLeft"]);
+    const onKeyDown = (e) => {
+      // Nunca secuestrar la navegación por teclado: si el foco está en la
+      // página (o el usuario tabula), completar y soltar para no atrapar.
+      const focused =
+        document.activeElement &&
+        document.activeElement !== document.body &&
+        document.activeElement !== document.documentElement;
+      if (e.key === "Tab" || focused) {
+        if (p() < 1 && p() > 0) snapTo(p() < 0.5 ? 0 : 1);
+        return;
+      }
+      if (FWD_KEYS.has(e.key)) {
+        if (p() < 1) {
+          e.preventDefault();
+          snapTo(1);
+        }
+      } else if (REV_KEYS.has(e.key)) {
+        if (atTop() && p() > 0) {
+          e.preventDefault();
+          snapTo(0);
+        }
+      }
+    };
+
+    // Navegación: "INICIO"/"INFO" del Navbar disparan un estado de la escena.
+    const onGoto = (e) => {
+      const tgt = e.detail?.target ?? 1;
+      window.scrollTo(0, 0);
+      if (tgt === 1) startForward();
+      else startReverse();
+    };
+
+    // Si la ventana pierde foco o se oculta la pestaña a mitad de pase, no dejar
+    // el pin puesto — asentar al destino y soltar.
+    const settleAndRelease = () => {
+      if (locked) {
+        if (current) current.stop();
+        current = null;
+        progress.set(targetVal);
+        unlock();
+      }
+    };
+    const onBlur = () => {
+      settleAndRelease();
+      stopAbsorb();
+    };
+    const onVisibility = () => {
+      if (document.hidden) {
+        settleAndRelease();
+        stopAbsorb();
+      }
+    };
+
+    // Perf: los listeners no-pasivos (wheel/touchmove) rompen el scroll pasivo,
+    // así que solo se enganchan cuando pueden disparar o hay pase en curso.
+    let activeAttached = false;
+    const attachActive = () => {
+      if (activeAttached) return;
+      window.addEventListener("wheel", onWheel, { passive: false });
+      window.addEventListener("touchmove", onTouchMove, { passive: false });
+      activeAttached = true;
+    };
+    const detachActive = () => {
+      if (!activeAttached) return;
+      window.removeEventListener("wheel", onWheel);
+      window.removeEventListener("touchmove", onTouchMove);
+      activeAttached = false;
+    };
+    const relevant = () =>
+      absorbing || locked || (p() > 0 && p() < 1) || window.scrollY <= 2;
+    function syncListeners() {
+      if (relevant()) attachActive();
+      else detachActive();
+    }
+    const onScroll = () => syncListeners();
+
+    apiRef.current = { startForward, startReverse };
+
+    window.addEventListener("touchstart", onTouchStart, { passive: true });
+    window.addEventListener("keydown", onKeyDown);
+    window.addEventListener("blur", onBlur);
+    document.addEventListener("visibilitychange", onVisibility);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("intro:goto", onGoto);
+    syncListeners();
+
+    return () => {
+      detachActive();
+      window.removeEventListener("touchstart", onTouchStart);
+      window.removeEventListener("keydown", onKeyDown);
+      window.removeEventListener("blur", onBlur);
+      document.removeEventListener("visibilitychange", onVisibility);
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("intro:goto", onGoto);
+      if (current) current.stop();
+      if (raf) cancelAnimationFrame(raf);
+      clearSafety();
+      if (absorbIdle) window.clearTimeout(absorbIdle);
+      absorbing = false;
+      locked = false;
+      apiRef.current = null;
+      if (window.__introInteractive) delete window.__introInteractive;
+    };
+  }, [mounted, progress]);
 
   return (
-    <section ref={sectionRef} id="home" className="relative h-[260vh] w-full">
-      {/* Ancla de nav: About cae aquí (donde ya está revelada) */}
-      <div id="about" className="absolute left-0" style={{ top: "58%" }} />
-
+    <section id="home" className="relative h-screen w-full overflow-hidden">
       {mounted && (
-        <div className="sticky top-0 h-screen w-full overflow-hidden">
+        <>
           {/* Capa hero: bucea y se disuelve */}
           <motion.div
             className="absolute inset-0 flex items-center justify-center"
-            style={{ opacity: heroLayerOpacity }}
+            style={{ opacity: heroLayerOpacity, pointerEvents: heroPointer }}
           >
             <HeroLayer
               t={t}
@@ -212,17 +571,23 @@ function DesktopScene({ t, resolvedTheme, i18n, mounted }) {
               videoStyle={{ scale: videoScale, filter: videoFilter }}
               textStyle={{ opacity: heroTextOpacity, scale: heroTextScale }}
               hintStyle={{ opacity: scrollHintOpacity }}
+              onCue={() => apiRef.current?.startForward()}
             />
           </motion.div>
 
           {/* Capa About: emerge (crossfade) en el centro */}
           <motion.div
+            id="about"
             className="absolute inset-0 flex items-center bg-[#f8f8f8] dark:bg-[#191825]"
-            style={{ opacity: aboutOpacity, scale: aboutScale }}
+            style={{
+              opacity: aboutOpacity,
+              scale: aboutScale,
+              pointerEvents: aboutPointer,
+            }}
           >
             <AboutContent revealProgress={revealProgress} />
           </motion.div>
-        </div>
+        </>
       )}
     </section>
   );
