@@ -21,13 +21,17 @@ const N = PROJECTS.length; // 6
 const W = 440; // ancho de cara (px)
 const H = 248; // alto (16:9)
 const DEPTH = W / 2; // translateZ de las caras laterales
-const SEG_VH = 90; // alto de un segmento de scroll (intro + N proyectos + reveal)
+// Fases de scroll (en vh), independientes para poder alargar el intro (más
+// scroll antes de que aparezca el cubo) y el basculado (reveal "Y muchos más…")
+// sin cambiar el ritmo por proyecto.
+const INTRO_VH = 180; // scroll del intro antes de que aparezca el cubo
+const SEG_VH = 90; // rotación: scroll por proyecto
+const TILT_VH = 120; // basculado que revela la cara superior + panel "otras webs"
 const HOLD_VH = 80; // dwell sobre "Y tantos más…" antes de soltar a la sección siguiente
-const HEIGHT_VH = (N + 2) * SEG_VH + HOLD_VH; // alto total de la sección
-const SEG = SEG_VH / HEIGHT_VH; // un segmento como fracción del scroll total
-const TSPLIT = SEG; // fin del intro
-const TEND = (N + 1) * SEG; // fin de la rotación Y / inicio del basculado
-const TREVEAL = (N + 2) * SEG; // basculado completo → empieza el hold ([TREVEAL, 1])
+const HEIGHT_VH = INTRO_VH + N * SEG_VH + TILT_VH + HOLD_VH; // alto total de la sección
+const TSPLIT = INTRO_VH / HEIGHT_VH; // fin del intro (aparece el cubo)
+const TEND = (INTRO_VH + N * SEG_VH) / HEIGHT_VH; // fin rotación Y / inicio basculado
+const TREVEAL = (INTRO_VH + N * SEG_VH + TILT_VH) / HEIGHT_VH; // basculado → hold
 const Y_TOTAL = -(N - 1) * 90; // rotación Y total de los proyectos
 const TILT_DEG = -90; // basculado que revela la cara superior
 
