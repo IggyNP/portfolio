@@ -73,7 +73,7 @@ function HeroLayer({
       <motion.div className="relative z-10 w-full" style={textStyle}>
         <motion.div
           key={`${resolvedTheme}-${i18n.language}`}
-          className="mx-auto flex w-full max-w-[1240px] flex-col items-center px-6 text-center [text-shadow:0_1px_14px_rgba(0,0,0,0.28)] md:[text-shadow:none]"
+          className="mx-auto flex w-full max-w-[1240px] select-none flex-col items-center px-6 text-center [text-shadow:0_1px_14px_rgba(0,0,0,0.28)] md:[text-shadow:none]"
           variants={containerVariants}
           initial="hidden"
           animate="visible"
@@ -101,7 +101,7 @@ function HeroLayer({
       </motion.div>
 
       <motion.div
-        className={`absolute bottom-[max(2rem,env(safe-area-inset-bottom))] left-1/2 z-10 -translate-x-1/2 md:bottom-8 ${
+        className={`absolute bottom-[max(2rem,env(safe-area-inset-bottom))] left-1/2 z-10 -translate-x-1/2 select-none md:bottom-8 ${
           onCue ? "" : "pointer-events-none"
         }`}
         style={hintStyle}
@@ -116,14 +116,14 @@ function HeroLayer({
             transition={{ delay: 1.3, duration: 0.8 }}
             className="pointer-events-auto flex cursor-pointer flex-col items-center gap-2 rounded-md p-2 text-[#FC5185] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FC5185] dark:text-[#30E3CA] dark:focus-visible:ring-[#30E3CA]"
           >
-            <span className="font-heading text-[11px] font-medium uppercase tracking-[0.3em] opacity-70">
+            <span className="font-heading text-[14px] font-medium uppercase tracking-[0.3em] opacity-70">
               Scroll
             </span>
             <motion.span
               animate={{ y: [0, 8, 0], opacity: [0.5, 1, 0.5] }}
               transition={{ repeat: Infinity, duration: 1.6, ease: "easeInOut" }}
             >
-              <HiChevronDoubleDown size={20} />
+              <HiChevronDoubleDown size={34} />
             </motion.span>
           </motion.button>
         ) : (
@@ -134,14 +134,14 @@ function HeroLayer({
             transition={{ delay: 1.3, duration: 0.8 }}
             className="flex flex-col items-center gap-2 text-[#FC5185] dark:text-[#30E3CA]"
           >
-            <span className="font-heading text-[11px] font-medium uppercase tracking-[0.3em] opacity-70">
+            <span className="font-heading text-[14px] font-medium uppercase tracking-[0.3em] opacity-70">
               Scroll
             </span>
             <motion.span
               animate={{ y: [0, 8, 0], opacity: [0.5, 1, 0.5] }}
               transition={{ repeat: Infinity, duration: 1.6, ease: "easeInOut" }}
             >
-              <HiChevronDoubleDown size={20} />
+              <HiChevronDoubleDown size={34} />
             </motion.span>
           </motion.div>
         )}
@@ -273,6 +273,18 @@ function DesktopScene({ t, resolvedTheme, i18n, mounted }) {
     const p = () => progress.get();
     const atTop = () => window.scrollY <= 0;
 
+    // Bloqueo del scroll nativo: el hero es una "puerta". Mientras p<1 (o se
+    // absorbe la cola de un gesto) el documento no scrollea, así NINGÚN método
+    // (arrastre de selección, scrollbar, autoscroll, rueda) puede saltarse la
+    // animación de About y caer directo en Work. La única forma de avanzar es
+    // disparar la transición (rueda/touch/teclado/clic en el cue). Con la barra
+    // ya oculta globalmente, alternar overflow no provoca saltos de layout.
+    const applyScrollLock = () => {
+      const want = progress.get() < 1 || absorbing ? "hidden" : "";
+      const el = document.documentElement;
+      if (el.style.overflow !== want) el.style.overflow = want;
+    };
+
     const feed = (mag, dir, threshold) => {
       const now = performance.now();
       if (now - lastEvt > IDLE_GAP || dir !== accDir) {
@@ -311,6 +323,7 @@ function DesktopScene({ t, resolvedTheme, i18n, mounted }) {
         cancelAnimationFrame(raf);
         raf = 0;
       }
+      applyScrollLock();
       syncListeners();
     };
 
@@ -320,6 +333,7 @@ function DesktopScene({ t, resolvedTheme, i18n, mounted }) {
         window.clearTimeout(absorbIdle);
         absorbIdle = 0;
       }
+      applyScrollLock();
       syncListeners();
     };
     const bumpAbsorb = () => {
@@ -329,6 +343,7 @@ function DesktopScene({ t, resolvedTheme, i18n, mounted }) {
     };
     const beginAbsorb = () => {
       absorbing = true;
+      applyScrollLock();
       bumpAbsorb();
     };
 
@@ -337,6 +352,7 @@ function DesktopScene({ t, resolvedTheme, i18n, mounted }) {
       locked = true;
       pinY = window.scrollY;
       startClamp();
+      applyScrollLock();
       clearSafety();
       // Aunque se pierda un frame o un evento, el pin se fuerza a soltar poco
       // después de que el tween debería haber acabado.
@@ -481,6 +497,12 @@ function DesktopScene({ t, resolvedTheme, i18n, mounted }) {
       if (tgt === 1) startForward();
       else startReverse();
     };
+    // Nav a secciones de abajo (Work/Contact): el documento puede estar
+    // bloqueado en el hero (p<1). Dejar la escena en su estado final (About) y
+    // desbloquear al instante para que el desplazamiento a la sección funcione.
+    const onRelease = () => {
+      if (p() < 1) snapTo(1);
+    };
 
     // Si la ventana pierde foco o se oculta la pestaña a mitad de pase, no dejar
     // el pin puesto — asentar al destino y soltar.
@@ -534,7 +556,10 @@ function DesktopScene({ t, resolvedTheme, i18n, mounted }) {
     document.addEventListener("visibilitychange", onVisibility);
     window.addEventListener("scroll", onScroll, { passive: true });
     window.addEventListener("intro:goto", onGoto);
+    window.addEventListener("intro:release", onRelease);
     syncListeners();
+    // Estado inicial: hero (p=0) → documento bloqueado hasta disparar About.
+    applyScrollLock();
 
     return () => {
       detachActive();
@@ -544,6 +569,7 @@ function DesktopScene({ t, resolvedTheme, i18n, mounted }) {
       document.removeEventListener("visibilitychange", onVisibility);
       window.removeEventListener("scroll", onScroll);
       window.removeEventListener("intro:goto", onGoto);
+      window.removeEventListener("intro:release", onRelease);
       if (current) current.stop();
       if (raf) cancelAnimationFrame(raf);
       clearSafety();
@@ -551,6 +577,9 @@ function DesktopScene({ t, resolvedTheme, i18n, mounted }) {
       absorbing = false;
       locked = false;
       apiRef.current = null;
+      // Restaurar el scroll del documento (nunca dejar la página bloqueada al
+      // desmontar / navegar a otra página).
+      document.documentElement.style.overflow = "";
       if (window.__introInteractive) delete window.__introInteractive;
     };
   }, [mounted, progress]);
