@@ -185,7 +185,7 @@ function OthersPanel({ t }) {
 
 function GridFallback({ t, locale }) {
   return (
-    <div className="mx-auto max-w-[1240px] px-6 py-14 sm:py-20">
+    <div className="mx-auto max-w-[1240px] select-none px-6 py-14 sm:py-20">
       <div className="mb-10 sm:mb-12">
         <IntroText t={t} />
       </div>
@@ -290,7 +290,7 @@ export default function WorkGallery() {
         style={{ height: `${HEIGHT_VH}vh` }}
         className="relative hidden md:block"
       >
-        <div className="sticky top-0 h-screen overflow-hidden">
+        <div className="sticky top-0 h-screen select-none overflow-hidden">
           {/* barra de progreso */}
           <div className="absolute inset-x-0 top-0 z-10 h-0.5 bg-slate-200 dark:bg-white/10">
             <motion.div
