@@ -125,7 +125,7 @@ export default function AboutContent({ revealProgress }) {
   const maskImage = `linear-gradient(to right, transparent 0, #000 ${maskFade}, #000 calc(100% - ${maskFade}), transparent 100%)`;
 
   return (
-    <div className="mx-auto grid w-full min-w-0 max-w-[1240px] items-center gap-8 px-6 md:grid-cols-5 md:gap-x-12 md:gap-y-0">
+    <div className="mx-auto grid w-full min-w-0 max-w-[1240px] select-none items-center gap-8 px-6 md:grid-cols-5 md:gap-x-12 md:gap-y-0">
       {/* Título (arriba del todo; en móvil la foto va justo debajo, order-2) */}
       <div className="order-1 min-w-0 pb-0 md:order-none md:col-span-3 md:col-start-1 md:row-start-1 md:pb-8">
         <h2 className="inline border-b-2 border-[#FC5185] text-3xl font-bold capitalize text-slate-900 dark:border-[#30E3CA] dark:text-white md:border-b-4 md:text-4xl">

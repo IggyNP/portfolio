@@ -17,6 +17,19 @@
   html::-webkit-scrollbar {
     display: none;
   }
+
+  /* Foco por teclado con el acento del tema (rosa en claro, teal en oscuro),
+     en vez del azul por defecto del navegador. Los elementos que ya definen su
+     propio anillo (focus-visible:ring + outline-none) no se ven afectados: su
+     `outline-none` tiene más especificidad y gana. El outline moderno sigue el
+     border-radius del elemento, así que en botones redondos queda redondeado. */
+  :focus-visible {
+    outline: 2px solid #fc5185;
+    outline-offset: 2px;
+  }
+  .dark :focus-visible {
+    outline-color: #30e3ca;
+  }
 }
 
 .grecaptcha-badge {

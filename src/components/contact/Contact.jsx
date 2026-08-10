@@ -7,7 +7,7 @@ import { GoogleReCaptchaProvider, useGoogleReCaptcha } from "react-google-recapt
 import ContactScene from "./ContactScene";
 
 const inputClass =
-  "w-full bg-transparent border-0 border-b-[1.5px] border-gray-500/40 dark:border-white/25 " +
+  "select-text w-full bg-transparent border-0 border-b-[1.5px] border-gray-500/40 dark:border-white/25 " +
   "px-0 py-3 md:py-2 text-[17px] text-gray-900 dark:text-[#f2f5fa] " +
   "placeholder:text-gray-500/70 dark:placeholder:text-[#6b7890] " +
   "focus:outline-none focus:ring-0 focus:border-[#FC5185] dark:focus:border-[#2ee6b6] transition-colors";
@@ -241,7 +241,7 @@ const Contact = () => {
     <GoogleReCaptchaProvider reCaptchaKey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}>
       <section
         id="contact"
-        className="relative flex min-h-[100svh] w-full items-center overflow-hidden"
+        className="relative flex min-h-[100svh] w-full select-none items-center overflow-hidden"
       >
         {/* Escena viva de fondo */}
         <ContactScene />
@@ -274,7 +274,23 @@ const Contact = () => {
 
         {/* Back to top */}
         <div className="absolute bottom-[max(1.5rem,env(safe-area-inset-bottom))] right-[max(1.5rem,env(safe-area-inset-right))] z-[2] hidden md:block">
-          <Link href="/#home" scroll={false} aria-label="Back to top">
+          <Link
+            href="/#home"
+            scroll={false}
+            aria-label="Back to top"
+            onClick={(e) => {
+              // Si la escena interactiva del hero está montada, "back to top"
+              // debe reproducir la reversa (About → hero), no solo saltar arriba
+              // (que se quedaría en About). Mismo canal que el nav "INICIO".
+              if (typeof window !== "undefined" && window.__introInteractive) {
+                e.preventDefault();
+                window.scrollTo(0, 0);
+                window.dispatchEvent(
+                  new CustomEvent("intro:goto", { detail: { target: 0 } })
+                );
+              }
+            }}
+          >
             <div className="rounded-full bg-white/60 p-4 text-gray-700 backdrop-blur-sm transition hover:-translate-y-1 hover:text-[#FC5185] dark:bg-white/10 dark:text-[#f2f5fa] dark:hover:text-[#2ee6b6]">
               <HiOutlineChevronDoubleUp size={22} />
             </div>

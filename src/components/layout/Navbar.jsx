@@ -36,11 +36,12 @@ const Navbar = () => {
   // no está y estos enlaces caen a su navegación por anclaje normal.
   const onLinkClick = (e, key) => {
     close();
-    if (
-      (key === "HOME" || key === "ABOUT") &&
-      typeof window !== "undefined" &&
-      window.__introInteractive
-    ) {
+    // Móvil/reduced-motion: la escena interactiva no está montada → nav normal
+    // por anclaje.
+    if (typeof window === "undefined" || !window.__introInteractive) return;
+
+    if (key === "HOME" || key === "ABOUT") {
+      // Estados de la escena del hero: INICIO → p0 (hero), INFO → p1 (About).
       e.preventDefault();
       window.scrollTo(0, 0);
       window.dispatchEvent(
@@ -48,6 +49,13 @@ const Navbar = () => {
           detail: { target: key === "ABOUT" ? 1 : 0 },
         })
       );
+    } else {
+      // TRABAJO/CONTACTO: el hero puede tener el scroll bloqueado (p<1). Libera
+      // la escena (deja About hecho) y desplaza a la sección.
+      e.preventDefault();
+      window.dispatchEvent(new CustomEvent("intro:release"));
+      const id = key === "WORK" ? "work" : "contact";
+      document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
     }
   };
 
@@ -86,7 +94,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="fixed z-50 h-[70px] w-full bg-[#f8f8f8] text-[#191825] shadow-md shadow-[#040c16] dark:bg-[#191825] dark:text-gray-300">
+    <div className="fixed z-50 h-[70px] w-full select-none bg-[#f8f8f8] text-[#191825] shadow-md shadow-[#040c16] dark:bg-[#191825] dark:text-gray-300">
       <div className="mx-auto flex h-full w-full max-w-[1240px] items-center justify-between px-6">
         {mounted && (
           <Link href="/#home" scroll={false} className="relative z-50">
