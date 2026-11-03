@@ -51,9 +51,9 @@ export const PROJECTS = [
     ],
     img: cofradia,
     hero: "/images/projects/cofradia.webp",
-    liveUrl: "https://hermandad-divina-pastora.vercel.app",
+    liveUrl: "https://hermandad.divinapastoramarbella.com",
     codeUrl: null,
-    status: "wip",
+    status: "live",
   },
   {
     slug: "mb-dream-living",
