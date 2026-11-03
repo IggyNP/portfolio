@@ -557,6 +557,11 @@ function DesktopScene({ t, resolvedTheme, i18n, mounted }) {
     window.addEventListener("scroll", onScroll, { passive: true });
     window.addEventListener("intro:goto", onGoto);
     window.addEventListener("intro:release", onRelease);
+    // Si la escena se monta con la página ya bajada (resize móvil→desktop
+    // estando en Work, o scroll restaurado al recargar), el hero ya quedó
+    // atrás: arrancar en About (p=1) sin bloquear. Si no, se bloquearía el
+    // documento a media página sin listeners que lo suelten.
+    if (window.scrollY > 0) progress.set(1);
     syncListeners();
     // Estado inicial: hero (p=0) → documento bloqueado hasta disparar About.
     applyScrollLock();
