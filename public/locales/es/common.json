@@ -57,7 +57,6 @@
   "PROJECT_TECHNOLOGIES": "Tecnologías",
   "PROJECT_BACK": "volver",
   "PORTFOLIO_OVERVIEW": "Este mismo portfolio: una web personal inmersiva construida desde cero con Next.js. Más que un escaparate, es una pieza en sí misma, con animaciones dirigidas por scroll, un cubo 3D para los proyectos y modo claro/oscuro, pensada para demostrar mi trabajo de frontend en la práctica.",
-  "AMMDE_OVERVIEW": "Web de AMMDE, la Asociación Multisectorial de Mujeres Directivas y Empresarias. Un espacio institucional para dar visibilidad a la asociación, comunicar su misión y sus actividades, y facilitar la captación de nuevas socias.",
   "CV": "https://iggynp.netlify.app/pdfs/cv-inp-es.pdf",
   "IOR_OVERVIEW": "Sitio web del Instituto Oncológico Dr. Rosell, una clínica de referencia en oncología de precisión. El objetivo era transmitir rigor médico y cercanía a la vez, presentando con claridad los tratamientos, el equipo y las instalaciones para pacientes que llegan en un momento delicado.",
   "SUCCESS_TITLE": "Éxito",
@@ -95,14 +94,6 @@
     "Interacciones a medida con jQuery para revelar contenido",
     "Presentación clara de servicios, equipo médico e instalaciones",
     "Enfoque en la confianza y la accesibilidad del paciente"
-  ],
-  "AMMDE_CHALLENGE": "La asociación necesitaba una imagen digital profesional y actualizable por su propio equipo, capaz de comunicar valores, mostrar eventos y convertir visitantes en socias.",
-  "AMMDE_SOLUTION": "Construí el sitio con WordPress y Elementor, con una estructura clara para misión, eventos y beneficios para las socias, y una interfaz sencilla para que el equipo gestione el contenido sin depender de un desarrollador.",
-  "AMMDE_FEATURES": [
-    "Estructura orientada a misión, eventos y captación de socias",
-    "Contenido totalmente autoeditable por el cliente",
-    "Diseño profesional acorde a la identidad de la asociación",
-    "Secciones de actividades y beneficios para miembros"
   ],
   "DRIVELANDM_OVERVIEW": "Web de Driveland Motorsport, especialistas en preparación y servicios de automoción deportiva. Un sitio con carácter, pensado para enganchar a los entusiastas del motor y presentar los servicios de la empresa.",
   "DRIVELANDM_CHALLENGE": "El reto era trasladar la energía del mundo del motorsport a la web manteniendo la información de servicios y vehículos ordenada y fácil de recorrer.",
