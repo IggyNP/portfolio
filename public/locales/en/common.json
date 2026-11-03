@@ -113,16 +113,16 @@
     "Light/dark mode and responsive design",
     "Contact form with email notifications"
   ],
-  "COFRADIA_OVERVIEW": "Official website for the Hermandad de la Divina Pastora, currently in development. The project goes beyond an informational site: it integrates a CMS so the brotherhood can manage its own content, plus foundations for member management, legal content and a store.",
+  "COFRADIA_OVERVIEW": "Official website for the Hermandad de la Divina Pastora, now live. The project goes beyond an informational site: it integrates a CMS so the brotherhood can manage its own content, plus member management, legal content and a store.",
   "COFRADIA_CHALLENGE": "A brotherhood needs a site it can maintain itself, with rich, structured content, while laying the groundwork for more complex features (members area, store, documents) on a modern, secure architecture.",
-  "COFRADIA_SOLUTION": "I'm building it with Next.js 16 (App Router) and TypeScript, using Sanity as a headless CMS for editable content, Clerk for authentication, Neon (serverless Postgres) for data and Resend for email, all deployed on Vercel with a branch-based workflow and preview deployments.",
+  "COFRADIA_SOLUTION": "I built it with Next.js 16 (App Router) and TypeScript, using Sanity as a headless CMS for editable content, Clerk for authentication, Neon (serverless Postgres) for data and Resend for email, all deployed on Vercel with a branch-based workflow and preview deployments.",
   "COFRADIA_FEATURES": [
     "Headless CMS with Sanity (self-editable content)",
     "User authentication with Clerk",
     "Serverless database with Neon Postgres",
     "Modern Next.js 16 architecture (App Router, caching)",
     "Transactional email with Resend",
-    "Foundations for members area and store"
+    "Member management with sign-ups and an audit log"
   ],
   "UNCLEIGGY_OVERVIEW": "Online store for Uncle Iggy, my coloring-book brand and its Rascal Woods series (a raccoon family and their friends). It's far more than a showcase: its own store with payments, customer accounts, digital downloads, a blog, an interactive map of the characters' world and an admin panel with the business's accounting. Designed and built by me, end to end.",
   "UNCLEIGGY_CHALLENGE": "Selling digital products worldwide means solving everything you don't see: secure payments, per-country VAT, multiple currencies, invoices and refunds, user accounts and quarterly tax filings. All without losing what makes the brand special: an illustrated, warm and very fast site, in English and Spanish.",

@@ -113,16 +113,16 @@
     "Modo claro/oscuro y diseño responsive",
     "Formulario de contacto con notificaciones por email"
   ],
-  "COFRADIA_OVERVIEW": "Sitio web oficial de la Hermandad de la Divina Pastora, actualmente en desarrollo. El proyecto va más allá de una web informativa: integra un CMS para que la hermandad gestione sus contenidos, además de sentar las bases para la gestión de hermanos, el contenido legal y una tienda.",
+  "COFRADIA_OVERVIEW": "Sitio web oficial de la Hermandad de la Divina Pastora, ya en producción. El proyecto va más allá de una web informativa: integra un CMS para que la hermandad gestione sus contenidos, además de la gestión de hermanos, el contenido legal y una tienda.",
   "COFRADIA_CHALLENGE": "Una hermandad necesita una web que pueda mantener por sí misma, con contenido rico y estructurado, y a la vez cimientos para funcionalidades más complejas (área de hermanos, tienda, documentos) sobre una arquitectura moderna y segura.",
-  "COFRADIA_SOLUTION": "La estoy construyendo con Next.js 16 (App Router) y TypeScript, con Sanity como CMS headless para el contenido editable, Clerk para la autenticación, Neon (Postgres serverless) para los datos y Resend para el correo. Todo desplegado en Vercel con un flujo por ramas y despliegues de preview.",
+  "COFRADIA_SOLUTION": "La construí con Next.js 16 (App Router) y TypeScript, con Sanity como CMS headless para el contenido editable, Clerk para la autenticación, Neon (Postgres serverless) para los datos y Resend para el correo. Todo desplegado en Vercel con un flujo por ramas y despliegues de preview.",
   "COFRADIA_FEATURES": [
     "CMS headless con Sanity (contenido autoeditable)",
     "Autenticación de usuarios con Clerk",
     "Base de datos serverless con Neon Postgres",
     "Arquitectura moderna Next.js 16 (App Router, caché)",
     "Correo transaccional con Resend",
-    "Bases para el área de hermanos y la tienda"
+    "Gestión de hermanos con altas y registro de cambios"
   ],
   "UNCLEIGGY_OVERVIEW": "Web-tienda de Uncle Iggy, mi marca de libros de colorear de la serie Rascal Woods (una familia de mapaches y sus amigos). Es mucho más que un escaparate: tienda propia con pagos, cuentas de cliente, descargas digitales, blog, un mapa interactivo del mundo de los personajes y un panel de administración con la contabilidad del negocio. Todo diseñado y programado por mí, de punta a punta.",
   "UNCLEIGGY_CHALLENGE": "Vender productos digitales a todo el mundo exige resolver lo que no se ve: cobros seguros, IVA por país, varias divisas, facturas y devoluciones, cuentas de usuario y la fiscalidad trimestral. Y todo ello sin perder lo que hace especial a la marca, una web ilustrada, cálida y muy rápida, en inglés y en español.",
