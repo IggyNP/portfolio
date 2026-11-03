@@ -133,6 +133,17 @@
     "Correo transaccional con Resend",
     "Bases para el área de hermanos y la tienda"
   ],
+  "UNCLEIGGY_OVERVIEW": "Web-tienda de Uncle Iggy, mi marca de libros de colorear de la serie Rascal Woods (una familia de mapaches y sus amigos). Es mucho más que un escaparate: tienda propia con pagos, cuentas de cliente, descargas digitales, blog, un mapa interactivo del mundo de los personajes y un panel de administración con la contabilidad del negocio. Todo diseñado y programado por mí, de punta a punta.",
+  "UNCLEIGGY_CHALLENGE": "Vender productos digitales a todo el mundo exige resolver lo que no se ve: cobros seguros, IVA por país, varias divisas, facturas y devoluciones, cuentas de usuario y la fiscalidad trimestral. Y todo ello sin perder lo que hace especial a la marca, una web ilustrada, cálida y muy rápida, en inglés y en español.",
+  "UNCLEIGGY_SOLUTION": "La construí con Astro y TypeScript y la sirvo desde mi propio VPS en IONOS: Node detrás de Caddy (HTTPS automático), SQLite como base de datos y servicios systemd con permisos mínimos, tareas programadas y copias de seguridad diarias. Stripe gestiona el checkout, los webhooks y Stripe Tax; Clerk, las cuentas (con Google); y Resend, el correo transaccional. Las tareas programadas envían los avisos de carrito abandonado y guardan el tipo de cambio del BCE. La web es estática donde puede y dinámica donde hace falta, con un presupuesto de JavaScript propio de 4 KB y pruebas con Vitest.",
+  "UNCLEIGGY_FEATURES": [
+    "Tienda propia con Stripe: checkout, webhooks, facturas y reembolsos",
+    "Multidivisa (€/$) e IVA por país con Stripe Tax",
+    "Cuentas de cliente con Clerk: compras, descargas y recomendaciones",
+    "Panel de administración con finanzas, importación de ventas y modelos fiscales",
+    "Autoalojada en un VPS (IONOS): Node, Caddy, SQLite, systemd y copias diarias",
+    "Bilingüe, con blog y mapa interactivo; 4 KB de JS propio"
+  ],
   "MBDREAMLIVING_OVERVIEW": "MB Dream Living es una empresa de alquiler vacacional de lujo en Marbella. Un proyecto integral: desarrollé su identidad corporativa, los diseños, la web y la integración del motor de reservas, y llevé la comunicación y el marketing de la empresa durante un año.",
   "MBDREAMLIVING_CHALLENGE": "Una marca de alquiler vacacional de gama alta tiene que transmitir confianza y aspiración (la Marbella de lujo), permitir buscar y reservar con facilidad, y mantener una identidad coherente en todos los canales. Había que construirlo todo desde cero: marca, web y presencia.",
   "MBDREAMLIVING_SOLUTION": "Trabajo 360°: creé la identidad corporativa y el sistema visual, diseñé y desarrollé la web con WordPress y Elementor (con CSS, JavaScript y PHP a medida) e integré el motor de reservas para búsqueda y disponibilidad en tiempo real. Además gestioné la comunicación y el marketing de la empresa durante un año.",

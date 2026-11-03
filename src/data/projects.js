@@ -11,8 +11,31 @@ import mbDreamLiving from "public/images/mbdreamliving.png";
 import drivelandMotorsport from "public/images/drivelandMotorsport.png";
 import ammde from "public/images/ammde.png";
 import cofradia from "public/images/cofradia.png";
+import uncleIggy from "public/images/uncleiggy.png";
 
 export const PROJECTS = [
+  {
+    slug: "uncle-iggy",
+    key: "UNCLEIGGY",
+    title: "Uncle Iggy",
+    category: "Astro",
+    tech: [
+      "Astro",
+      "TypeScript",
+      "Node.js",
+      "SQLite",
+      "Caddy",
+      "Stripe",
+      "Clerk",
+      "Resend",
+      "Vitest",
+    ],
+    img: uncleIggy,
+    hero: "/images/projects/uncleiggy.webp",
+    liveUrl: "https://uncleiggyworld.com",
+    codeUrl: null,
+    status: "live",
+  },
   {
     slug: "ior",
     key: "IOR",

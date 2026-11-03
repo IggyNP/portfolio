@@ -133,6 +133,17 @@
     "Transactional email with Resend",
     "Foundations for members area and store"
   ],
+  "UNCLEIGGY_OVERVIEW": "Online store for Uncle Iggy, my coloring-book brand and its Rascal Woods series (a raccoon family and their friends). It's far more than a showcase: its own store with payments, customer accounts, digital downloads, a blog, an interactive map of the characters' world and an admin panel with the business's accounting. Designed and built by me, end to end.",
+  "UNCLEIGGY_CHALLENGE": "Selling digital products worldwide means solving everything you don't see: secure payments, per-country VAT, multiple currencies, invoices and refunds, user accounts and quarterly tax filings. All without losing what makes the brand special: an illustrated, warm and very fast site, in English and Spanish.",
+  "UNCLEIGGY_SOLUTION": "I built it with Astro and TypeScript and serve it from my own VPS on IONOS: Node behind Caddy (automatic HTTPS), SQLite as the database and least-privilege systemd services, scheduled jobs and daily backups. Stripe handles checkout, webhooks and Stripe Tax; Clerk handles accounts (with Google sign-in); and Resend sends transactional email. Scheduled jobs send abandoned-cart reminders and store the ECB exchange rate. The site is static where it can be and dynamic where it needs to be, with a 4 KB first-party JavaScript budget and tests with Vitest.",
+  "UNCLEIGGY_FEATURES": [
+    "Custom store with Stripe: checkout, webhooks, invoices and refunds",
+    "Multi-currency (€/$) and per-country VAT with Stripe Tax",
+    "Customer accounts with Clerk: purchases, downloads and recommendations",
+    "Admin panel with finances, sales imports and tax forms",
+    "Self-hosted on a VPS (IONOS): Node, Caddy, SQLite, systemd and daily backups",
+    "Bilingual, with a blog and an interactive map; 4 KB of first-party JS"
+  ],
   "MBDREAMLIVING_OVERVIEW": "MB Dream Living is a luxury holiday-rentals company in Marbella. An end-to-end project: I developed their corporate identity, the designs, the website and the booking-engine integration, and led the company's communication and marketing for a year.",
   "MBDREAMLIVING_CHALLENGE": "A high-end vacation-rental brand has to convey trust and aspiration (luxury Marbella), let guests search and book effortlessly, and keep a consistent identity across every channel. Everything had to be built from scratch: brand, website and presence.",
   "MBDREAMLIVING_SOLUTION": "A 360° engagement: I created the corporate identity and visual system, designed and built the website with WordPress and Elementor (with custom CSS, JavaScript and PHP) and integrated the booking engine for real-time search and availability. I also ran the company's communication and marketing for a year.",
