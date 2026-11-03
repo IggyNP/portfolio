@@ -14,7 +14,7 @@ const PERSON_LD = {
   "@type": "Person",
   name: "Ignacio Navarro",
   alternateName: "IggyNP",
-  jobTitle: "Frontend Engineer",
+  jobTitle: "Product Engineer",
   url: "https://iggynp.com",
   sameAs: [
     "https://github.com/IggyNP",
