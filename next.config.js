@@ -8,7 +8,6 @@ const PROJECT_REDIRECTS = [
   "portfolio",
   "ior",
   "driveland-motorsport",
-  "ammde",
 ].map((slug) => ({
   source: `/${slug}`,
   destination: `/project/${slug}`,
@@ -22,6 +21,12 @@ const SOTOBP_REDIRECTS = [
   { source: "/proyecto/soto-bp", destination: "/proyecto/mb-dream-living", permanent: false },
 ];
 
+// AMMDE salió del cubo (ahora está en "otras webs"): su detalle y la ruta vieja
+// van a la sección Work del home con 301, para no dejar un 404.
+const AMMDE_REDIRECTS = ["/ammde", "/project/ammde", "/proyecto/ammde"].map(
+  (source) => ({ source, destination: "/#work", permanent: true }),
+);
+
 const nextConfig = {
   i18n,
   reactStrictMode: true,
@@ -31,6 +36,7 @@ const nextConfig = {
     return [
       ...PROJECT_REDIRECTS,
       ...SOTOBP_REDIRECTS,
+      ...AMMDE_REDIRECTS,
       { source: "/weather-app", destination: "/", permanent: false },
       { source: "/calculator", destination: "/", permanent: false },
     ];

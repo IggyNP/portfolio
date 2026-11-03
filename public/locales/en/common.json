@@ -57,7 +57,6 @@
   "PROJECT_TECHNOLOGIES": "Technologies",
   "PROJECT_BACK": "back",
   "PORTFOLIO_OVERVIEW": "This very portfolio: an immersive personal site built from scratch with Next.js. More than a showcase, it's a piece in itself, with scroll-driven animations, a 3D cube for the projects and light/dark mode, designed to demonstrate my frontend work in practice.",
-  "AMMDE_OVERVIEW": "Website for AMMDE, the multi-sector association of women executives and entrepreneurs. An institutional space to give the association visibility, communicate its mission and activities, and help attract new members.",
   "CV": "/pdfs/cv-inp-en.pdf",
   "IOR_OVERVIEW": "Website for Instituto Oncológico Dr. Rosell, a clinic specialising in precision oncology. The goal was to convey both medical rigour and warmth, presenting treatments, the medical team and facilities clearly for patients arriving at a delicate moment.",
   "DRIVELANDM_OVERVIEW": "Website for Driveland Motorsport, specialists in performance automotive tuning and services. A site with character, designed to engage motorsport enthusiasts and present the company's services.",
@@ -97,14 +96,6 @@
     "Clear presentation of services, medical team and facilities",
     "Trust- and accessibility-focused for patients"
   ],
-  "AMMDE_CHALLENGE": "The association needed a professional digital presence it could update itself, able to communicate its values, showcase events and turn visitors into members.",
-  "AMMDE_SOLUTION": "I built the site with WordPress and Elementor, with a clear structure for mission, events and member benefits, and a simple interface so the team can manage content without relying on a developer.",
-  "AMMDE_FEATURES": [
-    "Structure focused on mission, events and member acquisition",
-    "Fully client-editable content",
-    "Professional design aligned with the association's identity",
-    "Activities and member-benefits sections"
-  ],
   "DRIVELANDM_CHALLENGE": "The challenge was translating the energy of the motorsport world to the web while keeping service and vehicle information tidy and easy to browse.",
   "DRIVELANDM_SOLUTION": "I built the site with WordPress and Elementor, with a bold, visual design showcasing services, team, vehicles and events to attract new clients.",
   "DRIVELANDM_FEATURES": [
@@ -132,6 +123,17 @@
     "Modern Next.js 16 architecture (App Router, caching)",
     "Transactional email with Resend",
     "Foundations for members area and store"
+  ],
+  "UNCLEIGGY_OVERVIEW": "Online store for Uncle Iggy, my coloring-book brand and its Rascal Woods series (a raccoon family and their friends). It's far more than a showcase: its own store with payments, customer accounts, digital downloads, a blog, an interactive map of the characters' world and an admin panel with the business's accounting. Designed and built by me, end to end.",
+  "UNCLEIGGY_CHALLENGE": "Selling digital products worldwide means solving everything you don't see: secure payments, per-country VAT, multiple currencies, invoices and refunds, user accounts and quarterly tax filings. All without losing what makes the brand special: an illustrated, warm and very fast site, in English and Spanish.",
+  "UNCLEIGGY_SOLUTION": "I built it with Astro and TypeScript and serve it from my own VPS on IONOS: Node behind Caddy (automatic HTTPS), SQLite as the database and least-privilege systemd services, scheduled jobs and daily backups. Stripe handles checkout, webhooks and Stripe Tax; Clerk handles accounts (with Google sign-in); and Resend sends transactional email. Scheduled jobs send abandoned-cart reminders and store the ECB exchange rate. The site is static where it can be and dynamic where it needs to be, with a 4 KB first-party JavaScript budget and tests with Vitest.",
+  "UNCLEIGGY_FEATURES": [
+    "Custom store with Stripe: checkout, webhooks, invoices and refunds",
+    "Multi-currency (€/$) and per-country VAT with Stripe Tax",
+    "Customer accounts with Clerk: purchases, downloads and recommendations",
+    "Admin panel with finances, sales imports and tax forms",
+    "Self-hosted on a VPS (IONOS): Node, Caddy, SQLite, systemd and daily backups",
+    "Bilingual, with a blog and an interactive map; 4 KB of first-party JS"
   ],
   "MBDREAMLIVING_OVERVIEW": "MB Dream Living is a luxury holiday-rentals company in Marbella. An end-to-end project: I developed their corporate identity, the designs, the website and the booking-engine integration, and led the company's communication and marketing for a year.",
   "MBDREAMLIVING_CHALLENGE": "A high-end vacation-rental brand has to convey trust and aspiration (luxury Marbella), let guests search and book effortlessly, and keep a consistent identity across every channel. Everything had to be built from scratch: brand, website and presence.",
