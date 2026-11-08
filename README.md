@@ -1,6 +1,6 @@
 # iggynp.com — Portfolio
 
-Personal portfolio of Ignacio Navarro (IggyNP), frontend developer. Bilingual (EN/ES), scroll-driven, with light/dark themes.
+Personal portfolio of Ignacio Navarro (IggyNP), product engineer. Bilingual (EN/ES), scroll-driven, with light/dark themes.
 
 **Live:** [iggynp.com](https://iggynp.com)
 
